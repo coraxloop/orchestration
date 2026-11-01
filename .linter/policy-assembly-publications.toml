@@ -1,0 +1,5 @@
+namespace = "class.linter.policy.assembly-publications"
+version = [1, 0, 0]
+
+[owners.ORCHESTRATION]
+specification = { parts = "docs/spec", target = "docs/spec.md" }

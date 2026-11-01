@@ -1,0 +1,247 @@
+root = "~/.local/share/orchestration"
+
+[[targets]]
+kind = "copy"
+source = "docs/spec.md"
+destination = "spec/spec.md"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/spec/architecture.md"
+destination = "spec/architecture.md"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/spec/assembly.md"
+destination = "spec/assembly.md"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/spec/conformance.md"
+destination = "spec/conformance.md"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/spec/deployment.md"
+destination = "spec/deployment.md"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/spec/dispatch.md"
+destination = "spec/dispatch.md"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/spec/hooks.md"
+destination = "spec/hooks.md"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/spec/lanes.md"
+destination = "spec/lanes.md"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/spec/server.md"
+destination = "spec/server.md"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "adr/011-environment-kinds.md"
+destination = "adr/011-environment-kinds.md"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/commit-signing.md"
+destination = "docs/commit-signing.md"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "CLAUDE.md"
+destination = "CLAUDE.md"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "ORCHESTRATION.md"
+destination = "ORCHESTRATION.md"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/examples/.gitignore"
+destination = "examples/.gitignore"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/examples/.linter/environments.toml"
+destination = "examples/.linter/environments.toml"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/examples/.linter/imports/orchestration.toml"
+destination = "examples/.linter/imports/orchestration.toml"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/examples/.linter/lists.toml"
+destination = "examples/.linter/lists.toml"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/examples/.linter/owners.toml"
+destination = "examples/.linter/owners.toml"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/examples/.linter/policies.toml"
+destination = "examples/.linter/policies.toml"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/examples/.linter/shape.toml"
+destination = "examples/.linter/shape.toml"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/examples/README.md"
+destination = "examples/README.md"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/examples/infra/root-bootstrap/README.md"
+destination = "examples/infra/root-bootstrap/README.md"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/examples/instance-contract.toml"
+destination = "examples/instance-contract.toml"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/examples/linter/public-pack-burn.toml"
+destination = "examples/linter/public-pack-burn.toml"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/examples/meson.build"
+destination = "examples/meson.build"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/examples/meson.options"
+destination = "examples/meson.options"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/examples/pack/pack-0.1.0-provenance.toml"
+destination = "examples/pack/pack-0.1.0-provenance.toml"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/examples/pack/pack-0.1.0.md"
+destination = "examples/pack/pack-0.1.0.md"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/examples/permissions/classifier-interventions.jsonl"
+destination = "examples/permissions/classifier-interventions.jsonl"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/examples/permissions/domain.md"
+destination = "examples/permissions/domain.md"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/examples/permissions/owner.md"
+destination = "examples/permissions/owner.md"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/examples/permissions/door.md"
+destination = "examples/permissions/door.md"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/examples/permissions/permission-triage.env"
+destination = "examples/permissions/permission-triage.env"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/examples/plans/backlog.md"
+destination = "examples/plans/backlog.md"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/examples/rulebooks/environment.md"
+destination = "examples/rulebooks/environment.md"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/examples/rulebooks/install-map.toml"
+destination = "examples/rulebooks/install-map.toml"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/examples/rulebooks/orchestration.md"
+destination = "examples/rulebooks/orchestration.md"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/examples/rulebooks/routine-map.toml"
+destination = "examples/rulebooks/routine-map.toml"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/examples/rulebooks/tools-map.toml"
+destination = "examples/rulebooks/tools-map.toml"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/examples/servers.md"
+destination = "examples/servers.md"
+mode = "0644"
+
+[[targets]]
+kind = "copy"
+source = "docs/examples/signing.md"
+destination = "examples/signing.md"
+mode = "0644"

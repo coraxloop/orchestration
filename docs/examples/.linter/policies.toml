@@ -1,0 +1,17 @@
+# Fictional alpha instance checks its own labels and resolves generic imports.
+namespace = "com.example.alpha.linter.policies"
+version = [1, 0, 0]
+
+policies = [
+  { owner = "INSTANCE", policy = "labels.mints-well-formed" },
+  { owner = "INSTANCE", policy = "labels.mints-kind-conform" },
+  { owner = "INSTANCE", policy = "labels.mints-unique" },
+  { owner = "INSTANCE", policy = "labels.heads-conform" },
+  { owner = "INSTANCE", policy = "labels.citations-local-resolve" },
+  { owner = "INSTANCE", policy = "labels.citations-import-form" },
+  { owner = "INSTANCE", policy = "labels.citations-imported-resolve" },
+  { owner = "INSTANCE", policy = "labels.citations-layer-conform" },
+  { owner = "INSTANCE", policy = "labels.generated-regions-conform" },
+  { owner = "INSTANCE", policy = "labels.outlines-conform" },
+  { owner = "INSTANCE", policy = "owners.reach-conform" },
+]

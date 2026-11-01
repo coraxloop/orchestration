@@ -1,0 +1,9 @@
+# Fictional routine install for the alpha loop; the later instance layer supplies its targets.
+root = "~/.claude"
+
+[[targets]]
+kind = "render"
+base = "CLAUDE.md"
+overlay = "docs/examples/rulebooks/environment.md"
+destination = "CLAUDE.md"
+mode = "0644"

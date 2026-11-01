@@ -1,0 +1,26 @@
+namespace = "org.orchestration.linter.policies"
+version = [1, 0, 0]
+
+policies = [
+  { owner = "ORCHESTRATION", policy = "labels.mints-well-formed" },
+  { owner = "ORCHESTRATION", policy = "labels.mints-kind-conform" },
+  { owner = "ORCHESTRATION", policy = "labels.mints-unique" },
+  { owner = "ORCHESTRATION", policy = "labels.heads-conform" },
+  { owner = "ORCHESTRATION", policy = "labels.citations-local-resolve" },
+  { owner = "ORCHESTRATION", policy = "labels.citations-import-form" },
+  { owner = "ORCHESTRATION", policy = "labels.citations-imported-resolve" },
+  { owner = "ORCHESTRATION", policy = "labels.citations-layer-conform" },
+  { owner = "ORCHESTRATION", policy = "labels.generated-regions-conform" },
+  { owner = "ORCHESTRATION", policy = "labels.outlines-conform" },
+  { owner = "ORCHESTRATION", policy = "owners.reach-conform" },
+  { owner = "ORCHESTRATION", policy = "owners.crate-names-conform" },
+  { owner = "ORCHESTRATION", policy = "legacy.section-references-repository" },
+  { owner = "ORCHESTRATION", policy = "legacy.record-references-repository" },
+  { owner = "ORCHESTRATION", policy = "legacy.tag-references" },
+  { owner = "ORCHESTRATION", policy = "legacy.scenario-numbers" },
+  { owner = "ORCHESTRATION", policy = "legacy.division-names" },
+  { owner = "ORCHESTRATION", policy = "references.mark-numbered-absent" },
+  { owner = "ORCHESTRATION", policy = "references.literal-set-absent" },
+  { owner = "ORCHESTRATION", policy = "public-pack.values-absent" },
+  { owner = "ORCHESTRATION", policy = "assembly.publications-current" },
+]

@@ -1,0 +1,5 @@
+# Fictional values absent from public pack candidates; replace these with instance-specific values.
+values = [
+  { value = "fixture-private-marker-77", match = "substring" },
+  { value = "example-operator-identifier", match = "identifier" },
+]

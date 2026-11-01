@@ -1,0 +1,2 @@
+namespace = "class.linter.policy.references.path-linking"
+version = [1, 0, 0]

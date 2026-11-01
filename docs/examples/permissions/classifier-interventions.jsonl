@@ -1,0 +1,2 @@
+{"fixture":"Fictional alpha classifier intervention","session_id":"SESSION-ID","time":"2099-02-03T10:00:00Z","alias":"sagofink-build","class":"escalated","reason":"New build alias requires owner review"}
+{"fixture":"Fictional alpha classifier intervention","session_id":"SESSION-ID","time":"2099-02-04T11:00:00Z","alias":"mondreiher-analysis","class":"adjudicated-rejected","reason":"Requested path exceeded the declared read boundary"}

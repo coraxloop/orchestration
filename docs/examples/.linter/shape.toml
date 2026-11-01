@@ -1,0 +1,13 @@
+# Fictional alpha instance accounts for every tracked file except named generated state.
+namespace = "com.example.alpha.linter.shape"
+version = [1, 0, 0]
+
+universe = "tracked-exclusive"
+ignore = [
+  { name = "python-caches", pattern = '[ *VCHAR "/" ] %s"__pycache__/" *VCHAR' },
+  { name = "python-bytecode", pattern = '[ *VCHAR "/" ] *VCHAR %s".pyc"' },
+  { name = "build-target", pattern = '%s"target/" *VCHAR' },
+  { name = "lane-state", pattern = '[ *VCHAR "/" ] %s".lane/" *VCHAR' },
+  { name = "permission-state", pattern = '%s"permissions/state/" *VCHAR' },
+  { name = "account-declarations", pattern = '%s"infra/root-bootstrap/accounts/" 1*VCHAR "/" *VCHAR' },
+]

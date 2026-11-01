@@ -1,0 +1,9 @@
+# Fictional alpha instance has one local owner and one imported generic owner.
+namespace = "com.example.alpha.linter.owners"
+version = [1, 0, 0]
+
+owners = ["INSTANCE", "ORCHESTRATION"]
+root_owner = "INSTANCE"
+imports = [{ owner = "ORCHESTRATION", registry = ".linter/imports/orchestration.toml" }]
+partitions = [{ name = "instance-root", owner = "INSTANCE", pattern = "*VCHAR" }]
+may_cite = [{ owner = "INSTANCE", target = "ORCHESTRATION" }]

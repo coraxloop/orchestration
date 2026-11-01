@@ -1,0 +1,48 @@
+namespace = "org.orchestration.linter.owners"
+version = [1, 0, 0]
+owners = ["EXAMPLES", "ORCHESTRATION", "TOOLS"]
+root_owner = "ORCHESTRATION"
+unpublished = "docs/public/unpublished-labels.toml"
+
+[[imports]]
+owner = "TOOLS"
+registry = ".linter/imports/tools.toml"
+
+[[may_cite]]
+owner = "ORCHESTRATION"
+target = "TOOLS"
+
+[[partitions]]
+name = "declared-surface"
+owner = "ORCHESTRATION"
+pattern = '%s".linter" [ "/" *VCHAR ]'
+
+[[partitions]]
+name = "root-files"
+owner = "ORCHESTRATION"
+pattern = '( %s".gitignore" / %s"CHANGELOG.md" / %s"CLAUDE.md" / %s"LICENSE-CODE" / %s"LICENSE-DOCS" / %s"ORCHESTRATION.md" / %s"README.md" / %s"meson.build" / %s"meson.options" / %s"public-set.toml" )'
+
+[[partitions]]
+name = "root-adrs"
+owner = "ORCHESTRATION"
+pattern = '%s"adr" [ "/" *VCHAR ]'
+
+[[partitions]]
+name = "public-documentation"
+owner = "ORCHESTRATION"
+pattern = '%s"docs/public" [ "/" *VCHAR ]'
+
+[[partitions]]
+name = "root-maps"
+owner = "ORCHESTRATION"
+pattern = '%s"maps" [ "/" *VCHAR ]'
+
+[[partitions]]
+name = "root-documentation"
+owner = "ORCHESTRATION"
+pattern = '( %s"docs/proposals" [ "/" *VCHAR ] / %s"docs/reference" [ "/" *VCHAR ] / %s"docs/spec" [ "/" *VCHAR ] / %s"docs/coreos" [ "/" *VCHAR ] / %s"docs/commit-signing.md" / %s"docs/confined-admin.md" / %s"docs/decisions.md" / %s"docs/harness-user-channels.md" / %s"docs/root-full-server-setup.md" / %s"docs/security-posture.md" / %s"docs/spec.md" / %s"docs/meson.build" )'
+
+[[partitions]]
+name = "instance-templates"
+owner = "EXAMPLES"
+pattern = '%s"docs/examples" [ "/" *VCHAR ]'

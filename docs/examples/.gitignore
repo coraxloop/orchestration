@@ -1,0 +1,5 @@
+# Fictional alpha instance: generated lane state, bootstrap caches and permission state.
+.lane/
+infra/root-bootstrap/__pycache__/
+infra/root-bootstrap/.cache/
+permissions/state/

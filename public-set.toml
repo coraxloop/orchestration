@@ -1,0 +1,350 @@
+# Exclusion is a source-side matter; the cut has consumed those rows.
+namespace = "org.superloop-tools.public-set"
+version = [1, 0, 0]
+
+[exclude]
+rows = []
+
+[[include.rows]]
+pattern = ".gitignore"
+
+[[include.rows]]
+pattern = ".linter/environments.toml"
+
+[[include.rows]]
+pattern = ".linter/imports/tools.toml"
+
+[[include.rows]]
+pattern = ".linter/lists.toml"
+
+[[include.rows]]
+pattern = ".linter/owners.toml"
+
+[[include.rows]]
+pattern = ".linter/policies.toml"
+
+[[include.rows]]
+pattern = ".linter/policy-assembly-publications.toml"
+
+[[include.rows]]
+pattern = ".linter/policy-interchange.toml"
+
+[[include.rows]]
+pattern = ".linter/policy-legacy-implementation.toml"
+
+[[include.rows]]
+pattern = ".linter/policy-legacy-record-references-repository.toml"
+
+[[include.rows]]
+pattern = ".linter/policy-legacy-record-references.toml"
+
+[[include.rows]]
+pattern = ".linter/policy-legacy-section-references-repository.toml"
+
+[[include.rows]]
+pattern = ".linter/policy-legacy-section-references.toml"
+
+[[include.rows]]
+pattern = ".linter/policy-legacy-tag-references.toml"
+
+[[include.rows]]
+pattern = ".linter/policy-legacy-todos.toml"
+
+[[include.rows]]
+pattern = ".linter/policy-legacy-unprefixed-record-references.toml"
+
+[[include.rows]]
+pattern = ".linter/policy-owner-names.toml"
+
+[[include.rows]]
+pattern = ".linter/policy-public-pack-values.toml"
+
+[[include.rows]]
+pattern = ".linter/policy-references-divisions.toml"
+
+[[include.rows]]
+pattern = ".linter/policy-references-path-linking.toml"
+
+[[include.rows]]
+pattern = ".linter/policy-references-prefix-numbers.toml"
+
+[[include.rows]]
+pattern = ".linter/policy-references-scenarios.toml"
+
+[[include.rows]]
+pattern = ".linter/policy-spdx.toml"
+
+[[include.rows]]
+pattern = ".linter/shape.toml"
+
+[[include.rows]]
+pattern = "CHANGELOG.md"
+
+[[include.rows]]
+pattern = "CLAUDE.md"
+
+[[include.rows]]
+pattern = "LICENSE-CODE"
+
+[[include.rows]]
+pattern = "LICENSE-DOCS"
+
+[[include.rows]]
+pattern = "ORCHESTRATION.md"
+
+[[include.rows]]
+pattern = "README.md"
+
+[[include.rows]]
+pattern = "adr/011-environment-kinds.md"
+
+[[include.rows]]
+pattern = "adr/014-label-calculus.md"
+
+[[include.rows]]
+pattern = "adr/015-test-label-profile.md"
+
+[[include.rows]]
+pattern = "adr/016-todo-label-profile.md"
+
+[[include.rows]]
+pattern = "adr/017-test-documentation-policy.md"
+
+[[include.rows]]
+pattern = "adr/018-constant-label-profile.md"
+
+[[include.rows]]
+pattern = "adr/024-document-title-labels.md"
+
+[[include.rows]]
+pattern = "adr/025-genre-title-kinds.md"
+
+[[include.rows]]
+pattern = "adr/030-rulebooks-pointer-and-kind-exhibit.md"
+
+[[include.rows]]
+pattern = "adr/README.md"
+
+[[include.rows]]
+pattern = "adr/meson.build"
+
+[[include.rows]]
+pattern = "docs/commit-signing.md"
+
+[[include.rows]]
+pattern = "docs/confined-admin.md"
+
+[[include.rows]]
+pattern = "docs/coreos/README.md"
+
+[[include.rows]]
+pattern = "docs/coreos/boot.md"
+
+[[include.rows]]
+pattern = "docs/coreos/butane.md"
+
+[[include.rows]]
+pattern = "docs/coreos/data-services.md"
+
+[[include.rows]]
+pattern = "docs/coreos/design.md"
+
+[[include.rows]]
+pattern = "docs/coreos/frictions.md"
+
+[[include.rows]]
+pattern = "docs/coreos/increments.md"
+
+[[include.rows]]
+pattern = "docs/coreos/operations.md"
+
+[[include.rows]]
+pattern = "docs/decisions.md"
+
+[[include.rows]]
+pattern = "docs/examples/.gitignore"
+
+[[include.rows]]
+pattern = "docs/examples/.linter/environments.toml"
+
+[[include.rows]]
+pattern = "docs/examples/.linter/imports/orchestration.toml"
+
+[[include.rows]]
+pattern = "docs/examples/.linter/lists.toml"
+
+[[include.rows]]
+pattern = "docs/examples/.linter/owners.toml"
+
+[[include.rows]]
+pattern = "docs/examples/.linter/policies.toml"
+
+[[include.rows]]
+pattern = "docs/examples/.linter/shape.toml"
+
+[[include.rows]]
+pattern = "docs/examples/README.md"
+
+[[include.rows]]
+pattern = "docs/examples/infra/root-bootstrap/README.md"
+
+[[include.rows]]
+pattern = "docs/examples/instance-contract.toml"
+
+[[include.rows]]
+pattern = "docs/examples/linter/public-pack-burn.toml"
+
+[[include.rows]]
+pattern = "docs/examples/meson.build"
+
+[[include.rows]]
+pattern = "docs/examples/meson.options"
+
+[[include.rows]]
+pattern = "docs/examples/pack/pack-0.1.0-provenance.toml"
+
+[[include.rows]]
+pattern = "docs/examples/pack/pack-0.1.0.md"
+
+[[include.rows]]
+pattern = "docs/examples/permissions/classifier-interventions.jsonl"
+
+[[include.rows]]
+pattern = "docs/examples/permissions/domain.md"
+
+[[include.rows]]
+pattern = "docs/examples/permissions/door.md"
+
+[[include.rows]]
+pattern = "docs/examples/permissions/owner.md"
+
+[[include.rows]]
+pattern = "docs/examples/permissions/permission-triage.env"
+
+[[include.rows]]
+pattern = "docs/examples/plans/backlog.md"
+
+[[include.rows]]
+pattern = "docs/examples/rulebooks/environment.md"
+
+[[include.rows]]
+pattern = "docs/examples/rulebooks/install-map.toml"
+
+[[include.rows]]
+pattern = "docs/examples/rulebooks/orchestration.md"
+
+[[include.rows]]
+pattern = "docs/examples/rulebooks/routine-map.toml"
+
+[[include.rows]]
+pattern = "docs/examples/rulebooks/tools-map.toml"
+
+[[include.rows]]
+pattern = "docs/examples/servers.md"
+
+[[include.rows]]
+pattern = "docs/examples/signing.md"
+
+[[include.rows]]
+pattern = "docs/harness-user-channels.md"
+
+[[include.rows]]
+pattern = "docs/meson.build"
+
+[[include.rows]]
+pattern = "docs/proposals/door-self-heal.md"
+
+[[include.rows]]
+pattern = "docs/proposals/gateway-outage-recovery.md"
+
+[[include.rows]]
+pattern = "docs/proposals/per-user-wireguard-routing.md"
+
+[[include.rows]]
+pattern = "docs/proposals/permission-triage.md"
+
+[[include.rows]]
+pattern = "docs/proposals/public-pack.md"
+
+[[include.rows]]
+pattern = "docs/proposals/resident-steward.md"
+
+[[include.rows]]
+pattern = "docs/proposals/root-server-account-model.md"
+
+[[include.rows]]
+pattern = "docs/proposals/run-worker.md"
+
+[[include.rows]]
+pattern = "docs/proposals/spec-concept.md"
+
+[[include.rows]]
+pattern = "docs/public/unpublished-labels.toml"
+
+[[include.rows]]
+pattern = "docs/reference/README.md"
+
+[[include.rows]]
+pattern = "docs/reference/bugreport-staff_t-container_t.md"
+
+[[include.rows]]
+pattern = "docs/root-full-server-setup.md"
+
+[[include.rows]]
+pattern = "docs/security-posture.md"
+
+[[include.rows]]
+pattern = "docs/spec.md"
+
+[[include.rows]]
+pattern = "docs/spec/architecture.md"
+
+[[include.rows]]
+pattern = "docs/spec/assembly.md"
+
+[[include.rows]]
+pattern = "docs/spec/conformance.md"
+
+[[include.rows]]
+pattern = "docs/spec/deployment.md"
+
+[[include.rows]]
+pattern = "docs/spec/dispatch.md"
+
+[[include.rows]]
+pattern = "docs/spec/hooks.md"
+
+[[include.rows]]
+pattern = "docs/spec/lanes.md"
+
+[[include.rows]]
+pattern = "docs/spec/meson.build"
+
+[[include.rows]]
+pattern = "docs/spec/server.md"
+
+[[include.rows]]
+pattern = "maps/empty.in"
+
+[[include.rows]]
+pattern = "maps/generic-map.toml"
+
+[[include.rows]]
+pattern = "maps/list.in"
+
+[[include.rows]]
+pattern = "meson.build"
+
+[[include.rows]]
+pattern = "meson.options"
+
+[[include.rows]]
+pattern = "public-set.toml"
+
+[public]
+licence_code = "LICENSE-CODE"
+licence_docs = "LICENSE-DOCS"
+readme = "README.md"
+
+[reserved]
+rows = []

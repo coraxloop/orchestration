@@ -1,0 +1,19 @@
+namespace = "class.linter.policy.references.divisions"
+version = [1, 0, 0]
+
+[set.literals]
+information = "Information flows strictly forward"
+independence = "The core model and the decision layer are independent"
+structure = "Structure can change without destroying what was learned"
+staleness = "Stale state dissolves on a bounded schedule"
+convergence = "Learning converges despite censoring and class imbalance"
+anchor-coverage = "The anchor provides coverage when the sister can't"
+landscape = "The decision landscape faithfully reflects model belief"
+calibration = "Calibration and companion trackers stay current"
+latency = "The fast path stays fast"
+self-knowledge = "The system knows when it's struggling"
+robustness = "None of the above breaks under weird inputs"
+recovery = "Recovery preserves state and failures stay explicit"
+
+[owners.ORCHESTRATION]
+prose = '( %s"README.md" / %s"adr" [ "/" *VCHAR ] / %s"docs" [ "/" *VCHAR ] )'

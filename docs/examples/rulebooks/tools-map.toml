@@ -1,0 +1,15 @@
+root = "/srv/example/example-user/tools"
+
+[[targets]]
+kind = "render"
+base = "ORCHESTRATION.md"
+overlay = "docs/examples/rulebooks/orchestration.md"
+destination = "ORCHESTRATION.md"
+mode = "0644"
+max_bytes = 9500
+
+[[targets]]
+kind = "copy"
+source = "docs/examples/servers.md"
+destination = "servers.md"
+mode = "0644"

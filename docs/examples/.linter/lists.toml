@@ -1,0 +1,36 @@
+# Fictional alpha instance has no label allowances.
+namespace = "class.linter.lists"
+version = [1, 0, 0]
+
+[INSTANCE."labels.mints-well-formed"]
+allowances = []
+
+[INSTANCE."labels.mints-kind-conform"]
+allowances = []
+
+[INSTANCE."labels.mints-unique"]
+allowances = []
+
+[INSTANCE."labels.heads-conform"]
+allowances = []
+
+[INSTANCE."labels.citations-local-resolve"]
+allowances = []
+
+[INSTANCE."labels.citations-import-form"]
+allowances = []
+
+[INSTANCE."labels.citations-imported-resolve"]
+allowances = []
+
+[INSTANCE."labels.citations-layer-conform"]
+allowances = []
+
+[INSTANCE."labels.generated-regions-conform"]
+allowances = []
+
+[INSTANCE."labels.outlines-conform"]
+allowances = []
+
+[INSTANCE."owners.reach-conform"]
+allowances = []

@@ -1,0 +1,7 @@
+namespace = "class.linter.policy.public-pack.values-absent"
+version = [1, 0, 0]
+
+[owners.ORCHESTRATION]
+activation = "public-pack"
+surface = "*VCHAR"
+values = "local/linter/public-pack-burn.toml"

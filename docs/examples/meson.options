@@ -1,0 +1,2 @@
+# Fictional alpha instance layer placeholder for bite 15; targets arrive with that bite.
+option('shape_root', type: 'string', value: '~/.local/share/orchestration', description: 'Published generic rulebook shapes')

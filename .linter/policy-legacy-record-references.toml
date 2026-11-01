@@ -1,0 +1,2 @@
+namespace = "class.linter.policy.legacy.record-references"
+version = [1, 0, 0]

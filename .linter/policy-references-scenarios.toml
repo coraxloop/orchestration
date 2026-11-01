@@ -1,0 +1,8 @@
+namespace = "class.linter.policy.references.scenarios"
+version = [1, 0, 0]
+
+[set.numbered-marks]
+hash-one-to-91 = { mark = "#", minimum = 1, maximum = 91 }
+
+[owners.ORCHESTRATION]
+prose = '( %s"README.md" / %s"adr" [ "/" *VCHAR ] / %s"docs" [ "/" *VCHAR ] )'

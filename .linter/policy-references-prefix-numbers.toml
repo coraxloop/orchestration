@@ -1,0 +1,4 @@
+namespace = "class.linter.policy.references.prefix-numbers"
+version = [1, 0, 0]
+
+[set.prefix-numbers]

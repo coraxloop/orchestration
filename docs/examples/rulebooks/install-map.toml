@@ -1,0 +1,7 @@
+root = "~/.claude"
+
+[[targets]]
+kind = "copy"
+source = "docs/examples/permissions/permission-triage.env"
+destination = "permission-triage.env"
+mode = "0600"

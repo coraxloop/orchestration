@@ -1,0 +1,5 @@
+namespace = "class.linter.policy.legacy.section-references-repository"
+version = [1, 0, 0]
+
+[owners.ORCHESTRATION]
+prose = '( %s"README.md" / %s"adr" [ "/" *VCHAR ] / %s"docs" [ "/" *VCHAR ] )'

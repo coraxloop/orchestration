@@ -1,0 +1,3 @@
+option('burn_input', type: 'string', value: '', description: 'Optional instance burn-value document; enables public-pack checks when supplied')
+option('domain', type: 'combo', choices: ['server', 'trusted-host'], value: 'server', description: 'Build record domain')
+option('release_tag', type: 'string', value: '', description: 'Clean release tag for live installation')

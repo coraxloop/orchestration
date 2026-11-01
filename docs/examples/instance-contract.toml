@@ -1,0 +1,146 @@
+# The instance contract's rows as data, from the instance contract table of record 032 in the tools repository; the template test and an instance's census read this list.
+version = [1, 0, 0]
+
+[[paths]]
+path = "README.md"
+purpose = "Identify the instance, its loop and the contract version."
+required = true
+template = true
+
+[[paths]]
+path = "servers.md"
+purpose = "Register server aliases, roles, capacities and operating values."
+required = true
+template = true
+
+[[paths]]
+path = "signing.md"
+purpose = "Record signing subkeys by role and fingerprint without secrets."
+required = true
+template = true
+
+[[paths]]
+path = "rulebooks/environment.md"
+purpose = "Render the environment overlay over the generic CLAUDE.md shape."
+required = true
+template = true
+
+[[paths]]
+path = "rulebooks/orchestration.md"
+purpose = "Render the orchestrator overlay over the generic ORCHESTRATION.md shape."
+required = true
+template = true
+
+[[paths]]
+path = "rulebooks/routine-map.toml"
+purpose = "Map the routine rulebook install into ~/.claude."
+required = true
+template = true
+
+[[paths]]
+path = "rulebooks/tools-map.toml"
+purpose = "Map the instance's publishings into its share folder."
+required = true
+template = true
+
+[[paths]]
+path = "rulebooks/install-map.toml"
+purpose = "Optionally install the permission-triage instance file after the tools layer supplies its binaries and wrapper; the instance and domain files then become necessary."
+required = false
+template = true
+
+[[paths]]
+path = "plans/backlog.md"
+purpose = "Record the loop's backlog entries."
+required = true
+template = true
+
+[[paths]]
+path = "plans/*.md"
+purpose = "Optional estate rollout and execution plans beyond the backlog."
+required = false
+template = false
+
+[[paths]]
+path = "permissions/domain.md"
+purpose = "Optional domain permission rubric, required when the owner-install map is used."
+required = false
+template = true
+
+[[paths]]
+path = "permissions/owner.md"
+purpose = "Optional owner permission notes."
+required = false
+template = true
+
+[[paths]]
+path = "permissions/permission-triage.env"
+purpose = "Optional permission-triage instance file, required when the owner-install map is used."
+required = false
+template = true
+
+[[paths]]
+path = "permissions/classifier-interventions.jsonl"
+purpose = "Optional record of classifier interventions."
+required = false
+template = true
+
+[[paths]]
+path = "permissions/door.md"
+purpose = "Optional reviewed capability-door rubric for git and compute requests, required when the loop runs boxed workers through the capability door."
+required = false
+template = true
+
+[[paths]]
+path = "pack/pack-*.md"
+purpose = "Optional versioned public-pack release records, one per version; pack/pack-0.1.0.md is the template."
+required = false
+template = true
+
+[[paths]]
+path = "pack/pack-*-provenance.toml"
+purpose = "Optional provenance records of the versioned public-pack releases, one per version; pack/pack-0.1.0-provenance.toml is the template."
+required = false
+template = true
+
+[[paths]]
+path = "linter/public-pack-burn.toml"
+purpose = "List values the generic public-pack check must never find in public files."
+required = true
+template = true
+
+[[paths]]
+path = "infra/root-bootstrap/"
+purpose = "Optional root-full bootstrap kit; only its README has a generic template."
+required = false
+template = true
+
+[[paths]]
+path = "orchestration-owned-archive-passphrase.txt"
+purpose = "Optional archive passphrase record, named by path and never templated."
+required = false
+template = false
+
+[[paths]]
+path = ".linter/"
+purpose = "Instance declarations and a snapshot of the generic label export under imports/."
+required = true
+template = true
+
+[[paths]]
+path = ".gitignore"
+purpose = "Ignore lane state, bootstrap caches and permission state."
+required = true
+template = true
+
+[[paths]]
+path = "meson.build"
+purpose = "Instance layer build declaration, with its targets arriving in bite 15."
+required = true
+template = true
+
+[[paths]]
+path = "meson.options"
+purpose = "Instance layer shape_root option, with its targets arriving in bite 15."
+required = true
+template = true

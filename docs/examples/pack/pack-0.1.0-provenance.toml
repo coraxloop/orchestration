@@ -1,0 +1,7 @@
+# Fictional provenance for the alpha public pack; hashes and references are fixtures.
+version = "0.1.0"
+loop = "alpha"
+created = "2099-02-05T12:00:00Z"
+source_commit = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+archive_sha256 = "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+gate = "fictional-clean"

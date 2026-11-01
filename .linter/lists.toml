@@ -1,0 +1,98 @@
+namespace = "class.linter.lists"
+version = [1, 0, 0]
+
+[ORCHESTRATION."labels.mints-well-formed"]
+allowances = []
+
+[ORCHESTRATION."labels.mints-kind-conform"]
+allowances = []
+
+[ORCHESTRATION."labels.mints-unique"]
+allowances = []
+
+[ORCHESTRATION."labels.heads-conform"]
+allowances = []
+
+[ORCHESTRATION."labels.citations-local-resolve"]
+allowances = []
+
+[ORCHESTRATION."labels.citations-import-form"]
+allowances = []
+
+[ORCHESTRATION."labels.citations-imported-resolve"]
+allowances = []
+
+[ORCHESTRATION."labels.citations-layer-conform"]
+allowances = []
+
+[ORCHESTRATION."labels.generated-regions-conform"]
+allowances = []
+
+[ORCHESTRATION."labels.outlines-conform"]
+allowances = []
+
+[ORCHESTRATION."owners.reach-conform"]
+allowances = []
+
+[ORCHESTRATION."assembly.publications-current"]
+allowances = []
+
+[ORCHESTRATION."policy.owner.names"."example"]
+allowances = []
+
+[ORCHESTRATION."legacy.section-references-repository"]
+path_counts = []
+
+[ORCHESTRATION."legacy.record-references-repository"]
+path_counts = []
+
+[ORCHESTRATION."legacy.tag-references"]
+path_counts = []
+
+[ORCHESTRATION."legacy.scenario-numbers"]
+path_counts = []
+
+[ORCHESTRATION."legacy.division-names"]
+path_counts = []
+
+[ORCHESTRATION."policy.references.scenarios"."hash-one-to-91"]
+path_counts = []
+
+[ORCHESTRATION."policy.references.divisions"."anchor-coverage"]
+path_counts = []
+
+[ORCHESTRATION."policy.references.divisions"."calibration"]
+path_counts = []
+
+[ORCHESTRATION."policy.references.divisions"."convergence"]
+path_counts = []
+
+[ORCHESTRATION."policy.references.divisions"."independence"]
+path_counts = []
+
+[ORCHESTRATION."policy.references.divisions"."information"]
+path_counts = []
+
+[ORCHESTRATION."policy.references.divisions"."landscape"]
+path_counts = []
+
+[ORCHESTRATION."policy.references.divisions"."latency"]
+path_counts = []
+
+[ORCHESTRATION."policy.references.divisions"."recovery"]
+path_counts = []
+
+[ORCHESTRATION."policy.references.divisions"."robustness"]
+path_counts = []
+
+[ORCHESTRATION."policy.references.divisions"."self-knowledge"]
+path_counts = []
+
+[ORCHESTRATION."policy.references.divisions"."staleness"]
+path_counts = []
+
+[ORCHESTRATION."policy.references.divisions"."structure"]
+path_counts = []
+
+[ORCHESTRATION."public-pack.values-absent"]
+path_counts = []
