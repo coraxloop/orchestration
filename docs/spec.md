@@ -244,7 +244,7 @@ Every mutable registry must identify its maintaining authority, intended audienc
 
 **Rule (External contract stability)** · `rule:architecture:external-contract-stability`
 
-Externally consumed stream assignments, framing bytes, exit meanings, and terminal report lines remain byte-stable across ports, refactors, wrapper changes, and provider upgrades. In particular, an implementation must preserve the ordered final-report forms owned by the command contract (`[TOOLS-rule:output:run-report]`). Internal convenience is not grounds to change a caller's parser or the semantics on which orchestration branches. Replacing an external contract requires a separate owner-ratified compatibility decision; it is not an internal-state migration.
+Externally consumed stream assignments, framing bytes, exit meanings, and terminal report lines remain byte-stable across ports, refactors, wrapper changes, and provider upgrades. In particular, an implementation must preserve the ordered final-report forms owned by the command contract (`[TOOLS-proto:output:run-report-line]`). Internal convenience is not grounds to change a caller's parser or the semantics on which orchestration branches. Replacing an external contract requires a separate owner-ratified compatibility decision; it is not an internal-state migration.
 
 **Protocol (Internal state migration)** · `proto:architecture:internal-state-migration`
 
@@ -1654,7 +1654,7 @@ This division governs execution-domain selection, dedicated containers, scheduli
 
 **Rule (Build where executed)** · `rule:deployment:build-where-executed`
 
-An executable shall be built in the execution domain in which its installed or deployed copy will run: server helpers on the server, and trusted-host helpers on the trusted host. Data-only targets are copied from the tagged tree and do not acquire a build domain. The trusted host builds every host-executed binary from a clean checkout of the tools repository at the tagged commit. The generic and instance repositories install only copies and renders of tracked files, so neither acquires a build domain. Their installs run on the trusted host with the deployed tools from clean tagged checkouts at minimum priority and with a disk-backed temporary root; exact paths remain registry data. Each build domain uses one Meson build directory and one Cargo target directory per purpose, with its own package cache and toolchain selection (`[TOOLS-dec:workspacemove:domains]`).
+An executable shall be built in the execution domain in which its installed or deployed copy will run: server helpers on the server, and trusted-host helpers on the trusted host. Data-only targets are copied from the tagged tree and do not acquire a build domain. The trusted host builds every host-executed binary from a clean checkout of the tools repository at the tagged commit. The generic and instance repositories install only copies and renders of tracked files, so neither acquires a build domain. Their installs run on the trusted host with the deployed tools from clean tagged checkouts at minimum priority and with a disk-backed temporary root; exact paths remain registry data. Each build domain uses one Meson build directory and one Cargo target directory per purpose, with its own package cache and toolchain selection (`[TOOLS-rule:buildcontracts:build-provenance]`).
 
 An artifact crossing a domain boundary is data for inspection, not an executable candidate. A helper whose execution domain changes must follow the execution-domain rebuild protocol (`[TOOLS-proto:deployment:execution-domain-rebuild]`); copying the old binary or renaming its directory is insufficient.
 
@@ -1822,7 +1822,7 @@ All code-side mints are seeded, all participating prose mints are harvested, and
 
 **Requirement (Owner reach)** · `req:conformance:owner-reach`
 
-Resolution does not by itself authorize an import. Package-to-package imports must follow one direct workspace-path dependency derived from the current member manifests, without transitive closure, as fixed by (`[TOOLS-conv:layers:reach-relation]`). Every package may cite repository policy upward. Repository-level policy may import no package-owned head, even when the linter crate depends on that package (`[TOOLS-rule:layers:policy-imports-nothing]`). The derived graph and its committed reach register must agree in both directions.
+Resolution does not by itself authorize an import. Package-to-package imports must follow one direct workspace-path dependency derived from the current member manifests, without transitive closure, as fixed by (`[TOOLS-rule:lintcontracts:ownership]`). Every package may cite repository policy upward. Repository-level policy may import no package-owned head, even when the linter crate depends on that package. The derived graph and its committed reach register must agree in both directions.
 
 ## Assembly and shape · `sec:conformance:assembly-and-shape`
 

@@ -18,11 +18,11 @@ Measured 2026-09-27: the toolbox-inventory overlay is 6,083 bytes and names `cla
 
 **Fact (Host SDK extensions)** · `fact:rulebooks:host-sdk-extensions`
 
-Measured 2026-09-27: the host's code-editor runtime, the freedesktop SDK 25.08, carries the extensions `rust-nightly`, `llvm22`, `golang`, `node24`, `typescript` and `texlive`, so the rendered sentence that no compiler extension is installed on the host is false. The rule that host tools build in the `host-dev` toolbox on the packaged toolchain stands, because those extensions are the editor's runtime, not a build route (`[TOOLS-conv:estatelayout:host-builds]`).
+Measured 2026-09-27: the host's code-editor runtime, the freedesktop SDK 25.08, carries the extensions `rust-nightly`, `llvm22`, `golang`, `node24`, `typescript` and `texlive`, so the rendered sentence that no compiler extension is installed on the host is false. The recorded build route used the packaged toolchain in the build toolbox; editor extensions did not supply that route.
 
 **Fact (Workstation paths repeat the estate layout)** · `fact:rulebooks:workstation-paths-repeat`
 
-Measured 2026-09-27: the workstation-paths overlay repeats the estate layout that the architecture documents state (`[TOOLS-spec:estatelayout:estate-layout]`), (`[TOOLS-spec:repositories:repositories-and-truth]`).
+Measured 2026-09-27: the workstation-paths overlay duplicates the recorded estate layout and repository inventory.
 
 **Fact (Orchestrator render at its cap)** · `fact:rulebooks:orchestrator-render-at-cap`
 
@@ -185,13 +185,13 @@ Every sentence of the present environment render, overlays included, on the same
 |19|The host carries no build toolchain outside the editor's runtime, no language SDK extension.|1|kept|(`alg:environment:host-tools-build-in-the-build-toolbox`), corrected: the extensions exist and are not a build route (`fact:rulebooks:host-sdk-extensions`).|
 |20|Host-executed tools build in the build toolbox; other tools run in dedicated toolboxes.|1|kept|(`alg:environment:host-tools-build-in-the-build-toolbox`)|
 |21|The build toolbox overlay names the box and its toolchain.|1|dropped|A pointer to an overlay section that leaves the render.|
-|22|The build toolbox's origin, distribution and packaged toolchain.|2|dropped|A copy of (`[TOOLS-data:estatelayout:build-route]`).|
-|23|Host tools build in this one box with `PATH` and the cargo home pinned.|1|kept|``listing:environment:build-toolbox-recipe``; (`[TOOLS-conv:estatelayout:host-builds]`)|
+|22|The build toolbox's origin, distribution and packaged toolchain.|2|dropped|A duplicate of the recorded build-toolbox origin and packaged toolchain.|
+|23|Host tools build in this one box with `PATH` and the cargo home pinned.|1|kept|The retained build-toolbox recipe fixes the environment: ``listing:environment:build-toolbox-recipe``.|
 |24|The build recipe.|1|kept|``listing:environment:build-toolbox-recipe``|
-|25|The provenance line's fields.|1|present|(`[TOOLS-conv:estatelayout:host-builds]`); the duty is in (`alg:environment:host-tools-build-in-the-build-toolbox`).|
-|26|The linter's measured release-build walls.|1|dropped|A copy of (`[TOOLS-data:estatelayout:build-route]`); the treatment of long walls is (`[TOOLS-scenario:deployment:host-compile-overrun]`).|
+|25|The provenance line's fields.|1|present|The provenance duty is stated in the host-tools build procedure (`alg:environment:host-tools-build-in-the-build-toolbox`).|
+|26|The linter's measured release-build walls.|1|dropped|A duplicate of recorded release-build timings; the treatment of long walls remains specified by the host-compile-overrun scenario (`[TOOLS-scenario:deployment:host-compile-overrun]`).|
 |27|The SDK is only the editor's runtime; no compiler extension is installed.|1|dropped|False (`fact:rulebooks:host-sdk-extensions`); the true statement is in the procedure.|
-|28|Nightly stays on the servers; a host nightly would run in a separate container.|1|present|(`[TOOLS-ansatz:estatelayout:host-nightly]`)|
+|28|Nightly stays on the servers; a host nightly would run in a separate container.|1|present|The recorded layout reserved nightly builds for servers and a separate container for any host nightly.|
 |29|The temporary-storage overlay names the temporary root.|1|dropped|A pointer to an overlay section that leaves the render.|
 |30|Export the disk-backed temporary root in every toolbox command and stdin-fed script.|1|kept|``setup:environment:temporary-root``|
 |31|The directory exists, is disk-backed and has ample space.|1|kept|``setup:environment:temporary-root``|
@@ -203,7 +203,7 @@ Every sentence of the present environment render, overlays included, on the same
 |37|A tool absent locally runs in its toolbox; a tool absent everywhere gets a dedicated toolbox.|2|moved|(`rule:deployment:dedicated-tool-containers`)|
 |38|Workers call prebuilt linters and never build them; rebuilding is the orchestrator's duty.|2|kept|(`alg:environment:host-tools-build-in-the-build-toolbox`)|
 |39|The prebuilt-linter overlay names the deployed linter.|1|dropped|A pointer to an overlay section that leaves the render.|
-|40|Exactly one linter binary is deployed, with its provenance; others stay in their repositories.|2|dropped|A copy: the worker charter's machine facts name the deployed linter, and (`[TOOLS-conv:estatelayout:host-builds]`) keeps one deployed linter.|
+|40|Exactly one linter binary is deployed, with its provenance; others stay in their repositories.|2|dropped|A duplicate of the worker charter’s deployed-linter machine fact.|
 |41|All compile and build workloads run at minimum priority.|1|present|(`rule:deployment:minimum-build-priority`), (`rule:server:minimum-build-priority`)|
 |42|Idle scheduling bites only under contention.|1|moved|(`rem:deployment:contention-slowdown`)|
 |43|The build-priority overlay names the mechanism.|1|dropped|A pointer to an overlay section that leaves the render.|
@@ -221,8 +221,8 @@ Every sentence of the present environment render, overlays included, on the same
 |55|One stable disk-backed target directory per purpose.|1|present|(`[TOOLS-rule:deployment:cache-intelligence]`), (`[TOOLS-rule:deployment:disk-backed-temporaries]`)|
 |56|`cargo fmt` resolves through shims; invoke `cargo-fmt`.|1|moved|(`hint:deployment:formatter-resolution`)|
 |57|The build-toolchain overlay names the toolchain layout.|1|dropped|A pointer to an overlay section that leaves the render.|
-|58|The host has no rustup and no cargo home.|1|present|(`[TOOLS-conv:estatelayout:host-builds]`)|
-|59|The build toolbox's packaged Rust version and cache layout.|1|dropped|A copy of (`[TOOLS-data:estatelayout:build-route]`); the layout is in the listing.|
+|58|The host has no rustup and no cargo home.|1|present|The recorded host layout kept Rust tooling inside the build toolbox.|
+|59|The build toolbox's packaged Rust version and cache layout.|1|dropped|A duplicate of the recorded packaged Rust version and cache layout.|
 |60|Stable and minimum-version verification runs on the servers or in a container-local rustup.|1|moved|(`conv:deployment:routine-toolchain`); the container-local rustup goes to the runbook.|
 |61|The container-local rustup's homes, toolchains and invocation; audit tooling in a dedicated box.|3|moved|Runbook.|
 |62|Never install into the agent's own toolbox; create a dedicated one with the profile; refresh the inventory.|3|moved|(`rule:deployment:dedicated-tool-containers`)|
@@ -230,17 +230,17 @@ Every sentence of the present environment render, overlays included, on the same
 |64|Dedicated toolboxes use a prefix and are created with a recipe.|1|moved|Runbook.|
 |65|The creation recipe.|1|moved|Runbook.|
 |66|Check the inventory with the host's container listing.|1|moved|(`rule:deployment:dedicated-tool-containers`) names the listing as the inventory of record.|
-|67|The build toolbox's inventory entry.|2|dropped|A copy of (`[TOOLS-data:estatelayout:build-route]`) and (`[TOOLS-conv:estatelayout:host-builds]`).|
-|68|The C++ toolbox for a node project.|1|dropped|A project toolbox's package roster: project toolboxes become legacy as compute moves to pods (`[TOOLS-data:estatelayout:build-route]`), and the roster of those that remain is the host's container listing (`fact:rulebooks:toolbox-inventory-drift`).|
+|67|The build toolbox's inventory entry.|2|dropped|A duplicate of the build-toolbox inventory and build-route description.|
+|68|The C++ toolbox for a node project.|1|dropped|A project-specific package roster; the host’s container listing supplies the inventory evidence (`fact:rulebooks:toolbox-inventory-drift`).|
 |69|The PDF tooling toolbox.|1|dropped|A tool toolbox's package roster, a registry value the box's own package database holds (`rule:architecture:dynamic-facts-stay-in-registries`); the host's container listing names the box.|
-|70|The Python mathematics toolbox.|1|dropped|A project toolbox's package roster: project toolboxes become legacy as compute moves to pods (`[TOOLS-data:estatelayout:build-route]`).|
+|70|The Python mathematics toolbox.|1|dropped|A project-specific package roster, outside the standing rulebook.|
 |71|The stable Rust toolbox entry.|3|dropped|A second copy of row 61, which goes to the runbook.|
-|72|The general C++ toolbox.|1|dropped|A project toolbox's package roster: project toolboxes become legacy as compute moves to pods (`[TOOLS-data:estatelayout:build-route]`).|
-|73|The Meson toolbox.|1|dropped|A project toolbox's package roster: project toolboxes become legacy as compute moves to pods (`[TOOLS-data:estatelayout:build-route]`).|
+|72|The general C++ toolbox.|1|dropped|A project-specific package roster, outside the standing rulebook.|
+|73|The Meson toolbox.|1|dropped|A project-specific package roster, outside the standing rulebook.|
 |74|The audited empty toolbox.|2|dropped|The container no longer exists (`fact:rulebooks:toolbox-inventory-drift`).|
 |75|The SELinux analysis toolbox.|1|dropped|A tool toolbox's package roster, a registry value the box's own package database holds (`rule:architecture:dynamic-facts-stay-in-registries`); the host's container listing names the box.|
 |76|The GitHub CLI toolbox's packages.|1|dropped|A tool toolbox's package roster, a registry value the box's own package database holds (`rule:architecture:dynamic-facts-stay-in-registries`); the host's container listing names the box.|
-|77|Forges connect per superloop; sign-in is owner-run and agents never hold the credential.|1|present|(`[TOOLS-tab:estatelayout:loop-roots]`), (`[TOOLS-conv:estatelayout:keys]`); per-loop forge facts are kept in (`inv:environment:git-identity-per-repository`).|
+|77|Forges connect per superloop; sign-in is owner-run and agents never hold the credential.|1|present|Identity-bound credential custody is specified by (`[TOOLS-tab:workercontracts:loop-roots]`) and (`[TOOLS-rule:workercontracts:credentials-and-egress]`); per-loop forge facts are kept in (`inv:environment:git-identity-per-repository`).|
 |78|The forge CLI's invocation forms and the shared credential-helper trap.|2|moved|Runbook.|
 |79|The resident-loop runtime toolbox and its attach rule.|3|moved|Runbook.|
 |80|The virtualization toolbox and the virtual-machine root.|2|moved|Runbook.|
@@ -248,13 +248,13 @@ Every sentence of the present environment render, overlays included, on the same
 |82|The workstation-path overlay maps roles to paths.|1|dropped|A pointer to an overlay section that leaves the render.|
 |83|Row: the disk-backed temporary root and its real host path.|1|kept|``setup:environment:temporary-root``; the absolute path is private and dropped.|
 |84|Row: the build toolbox cache root and the server gate targets.|1|kept|``listing:environment:build-toolbox-recipe``; the server targets are the server registry's.|
-|85|Row: the build-cache root.|1|present|(`[TOOLS-tab:estatelayout:class-roots]`)|
-|86|Rows: five project checkouts.|5|dropped|A copy: faces under `~/dev` (`[TOOLS-conv:estatelayout:clean-home]`), named by the loop registry.|
-|87|Row: per-superloop forge configuration.|1|present|(`[TOOLS-tab:estatelayout:loop-roots]`)|
-|88|Row: per-superloop signing keyring.|1|present|(`[TOOLS-tab:estatelayout:loop-roots]`), (`[TOOLS-conv:estatelayout:keys]`)|
-|89|Row: per-superloop Codex home.|1|present|(`[TOOLS-conv:estatelayout:clean-home]`) keeps the lane homes at `~` until the lane box moves their sign-ins into the `lanes/` tier of (`[TOOLS-tab:estatelayout:loop-roots]`).|
+|85|Row: the build-cache root.|1|present|The recorded build-cache location is instance layout data.|
+|86|Rows: five project checkouts.|5|dropped|A duplicate of project checkout locations maintained in the loop registry.|
+|87|Row: per-superloop forge configuration.|1|present|(`[TOOLS-tab:workercontracts:loop-roots]`)|
+|88|Row: per-superloop signing keyring.|1|present|(`[TOOLS-tab:workercontracts:loop-roots]`), (`[TOOLS-rule:workercontracts:credentials-and-egress]`)|
+|89|Row: per-superloop Codex home.|1|present|The recorded lane-home placement was transitional; the public loop-roots contract specifies the credential tiers (`[TOOLS-tab:workercontracts:loop-roots]`).|
 |90|Row: the loop's forge wrapper.|1|moved|Runbook: a tooling path.|
-|91|Row: the superloop tools and the resident-loop registry.|1|present|(`[TOOLS-tab:estatelayout:class-roots]`), (`[TOOLS-tab:repositories:repository-kinds]`)|
+|91|Row: the superloop tools and the resident-loop registry.|1|present|The tools checkout and resident-loop registry locations are instance inventory data.|
 |92|Row: the virtual-machine root and launcher.|1|moved|Runbook.|
 |93|Apps live in containers; humans launch them through desktop files.|3|moved|Runbook: a workstation practice no document carries.|
 |94|No global git identity; local configuration; per-loop forge credentials; per-loop signing keys.|4|kept|(`inv:environment:git-identity-per-repository`)|

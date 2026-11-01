@@ -140,7 +140,7 @@ All code-side mints are seeded, all participating prose mints are harvested, and
 
 **Requirement (Owner reach)** · `req:conformance:owner-reach`
 
-Resolution does not by itself authorize an import. Package-to-package imports must follow one direct workspace-path dependency derived from the current member manifests, without transitive closure, as fixed by (`[TOOLS-conv:layers:reach-relation]`). Every package may cite repository policy upward. Repository-level policy may import no package-owned head, even when the linter crate depends on that package (`[TOOLS-rule:layers:policy-imports-nothing]`). The derived graph and its committed reach register must agree in both directions.
+Resolution does not by itself authorize an import. Package-to-package imports must follow one direct workspace-path dependency derived from the current member manifests, without transitive closure, as fixed by (`[TOOLS-rule:lintcontracts:ownership]`). Every package may cite repository policy upward. Repository-level policy may import no package-owned head, even when the linter crate depends on that package. The derived graph and its committed reach register must agree in both directions.
 
 ## Assembly and shape · `sec:conformance:assembly-and-shape`
 

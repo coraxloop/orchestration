@@ -8,7 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Changed
 
+- Citations to retired tools documents now use public contracts or self-contained historical descriptions, and the TOOLS snapshot is refreshed to the imported public-contract export.
+
 - The public introduction is now the root README, with rulebook and instance-template orientation and the release cadence; every repository file is included in the public source set.
+
 - The generic label export now locates the public introduction's labels at the root README and drops the replaced overview's labels; the declared empty unpublished-label register keeps source checks and public cuts on the same label surface.
 
 ## [0.1.1] - 2026-11-01

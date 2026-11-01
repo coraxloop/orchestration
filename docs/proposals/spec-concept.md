@@ -52,7 +52,7 @@ Candidate `docs/spec/server.md` specifies account isolation, ephemeral bootstrap
 
 **Part (Command and output contracts)** · `part:spec:output`
 
-The original candidate `docs/spec/output.md` specifies the four sanctioned modes, stream ownership, exit classes, redaction, panic behavior, feeder framing, and the exact final-report forms used by lanes and the server wrapper. It also maps every helper to one mode. Its primary source is record 001 in the tools repository, especially (`[TOOLS-rule:output:binary-modes]`) and (`[TOOLS-rule:output:run-report]`), checked against the current helper scripts and the `cli-common`, `execwrap`, and `linter` package READMEs.
+The original candidate `docs/spec/output.md` specifies the four sanctioned modes, stream ownership, exit classes, redaction, panic behavior, feeder framing, and the exact final-report forms used by lanes and the server wrapper. It also maps every helper to one mode. The public output specification defines the helper mode assignments and final-report forms (`[TOOLS-tab:output:binary-mode-map]`) and (`[TOOLS-proto:output:run-report-line]`), checked against the current helper scripts and the `cli-common`, `execwrap`, and `linter` package READMEs.
 
 **Part (Build and deployment topology)** · `part:spec:deployment`
 
@@ -60,13 +60,13 @@ Candidate `docs/spec/deployment.md` specifies Rust-or-Meson implementation, serv
 
 **Part (Conformance and evidence)** · `part:spec:conformance`
 
-Candidate `docs/spec/conformance.md` specifies requirement-to-test evidence, label participation, owner reach, assembly freshness, benchmark selection, burn ratchets, server verification, and trusted release gates. Its primary sources are the corpus gauntlet, the linter command contract, the label and head readers, the layer-owner graph, the burn registers, the command-output verification gate (`[TOOLS-gate:output:verification]`), and the Codex VERIFY loop.
+Candidate `docs/spec/conformance.md` specifies requirement-to-test evidence, label participation, owner reach, assembly freshness, benchmark selection, burn ratchets, server verification, and trusted release gates. Its primary sources are the corpus gauntlet, the linter command contract, the label and head readers, the layer-owner graph, the burn registers, the command-output verification gate (`[TOOLS-gate:output:output-conformance]`), and the Codex VERIFY loop.
 
 ## Proposed label vocabulary · `sec:spec:label-vocabulary`
 
 **Convention (Area vocabulary)** · `conv:spec:area-vocabulary`
 
-This concept uses area `spec`. The final parts should use the stable conceptual homes `architecture`, `dispatch`, `hooks`, `lanes`, `server`, `output`, `deployment`, and `conformance`, matching the partition above. Areas remain owner-local and never imply ownership, as (`[TOOLS-conv:layers:area-homonyms]`) requires. A requirement keeps the area of the concept it governs even when its implementation moves between binaries.
+This concept uses area `spec`. The final parts should use the stable conceptual homes `architecture`, `dispatch`, `hooks`, `lanes`, `server`, `output`, `deployment`, and `conformance`, matching the partition above. Areas remain owner-local and never imply ownership. A requirement keeps the area of the concept it governs even when its implementation moves between binaries.
 
 **Convention (Mint families)** · `conv:spec:mint-families`
 
@@ -74,7 +74,7 @@ The final corpus should mint `sec` for document divisions; `def`, `term`, and `s
 
 **Rule (Authored and derived mints)** · `rule:spec:authored-and-derived-mints`
 
-Specification authors mint normative prose environments, not identities for code merely because the prose names a binary, script, event, setting, or test. Asset-family mints remain derived and require an adopted profile and warrant; until such a profile exists, a helper's contract is headed as a Specification, Protocol, Rule, or Requirement. Repository-policy prose uses same-owner citations and imports no package-owned head, following (`[TOOLS-rule:layers:policy-imports-nothing]`); package implementation documents may cite root policy upward under the owner graph.
+Specification authors mint normative prose environments, not identities for code merely because the prose names a binary, script, event, setting, or test. Asset-family mints remain derived and require an adopted profile and warrant; until such a profile exists, a helper's contract is headed as a Specification, Protocol, Rule, or Requirement. Repository-policy prose uses same-owner citations and imports no package-owned head, following (`[TOOLS-rule:lintcontracts:ownership]`); package implementation documents may cite root policy upward under the owner graph.
 
 ## Deferred corpus-test frontier · `sec:spec:corpus-frontier`
 
