@@ -1,10 +1,16 @@
 # Orchestration · `guide:publicorchestration:orchestration`
 
-Orchestration is the philosophy for running software loops with agent workers. This repository contains the rulebooks, environment kinds and labels, architecture decision records, guides, maps read by the install tooling, and instance templates under `docs/examples/`.
+Orchestration is a philosophy for running software loops with agent workers. This repository contains rulebooks, a specification, architecture decision records, guides and instance templates: a shared vocabulary for assigning work, reviewing evidence and preserving decisions.
+
+## Rulebooks and instances · `sec:publicorchestration:rulebooks-and-instances`
+
+A rulebook states an agent's responsibilities, boundaries and working practices. The generic shapes in [CLAUDE.md](CLAUDE.md) and [ORCHESTRATION.md](ORCHESTRATION.md) leave explicit overlay slots for the values of an instance. This separates reusable rules from the environment in which they apply.
+
+The fictional [instance templates](docs/examples/README.md) illustrate those overlays, installation maps and supporting records. Their [instance contract](docs/examples/instance-contract.toml) names the required and optional files. The [specification](docs/spec.md) explains how the parts fit together, and the [decision records](adr/) preserve the reasons behind the design.
 
 ## Tools and documents · `sec:publicorchestration:tools-and-documents`
 
-The companion repository `superloop-tools` implements the tooling that reads these documents' labels and maps. Orchestration supplies the rules and shapes; its instance templates show how to supply the values for a particular installation.
+The companion repository [superloop-tools](https://github.com/coraxloop/superloop-tools) implements the tooling that reads these documents' labels and maps. Orchestration supplies the rules and shapes; its instance templates show how to supply the values for a particular installation.
 
 ## Checking the documents · `sec:publicorchestration:checking-the-documents`
 
@@ -12,7 +18,7 @@ The linter from `superloop-tools` checks the label discipline: every label has o
 
 ## Versioning · `sec:publicorchestration:versioning`
 
-This is version 0.1.0. Before 1.0, backwards compatibility is explicitly excluded: every release may change the rules, labels, maps or template formats. Compatibility code for a pre-1.0 shape is a defect.
+Minor releases introduce big new features; patch releases cover everything else, including corrections and documentation changes. There is no 1.0 release planned. Backwards compatibility is explicitly excluded: every release may change the rules, labels, maps or template formats. Compatibility code for an earlier shape is a defect. The [changelog](CHANGELOG.md) records each release.
 
 ## Acknowledgements · `sec:publicorchestration:acknowledgements`
 

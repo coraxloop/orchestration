@@ -3,7 +3,6 @@ docs_top_names = [
   'confined-admin.md',
   'decisions.md',
   'harness-user-channels.md',
-  'public/README.md',
   'root-full-server-setup.md',
   'security-posture.md',
 ]
