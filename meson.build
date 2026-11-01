@@ -52,6 +52,7 @@ linter_paths = [
   '.linter/policy-references-scenarios.toml',
   '.linter/policy-spdx.toml',
   '.linter/shape.toml',
+  'docs/public/unpublished-labels.toml',
 ]
 root_paths = ['.gitignore', 'CHANGELOG.md', 'CLAUDE.md', 'LICENSE-CODE', 'LICENSE-DOCS', 'ORCHESTRATION.md', 'README.md', 'maps/generic-map.toml', 'public-set.toml']
 example_subject_paths = []
