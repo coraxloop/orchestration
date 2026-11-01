@@ -12,6 +12,11 @@ registry = ".linter/imports/tools.toml"
 owner = "ORCHESTRATION"
 target = "TOOLS"
 
+[[nested]]
+owner = "EXAMPLES"
+reason = "Fictional instance tree checked as its own corpus"
+root = "docs/examples"
+
 [[partitions]]
 name = "declared-surface"
 owner = "ORCHESTRATION"
