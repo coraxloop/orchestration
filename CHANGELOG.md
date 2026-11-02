@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Added
+
+- Letters are defined as the estate's single correspondence system: loop-to-loop correspondence, and loop-to-worker steering of an existing run at any moment the loop sees reason (`def:oper:letters`) (`def:dispatch:letters`).
+
+### Changed
+
+- The rulebook's tone, manners and attention paragraphs and its roadmap are tightened so the instance render stays within its size bound (`preview:orch:which-part-to-read`).
+
 ## [0.1.2] - 2026-11-02
 
 ### Changed
