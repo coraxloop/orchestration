@@ -346,6 +346,4 @@ licence_code = "LICENSE-CODE"
 licence_docs = "LICENSE-DOCS"
 name = "orchestration"
 readme = "README.md"
-
-[reserved]
-rows = []
+version = "0.1.2"

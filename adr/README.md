@@ -1,6 +1,6 @@
 # Corpus Philosophy Records · `reg:records:philosophy-records`
 
-The generic repository retains the philosophy of using the tools. Engineering records live under the same numbers and file names in the tools repository, beside the code and tests they govern. Their labels belong to `TOOLS`; citations using their former `ORCHESTRATION` owner no longer resolve. There are no redirects or aliases.
+The generic repository retains the philosophy of using the tools. The engineering subjects below retain their historical record numbers; their records are no longer published by tools. Reusable contracts are published in the tools specifications. Historical record numbers do not establish public citation targets, redirects or aliases.
 
 ## Retained records · `sec:records:retained`
 
@@ -16,24 +16,24 @@ The generic repository retains the philosophy of using the tools. Engineering re
 |025|(`rec:titlekinds:genre-title-kinds`)|
 |030|(`rec:rulebooks:rulebooks-pointer-and-kind-exhibit`)|
 
-## Engineering records in tools · `sec:records:engineering`
+## Historical engineering subjects · `sec:records:engineering`
 
 |Record|Subject|
 |------|-------|
-|001|(`[TOOLS-rec:output:command-output-contract]`)|
-|012|(`[TOOLS-rec:identity:digest-evidence-adjudication]`)|
-|013|(`[TOOLS-rec:interchange:versioned-theory-conventions]`)|
-|019|(`[TOOLS-rec:layers:corpus-reach-graph]`)|
-|020|(`[TOOLS-rec:migration:ratcheted-burn-disciplines]`)|
-|021|(`[TOOLS-rec:lintercli:command-contract]`)|
-|022|(`[TOOLS-rec:linterconfig:repository-owned-configuration]`)|
-|023|(`[TOOLS-rec:adoption:first-party-interchange-adoption]`)|
-|026|(`[TOOLS-rec:loophomes:subordinate-id-loop-homes]`)|
-|027|(`[TOOLS-rec:lanebackends:shared-lifecycle]`)|
-|028|(`[TOOLS-rec:estateoverhaul:estate-overhaul]`)|
-|029|(`[TOOLS-rec:loopregistry:loop-registry-and-standard-roots]`)|
-|031|(`[TOOLS-rec:mesonlayer:meson-layer-and-install]`)|
-|032|(`[TOOLS-rec:workspacemove:workspace-moves-to-the-tools-repository]`)|
-|033|(`[TOOLS-rec:toolnames:tool-executables-names-and-versions]`)|
-|034|(`[TOOLS-rec:nativeinstall:native-install-and-distribution-shape]`)|
-|035|(`[TOOLS-rec:doortriage:door-triage-agent]`)|
+|001|Record 001 concerned command output contracts.|
+|012|Record 012 concerned digest evidence and adjudication.|
+|013|Record 013 concerned versioned theory conventions.|
+|019|Record 019 concerned the corpus reach graph.|
+|020|Record 020 concerned ratcheted burn disciplines.|
+|021|Record 021 concerned the linter command contract.|
+|022|Record 022 concerned repository-owned configuration.|
+|023|Record 023 concerned first-party interchange adoption.|
+|026|Record 026 concerned subordinate-ID loop homes.|
+|027|Record 027 concerned the shared lane lifecycle.|
+|028|Record 028 concerned an estate overhaul.|
+|029|Record 029 concerned loop registration and standard roots.|
+|031|Record 031 concerned Meson build and installation integration.|
+|032|Record 032 concerned moving implementation work into tools.|
+|033|Record 033 concerned executable names and versions.|
+|034|Record 034 concerned native installation and distribution.|
+|035|Record 035 concerned door-request triage.|

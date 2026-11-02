@@ -242,7 +242,7 @@ Every mutable registry must identify its maintaining authority, intended audienc
 
 **Rule (External contract stability)** · `rule:architecture:external-contract-stability`
 
-Externally consumed stream assignments, framing bytes, exit meanings, and terminal report lines remain byte-stable across ports, refactors, wrapper changes, and provider upgrades. In particular, an implementation must preserve the ordered final-report forms owned by the command contract (`[TOOLS-rule:output:run-report]`). Internal convenience is not grounds to change a caller's parser or the semantics on which orchestration branches. Replacing an external contract requires a separate owner-ratified compatibility decision; it is not an internal-state migration.
+Externally consumed stream assignments, framing bytes, exit meanings, and terminal report lines remain byte-stable across ports, refactors, wrapper changes, and provider upgrades. In particular, an implementation must preserve the ordered final-report forms owned by the command contract (`[TOOLS-proto:output:run-report-line]`). Internal convenience is not grounds to change a caller's parser or the semantics on which orchestration branches. Replacing an external contract requires a separate owner-ratified compatibility decision; it is not an internal-state migration.
 
 **Protocol (Internal state migration)** · `proto:architecture:internal-state-migration`
 
