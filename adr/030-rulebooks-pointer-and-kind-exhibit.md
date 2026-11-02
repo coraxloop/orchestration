@@ -90,7 +90,7 @@ Every mint in the two renders, overlays included, in render order. Base mints ar
 |(`preview:orch:which-part-to-read`)|`preview`|Roadmap|`ORCHESTRATION.md`|
 |``sec:oper:orchestrator-documents``|`sec`|Section|`local/rulebooks/orchestration.md`|
 |``reg:oper:document-locations``|`reg`|Register|`local/rulebooks/orchestration.md`|
-|``sec:oper:rabe-name-and-door``|`sec`|Section|`local/rulebooks/orchestration.md`|
+|``sec:oper:superloop-name-and-door``|`sec`|Section|`local/rulebooks/orchestration.md`|
 |``term:oper:superloop-name``|`term`|Terminology|`local/rulebooks/orchestration.md`|
 |``sig:oper:door``|`sig`|Signature|`local/rulebooks/orchestration.md`|
 

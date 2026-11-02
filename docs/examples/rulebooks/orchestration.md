@@ -8,7 +8,7 @@
 - The worker charter: `/srv/example/example-user/tools/docs/worker-charter.md`, deployed to `/srv/example/example-user/worker-home/AGENTS.md`.
 - The architecture documents: `/srv/example/example-user/.local/share/superloop-tools/docs/arch/`, published by the tools repository.
 
-## Muster — name and door · `sec:oper:rabe-name-and-door`
+## Muster — name and door · `sec:oper:superloop-name-and-door`
 
 **Terminology (Superloop name)** · `term:oper:superloop-name`
 
