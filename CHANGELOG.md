@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-11-02
+
 ### Changed
 
 - Citations to retired tools documents now use public contracts or self-contained historical descriptions, and the TOOLS snapshot is refreshed to the imported public-contract export.
@@ -34,6 +36,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Installation maps and fictional instance templates under `docs/examples/`.
 - GPL-3.0-or-later code and configuration and CC0-1.0 documents, with no backwards compatibility before 1.0.
 
-[Unreleased]: https://github.com/coraxloop/orchestration/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/coraxloop/orchestration/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/coraxloop/orchestration/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/coraxloop/orchestration/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/coraxloop/orchestration/releases/tag/v0.1.0
