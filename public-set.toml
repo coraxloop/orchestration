@@ -321,6 +321,9 @@ pattern = "docs/spec/hooks.md"
 pattern = "docs/spec/lanes.md"
 
 [[include.rows]]
+pattern = "docs/spec/mail.md"
+
+[[include.rows]]
 pattern = "docs/spec/meson.build"
 
 [[include.rows]]

@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
-- Letters are defined as the estate's single correspondence system: loop-to-loop correspondence, and loop-to-worker steering of an existing run at any moment the loop sees reason (`def:oper:letters`) (`def:dispatch:letters`).
+- The superloop mail system replaces letters with opaque file delivery for loops and stably named workers, loop-owned routing and whitelists, notice-only hooks, a one-time migration and a tools conformance register (`spec:mail:superloop-mail-system`).
 
 ### Changed
 

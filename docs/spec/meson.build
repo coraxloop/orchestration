@@ -6,6 +6,7 @@ spec_names = [
   'dispatch.md',
   'hooks.md',
   'lanes.md',
+  'mail.md',
   'server.md',
 ]
 spec_names_paths = []
