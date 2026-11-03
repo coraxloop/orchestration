@@ -10,7 +10,7 @@ The estate this backlog serves is becoming one where every loop and every worker
 
 |order|slice|rows|items, in order|depends on, and rows larger than one lane|
 |-----|-----|----|---------------|-----------------------------------------|
-|1|The whole generic backlog|8|(`dec:dispatch:workers-clone-from-bare-repositories`), (`prob:docs:todo-profile-admits-authored-backlog-heads`), (`prob:docs:rulebook-render-size-bound`), (`prob:docs:rulebook-roadmap-names-each-spec-part`), (`prob:docs:dispatch-rule-refuses-zero-offset-timestamps`), (`prob:build:generic-layer-program-identity-under-ledger-contract`), (`prob:build:burn-input-optional-for-the-public-tree`), (`prob:build:configure-says-which-lint-mode-it-selected`)|The tools backlog's ``prob:linter:authored-todo-head-in-backlog-documents`` waits on the to-do profile's rule; the roadmap's topic hints use the headroom under the render bound, so the bound is settled first. No row is larger than one lane.|
+|1|The whole generic backlog|9|(`dec:dispatch:workers-clone-from-bare-repositories`), (`prob:docs:todo-profile-admits-authored-backlog-heads`), (`prob:docs:rulebook-render-size-bound`), (`prob:docs:rulebook-roadmap-names-each-spec-part`), (`prob:docs:dispatch-rule-refuses-zero-offset-timestamps`), (`prob:build:generic-layer-program-identity-under-ledger-contract`), (`prob:build:burn-input-optional-for-the-public-tree`), (`prob:build:configure-says-which-lint-mode-it-selected`), (`prob:build:generic-documents-install-natively`)|The tools backlog's ``prob:linter:authored-todo-head-in-backlog-documents`` waits on the to-do profile's rule; the roadmap's topic hints use the headroom under the render bound, so the bound is settled first. No row is larger than one lane.|
 
 ## Charter · `sec:genericbacklog:charter`
 
@@ -63,6 +63,10 @@ Measured on 2026-10-29 at 09:02Z, after generic main moved to 5743fe9a: the host
 **Problem (The generic configure step says which lint mode it selected)** · `prob:build:configure-says-which-lint-mode-it-selected`
 
 **OPEN.** (r002g41 review 2 N1) since c09 (generic 8c121992) a `meson setup` without `-Dburn_input` silently selects ordinary lint mode, shown only as `"public_pack":false` in the report; the estate gate always passes the input, but a hand-run configure could get the weaker check unnoticed. Add a configure-time `message()` (or `warning()`) naming the selected mode when the input is empty.
+
+**Problem (The generic repository installs its documents by Meson's native rules and retires its install map)** · `prob:build:generic-documents-install-natively`
+
+**OPEN.** (2026-11-03) This repository's part of the tools' native install, ``prob:build:native-meson-install`` in the tools backlog: bite 5, the generic repository a documents-only install by Meson's own rules, and its half of bite 8, its install map's removal. Measured at development e8b83958: the layer is documents-only, but its install still runs the tools' install primitive over the generic install map as an install script, so the documents install by map rather than by Meson's native rules.
 
 ### Linter declarations · `sec:genericbacklog:open-linter`
 
