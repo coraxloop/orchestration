@@ -2,6 +2,16 @@
 
 This backlog holds the open work that a change to this repository discharges: the specification, the rulebooks, the generic documents, the examples and the kind registry, with the Meson layer and the linter declarations that carry them. It holds open work only, and every item keeps the label it was minted with for life: the kind of the label says what the item is, and the first word of its first paragraph says where the item stands.
 
+## Priorities · `sec:genericbacklog:priorities`
+
+**Register (Priorities)** · `reg:genericbacklog:priorities`
+
+The estate this backlog serves is becoming one where every loop and every worker corresponds through one plain mail system, whose specification this repository carries, where workers are handed bare repositories and make their own checkouts, a rule the dispatch part of the specification is to state, and where the documents say what holds while the backlogs say what is still to do. The whole backlog is one slice, in the order below: the mail specification's follow-ups first as rows for them arrive, then the bare-repository rule, then the to-do profile's rule for authored backlog heads, on which the tools backlog's linter half waits, then the rest. A slice worker reads this register first and reports what it will work on.
+
+|order|slice|rows|items, in order|depends on, and rows larger than one lane|
+|-----|-----|----|---------------|-----------------------------------------|
+|1|The whole generic backlog|8|(`dec:dispatch:workers-clone-from-bare-repositories`), (`prob:docs:todo-profile-admits-authored-backlog-heads`), (`prob:docs:rulebook-render-size-bound`), (`prob:docs:rulebook-roadmap-names-each-spec-part`), (`prob:docs:dispatch-rule-refuses-zero-offset-timestamps`), (`prob:build:generic-layer-program-identity-under-ledger-contract`), (`prob:build:burn-input-optional-for-the-public-tree`), (`prob:build:configure-says-which-lint-mode-it-selected`)|The tools backlog's ``prob:linter:authored-todo-head-in-backlog-documents`` waits on the to-do profile's rule; the roadmap's topic hints use the headroom under the render bound, so the bound is settled first. No row is larger than one lane.|
+
 ## Charter · `sec:genericbacklog:charter`
 
 **Convention (Status grammar)** · `conv:genericbacklog:status-grammar`
@@ -15,6 +25,12 @@ An item's kind says what it is, and its status where it stands. A Problem (`prob
 **Convention (Intake and exit)** · `conv:genericbacklog:intake-and-exit`
 
 New items come from letters to the loop and from review findings, sorted at intake into the backlog of the repository whose change discharges them; an item that a change to the tools repository discharges belongs to its backlog, ``plan:toolsbacklog:superloop-tools-backlog``, and one that an estate's operations discharge to that estate's backlog. An item that is met leaves this backlog: the loop's record of the landing names the commit that met it, and what the item established is folded into this repository's documentation rather than kept here as a closed entry. An item whose evidence names private details of an estate keeps those paragraphs in that estate's backlog and names the record that holds them.
+
+**Convention (Working the backlog)** · `conv:genericbacklog:working-the-backlog`
+
+Every worker of every loop receives clones of the bare repositories it needs in its workspace and makes its own checkouts; the loop pushes into and fetches from those bares, and a superloop keeps its own bares of record with mirror bares on the compute server, so that a hand-over is a repository rather than a prepared checkout and a clone on the node is a delta.
+
+This backlog is worked in slices: the loop sets the priorities and submits rows to the backlog manager by letter; a slice worker reads the backlog with its priorities register, takes a large slice of thirty rows or more and reports what it will work on; the loop steers it by mail, cherry-picks its commits into review branches for review workers, and alone makes the commits of record, squashed and remade with its own messages after an importable review.
 
 **Register (Areas)** · `reg:genericbacklog:areas`
 
@@ -31,12 +47,6 @@ An item's area is the subject of what must change to discharge it, and the secti
 ## Open work · `sec:genericbacklog:open-work`
 
 ### The division of documents · `sec:genericbacklog:open-estate`
-
-**Problem (Architecture documents about how the tools are built stay generic while their records moved)** · `prob:estate:arch-documents-subject-survey`
-
-**OPEN.** As recorded, and not yet checked against the tree, the generic architecture documents about how tools are built, installed and run stay in the generic repository while the records deciding them moved to the tools repository; what remains is a survey under the same subject test as the records' move, deciding whether those documents follow.
-
-generic `docs/arch/*` subject test (f07 round one, finding 5): the architecture documents whose subject is how tools are built, installed and run (lane-box-build, capability-door, key-custody, distribution-readiness, estate-layout) stay in the generic repository while the records deciding them moved to the tools repository (record 028 cites 66 generic labels, mostly there; lane-box-build cites record 033 thirty-six times through the import); a survey under the same subject test as the records move decides whether they follow
 
 ### The Meson layer · `sec:genericbacklog:open-build`
 
@@ -56,10 +66,6 @@ Measured on 2026-10-29 at 09:02Z, after generic main moved to 5743fe9a: the host
 
 ### Linter declarations · `sec:genericbacklog:open-linter`
 
-**Problem (The generic repository's public-pack policy names a values file that left it, so a bare linter check in its loop clone refuses)** · `prob:linter:generic-linter-burn-values`
-
-**OPEN.** **OPEN 2026-10-03, found when a two-line rulebook fix was linted in the loop clone; the gates and the commit scripts compensate, the policy row is owed a home.** When the private partition left the generic repository (`80d45edc`), the burn-values document `local/linter/public-pack-burn.toml` went with it, but `.linter/policy-public-pack-values.toml` still names that path, so `orchestration-linter check --root .` in the loop clone refuses with `the burn-value document is absent` before checking anything. The gate form already substitutes the instance repository's `linter/public-pack-burn.toml` through `--public-pack --burn-input`, and the loop-clone commit scripts now lint the same way. The policy should name where the values live now, or declare the input as supplied by the caller, so that a bare check in any clone of the generic repository is clean or refuses for a reason of its own.
-
 ### Documents · `sec:genericbacklog:open-docs`
 
 **Problem (the orchestrator rulebook render sits just under the hook's size bound)** · `prob:docs:rulebook-render-size-bound`
@@ -77,6 +83,12 @@ the orchestrator rulebook render sits 30 bytes under its 9,500-byte bound (2026-
 **Problem (The rulebook roadmap names what each specification part covers)** · `prob:docs:rulebook-roadmap-names-each-spec-part`
 
 **OPEN.** GENERIC rulebook roadmap (r002g72 F1, 2026-11-02): the roadmap no longer lists what each spec part covers; four part labels (spec:dispatch:dispatch-and-supervision, spec:hooks:hook-state-machines, spec:lanes:worker-lane-lifecycle, spec:architecture:architecture-and-authority) are now cited nowhere in the generic tree (no uncited-mint linter check). ~500 B of headroom under the 9,500 B render bound could carry short topic hints back.
+
+**Problem (The to-do profile admits an authored To-do head in backlog documents)** · `prob:docs:todo-profile-admits-authored-backlog-heads`
+
+**OPEN.** (lane bkm01 step 1, 2026-11-03) an authored To-do head is refused by the linter in all three repositories because the registry reserves `todo` for the to-do profile's derived notices; the backlogs carry `prob` (Problem) for work meanwhile. Decide: admit an authored To-do head in backlog documents (ADR-016 + the linter), then rename by one transform.
+
+The rule half is this repository's: the to-do profile (`rec:todos:deficiency-notice-profile`) and its kind extension (`sig:todos:kind-extension`) reserve `todo` for machine-derived notices, so a backlog document needs a stated profile under which an authored To-do head is admitted; the linter's half follows in the tools backlog as ``prob:linter:authored-todo-head-in-backlog-documents``.
 
 ### Dispatch and lanes · `sec:genericbacklog:open-dispatch`
 
