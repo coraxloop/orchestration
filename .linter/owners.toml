@@ -45,7 +45,7 @@ pattern = '%s"maps" [ "/" *VCHAR ]'
 [[partitions]]
 name = "root-documentation"
 owner = "ORCHESTRATION"
-pattern = '( %s"docs/proposals" [ "/" *VCHAR ] / %s"docs/reference" [ "/" *VCHAR ] / %s"docs/spec" [ "/" *VCHAR ] / %s"docs/coreos" [ "/" *VCHAR ] / %s"docs/commit-signing.md" / %s"docs/confined-admin.md" / %s"docs/decisions.md" / %s"docs/harness-user-channels.md" / %s"docs/root-full-server-setup.md" / %s"docs/security-posture.md" / %s"docs/spec.md" / %s"docs/meson.build" )'
+pattern = '( %s"docs/proposals" [ "/" *VCHAR ] / %s"docs/reference" [ "/" *VCHAR ] / %s"docs/spec" [ "/" *VCHAR ] / %s"docs/coreos" [ "/" *VCHAR ] / %s"docs/backlog.md" / %s"docs/commit-signing.md" / %s"docs/confined-admin.md" / %s"docs/decisions.md" / %s"docs/harness-user-channels.md" / %s"docs/root-full-server-setup.md" / %s"docs/security-posture.md" / %s"docs/spec.md" / %s"docs/meson.build" )'
 
 [[partitions]]
 name = "instance-templates"

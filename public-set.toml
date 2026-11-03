@@ -129,6 +129,9 @@ pattern = "adr/README.md"
 pattern = "adr/meson.build"
 
 [[include.rows]]
+pattern = "docs/backlog.md"
+
+[[include.rows]]
 pattern = "docs/commit-signing.md"
 
 [[include.rows]]
