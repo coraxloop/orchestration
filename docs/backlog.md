@@ -10,7 +10,7 @@ The estate this backlog serves is becoming one where every loop and every worker
 
 |order|slice|rows|items, in order|depends on, and rows larger than one lane|
 |-----|-----|----|---------------|-----------------------------------------|
-|1|The whole generic backlog|10|(`open:mail:per-record-maximum-and-unavailable-endpoint-code`), (`dec:dispatch:workers-clone-from-bare-repositories`), (`prob:docs:todo-profile-admits-authored-backlog-heads`), (`prob:docs:rulebook-render-size-bound`), (`prob:docs:rulebook-roadmap-names-each-spec-part`), (`prob:docs:dispatch-rule-refuses-zero-offset-timestamps`), (`prob:build:generic-layer-program-identity-under-ledger-contract`), (`prob:build:burn-input-optional-for-the-public-tree`), (`prob:build:configure-says-which-lint-mode-it-selected`), (`prob:build:generic-documents-install-natively`)|The tools backlog's ``prob:linter:authored-todo-head-in-backlog-documents`` waits on the to-do profile's rule; the roadmap's topic hints use the headroom under the render bound, so the bound is settled first. No row is larger than one lane.|
+|1|The whole generic backlog|11|(`open:mail:per-record-maximum-and-unavailable-endpoint-code`), (`open:mail:worker-uid-lifetime-stated`), (`dec:dispatch:workers-clone-from-bare-repositories`), (`prob:docs:todo-profile-admits-authored-backlog-heads`), (`prob:docs:rulebook-render-size-bound`), (`prob:docs:rulebook-roadmap-names-each-spec-part`), (`prob:docs:dispatch-rule-refuses-zero-offset-timestamps`), (`prob:build:generic-layer-program-identity-under-ledger-contract`), (`prob:build:burn-input-optional-for-the-public-tree`), (`prob:build:configure-says-which-lint-mode-it-selected`), (`prob:build:generic-documents-install-natively`)|The tools backlog's ``prob:linter:authored-todo-head-in-backlog-documents`` waits on the to-do profile's rule; the roadmap's topic hints use the headroom under the render bound, so the bound is settled first. No row is larger than one lane.|
 
 ## Charter · `sec:genericbacklog:charter`
 
@@ -54,6 +54,10 @@ An item's area is the subject of what must change to discharge it, and the secti
 **OPEN.** (2026-11-03 09:05Z, from the review of lane r002g76's c02, F5) The specification declares the journal and staging bounds as constants but not the per-record maximum, which the implementation sets at 65,536 bytes to size the reserved scratch: the specification declares it, or states that it is an implementation constant.
 
 (from the review of lane r002g76's c01, F3) The refusal-code list has no code for an unavailable endpoint, with unsafe-storage and io-failure as the candidates; the delivery core reports the gap until the specification names one. Both parts are answered in the mail specification (`spec:mail:superloop-mail-system`), the first beside its retention constants (`def:mail:retention-constants`), the second in its visible-refusal rule (`rule:mail:refusal`).
+
+**Open Question (Whether the mail specification states a worker uid's lifetime)** · `open:mail:worker-uid-lifetime-stated`
+
+**OPEN.** (2026-11-03 15:55Z, from lane r002g76's c06 review K1) Worker uids are recycled at retirement after custody transfer, while the specification states only that worker birth names are never reused (`rule:mail:worker-birth-name`); whether it states the uid's lifetime explicitly is open, and the tools' retirement operation lands meanwhile (``prob:mail:worker-run-retirement-recycles-the-uid`` in the tools backlog).
 
 ### The division of documents · `sec:genericbacklog:open-estate`
 
