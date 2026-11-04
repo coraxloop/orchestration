@@ -91,6 +91,8 @@ Measured on 2026-10-29 at 09:02Z, after generic main moved to 5743fe9a: the host
 
 the orchestrator rulebook render sits 30 bytes under its 9,500-byte bound (2026-10-21T23:05:09Z): the generic shape ORCHESTRATION.md grew 148 bytes at 870be3c2 (its line 53 names the tools publication homes) and rulebook-install refused the instance render (reason rendered_size) until the instance register lines were trimmed four times (rabe rulebooks/orchestration.md 4,464 to 4,356 bytes; render 9,470). The bound is the hook's (rule:hooks:rulebook-size-bound); the next sentence added to either shape breaks the render again. Proper fix: the generic rulebook's register moves its long path register into the pointer form (the layout of record names the folders), or the bound rises with a measured reason; and the generic gate renders the instance shape so a generic change that breaks the render is red before import.
 
+(2026-11-04, from lane r002g77's review f19) After the watcher rule's rewrite the render measures 9,127 of 9,500 bytes; the tools backlog carries the renderer's one citation form (``prob:build:rulebook-render-emits-one-citation-form``).
+
 **Problem (the dispatch rule on refused timestamps does not name the zero-offset form)** · `prob:docs:dispatch-rule-refuses-zero-offset-timestamps`
 
 **OPEN.** The dispatch rule at `docs/spec/dispatch.md:232` still does not name the zero-offset form (`+00:00`) that the hooks fixture sentence pins since lane r002f37; what remains is one line naming zero-offset beside naive, local and nonzero-offset, committed with its regeneration, together with the stray space of "malformed- delay" at hooks.md:380.
