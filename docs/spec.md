@@ -460,6 +460,49 @@ FIRST TURN: read-back ONLY — restate scope, hard rules, verification bar, repo
 
 Commits run on two tracks because progress tracking and a readable history pull apart. Frequent `squash:` commits carry no gate expectation and keep a dead lane's work visible; a brief states a small budget of named commits, each a meaningful step in Conventional Commits form with a body stating why, and each passing the gate. Squash commits are folded into their named commit before the ship that ends a step, so candidates are reviewed and imported as named commits only.
 
+## Slice work · `sec:dispatch:slice-work`
+
+Slice work is the dispatch form for a backlog: a worker reads the whole backlog with its priorities register, chooses a large slice, works it on a branch of its own that is never rewritten, and the loop lands the reviewed work in commits of its own. The form separates three concerns that a single-bite lane folds together: what to work on (the worker's selection under the register's order), how the work is reviewed (on a staging branch the worker never touches) and what history the repository keeps (the loop's).
+
+**Definition (Slice worker)** · `def:dispatch:slice-worker`
+
+A slice worker is a producing worker dispatched over a workspace of bare repositories with a general brief, whose first deliverable is its own selection of a slice of the backlog and whose later deliverables are the commits that work that slice on its lane branch. It is a worker in the sense of the charter: it never orchestrates, never signs, never pushes anywhere but its workspace bares, and reports to its loop; its selection is a proposal the loop answers, not an authority over the backlog.
+
+**Definition (Backlog manager)** · `def:dispatch:backlog-manager`
+
+The backlog manager is the persistent worker whose one subject is a loop's backlog documents: it receives rows and priorities from the loop by letter, classifies, de-duplicates, sequences and sizes them into labelled records, keeps the priorities register current and folds closed records out into the documentation. The loop alone edits its backlog, and it does so through the manager, so that every item carries the manager's classification and the register stays one argument; a slice worker updates an item's status only in the commit that works it.
+
+**Definition (Priorities register)** · `def:dispatch:priorities-register`
+
+The priorities register is the table at the head of a backlog document that orders the open work as an engineering argument: each row names a group of items, their count, the items in order, the dependencies between them and the items larger than one lane, and the reading and the bar a worker needs. It is the loop's instrument of steering before a selection: a loop that wants rows first puts them first in the register through the manager, never in a worker's brief.
+
+**Rule (Workers clone from bare repositories)** · `rule:dispatch:workers-clone-from-bare-repositories`
+
+A worker's workspace holds bare clones of the repositories its task needs and nothing else of the loop's; the worker makes its own checkouts beside them, works on a branch named for its lane and pushes that branch into the workspace bare of the repository it changes. The loop pushes updated base branches into those bares and fetches the lane branch from them, so a hand-over in either direction is a repository operation with a hash, never a copy of a working tree. A superloop keeps its own bares of record and mirror bares on its compute server, from which a worker's node checkout clones and to which it pushes only its lane branch.
+
+**Protocol (Slice dispatch)** · `proto:dispatch:slice-dispatch`
+
+1. The loop prepares the workspace (`rule:dispatch:workers-clone-from-bare-repositories`) with the base branches at their current tips and launches the worker with a general brief: the workspace, the instruction to read each repository's contributing guide (`req:dispatch:contributing-guide`), and the request to report back with a significant slice of twenty to thirty rows of the worker's own choosing, or the whole backlog where a repository holds fewer, with a budget for that step. The brief names no row, excludes no group and carries no order of its own: the selection is the worker's, under the register's order.
+2. The worker reads the backlog with its register and the documents the register names, then reports its selection and stops: for each row its label and repository, the order it would take them in and why, the commits it intends, the files each touches, the tests each adds or changes, its wall estimate per commit, and every contradiction it found between an item and the code or the documents the item points at. This report is the slice worker's read-back under the read-back gate (`proto:dispatch:read-back-gate`); the working letter that answers it is the proceed event.
+3. The loop answers by letter on the same thread: it accepts, reorders or drops rows of the proposal with reasons, states the rules of the repositories the worker touches, the compute node and the bar at each commit's tip, and the budget of the first working step. Steering happens here and in the letters that follow, on the worker's own proposal, never before it.
+4. Working steps run on the same thread, each with its budget and its report: one section per named commit with the hash, subject, files and line counts, the check table with walls, the wait form of every server round, the items closed and their status lines, deviations or none, and the ready or blocked word. Each named commit is pushed into the workspace bare as it completes, so the loop can stage and review while the worker continues.
+
+**Rule (Lane branches merge in, never rewrite)** · `rule:dispatch:lane-branch-merge-in`
+
+A slice worker never rebases, squashes, amends or force-pushes what it has pushed: when the base branch moves, the worker merges the base into its lane branch; a correction after a review is a fixup commit on top of the lane branch. A rewritten branch destroys the anchors of a review in flight and the worker's own evidence of what changed when; merges and fixups keep the whole trail, and a clean history is produced once, by the loop, at the landing (`proto:dispatch:review-branch-landing`). The two-track convention's fold of squash commits before a ship (`conv:dispatch:two-commit-tracks`) is the single-bite lane's form and does not apply to a slice worker, whose brief says so.
+
+**Protocol (Review-branch staging and landing)** · `proto:dispatch:review-branch-landing`
+
+1. The loop fetches the lane branch from the workspace bare and stages the commits under review on a review branch of the repository of record, named `review/<topic>`; later fixups of the same topic are merged into the same review branch. The review branch is the staging area: the worker never touches it, and the base branch never receives a worker's commit.
+2. Basic rebasing of the staged work is the loop's: bringing the review branch onto the moved base and resolving plain conflicts.
+3. The reviewer reviews on the review branch and reports findings against its commits. Advanced rebasing, where the staged history has to be reordered, split or reconciled with the base beyond plain conflicts, is handed to the reviewer, who performs it on the review branch as part of the review and may make trivial fixups while doing so, each named in the review report; a correction beyond trivial goes back to the slice worker by letter, who makes it as a fixup commit under the merge-in rule (`rule:dispatch:lane-branch-merge-in`), after which the staging repeats from step 1.
+4. After the review the loop re-commits the reviewed work onto the development branch in commits of its own: the loop's identity, the loop's messages stating the engineering reason, the loop's signature where the repository signs, and the loop's audit of the diff against the declared starting state (`rule:dispatch:gated-tier-audit`). The development branch receives only the loop's commits.
+5. The loop gates the landed tip on the compute node, pushes the updated base branch into the worker's workspace bare and tells the worker by letter what landed and under which hashes, so the worker's next merge-in finds its own work already in the base.
+
+**Requirement (Contributing guide)** · `req:dispatch:contributing-guide`
+
+Each repository worked in slices carries a contributing guide, the one document a slice worker reads first: the working paradigm (bare workspace, own checkouts, the lane branch and its merge-in rule, the review branch and the loop's landing), the repository's rules of text and declaration, the location of its backlog and register, the shape of a slice report and the report contract of a working step. The general brief points at the guide instead of restating the rules, so that every slice worker of every loop reads the same rules from the repository and a brief stays what it is: the workspace, the guide and the budget.
+
 ## Supervision · `sec:dispatch:supervision`
 
 The Sonnet watcher is the only watcher. One Sonnet watcher belongs to each lane: it is spawned at the lane's first dispatch and resumed by message with every later duty. A lane's steps share its run directory, so one watcher per lane and one per run directory are the same rule. A boxed duty's message names its active round directory without changing the watcher's lane identity. The lane's watcher holds every watching duty: read-backs, investigations, work, fix rounds, review rounds, closes and gates. It owns the waiting, the relay of the step's report or gate's exit line, and the absolute UTC deadline; the session owns the decision when the hand-back arrives.
