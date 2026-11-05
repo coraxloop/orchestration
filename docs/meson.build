@@ -1,4 +1,5 @@
 docs_top_names = [
+  'backlog.md',
   'commit-signing.md',
   'confined-admin.md',
   'decisions.md',

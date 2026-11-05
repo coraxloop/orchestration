@@ -129,6 +129,9 @@ pattern = "adr/README.md"
 pattern = "adr/meson.build"
 
 [[include.rows]]
+pattern = "docs/backlog.md"
+
+[[include.rows]]
 pattern = "docs/commit-signing.md"
 
 [[include.rows]]
@@ -318,6 +321,9 @@ pattern = "docs/spec/hooks.md"
 pattern = "docs/spec/lanes.md"
 
 [[include.rows]]
+pattern = "docs/spec/mail.md"
+
+[[include.rows]]
 pattern = "docs/spec/meson.build"
 
 [[include.rows]]
@@ -346,4 +352,4 @@ licence_code = "LICENSE-CODE"
 licence_docs = "LICENSE-DOCS"
 name = "orchestration"
 readme = "README.md"
-version = "0.1.2"
+version = "0.1.3"

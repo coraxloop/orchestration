@@ -1,6 +1,6 @@
 # Specification assembly manifest · `reg:assembly:specification-assembly`
 
-This manifest declares the seven-part generic specification assembly. The original specification programme is recorded in (`proposal:spec:assembly-and-benchmarks`); command and output contracts belong to the tools specification (`[TOOLS-spec:outputspec:command-and-output-contracts]`). The displayed-head vocabulary follows (`conv:spec:area-vocabulary`) and (`conv:spec:mint-families`), while conformance measures the authored corpus. Every internal participating label minted by this manifest has area `assembly`; the title mint names the register as a document.
+This manifest declares the generic specification assembly. The original specification programme is recorded in (`proposal:spec:assembly-and-benchmarks`); command and output contracts belong to the tools specification (`[TOOLS-spec:outputspec:command-and-output-contracts]`). The displayed-head vocabulary follows (`conv:spec:area-vocabulary`) and (`conv:spec:mint-families`), while conformance measures the authored corpus. Every internal participating label minted by this manifest has area `assembly`; the title mint names the register as a document.
 
 ## Assembly and outline conventions · `sec:assembly:conventions`
 
@@ -12,6 +12,7 @@ The following one-column table is the exact membership and owner-approved order 
 |----|
 |`architecture.md`|
 |`dispatch.md`|
+|`mail.md`|
 |`hooks.md`|
 |`lanes.md`|
 |`server.md`|
@@ -123,12 +124,61 @@ verif | verif:dispatch:dispatch-record | Verification (Dispatch record) | Check 
 gate | gate:dispatch:dispatch-completion | Gate (Dispatch completion) | Accept a dispatch only when its scoped deliverable and report contract are both satisfied.
 ```
 
+## Superloop mail outline · `sec:assembly:mail-outline`
+
+Part: `docs/spec/mail.md`. It owns the common loop and worker mail model, stable addresses, filesystem permissions, service delivery, notification and replacement of legacy correspondence.
+
+```text
+sec | sec:mail:domain-and-names | Domain and names | Define letters, names, folders and the authority boundary.
+def | def:mail:letter | Definition (Letter) | Admit opaque bytes without an embedded envelope.
+def | def:mail:maximum-letter-bytes | Definition (Letter size constant) | Declare the inclusive one-MiB content bound.
+def | def:mail:address | Definition (Address) | Qualify worker names within their creating loops.
+reg | reg:mail:identity-names | Register (Identity name grammar) | Give registry and mail consumers one name language.
+lang | lang:mail:names | Language (Mail names) | Fix the ABNF of addresses, slugs and UTC millisecond delivery names.
+def | def:mail:folder | Definition (Mail folder) | Place the five directories and define their names and moves.
+inv | inv:mail:data-not-authority | Invariant (Authority follows sender role) | Preserve principal steering and treat every other sender as data.
+proto | proto:mail:round-transport | Protocol (Steering and resumed rounds) | Bind resumed briefs and watcher evidence to verified mail deliveries.
+sec | sec:mail:identity-and-directories | Identity and directories | Bind birth identity, configuration, routing and filesystem access.
+rule | rule:mail:worker-birth-name | Rule (Worker birth name) | Keep worker birth names stable and never reuse them.
+def | def:mail:loop-configuration | Definition (Loop configuration) | Define the loop-owned worker directory and directed whitelist in one TOML file.
+proto | proto:mail:resolve | Protocol (Recipient resolution) | Resolve through the two directories and enforce the worker estate boundary.
+rule | rule:mail:ownership | Rule (Ownership and confinement) | Isolate subordinate actors and establish delivery provenance through the journal.
+rule | rule:mail:box-mount | Rule (Worker box mount) | Expose only the worker mailbox at the confined read-write mount.
+ansatz | ansatz:mail:discretionary-modes | Ansatz (Filesystem-only provenance) | Reject filesystem-only provenance and implicit privileged host machinery.
+sec | sec:mail:delivery-service | Delivery service | Specify service responsibility, order, transactions and recovery.
+def | def:mail:service | Definition (Service responsibility) | Assign delivery to one host service and unit.
+rule | rule:mail:delivery-order | Rule (Delivery order and clock) | Order each sender by slug and serialize unique real UTC milliseconds.
+proto | proto:mail:deliver | Protocol (Delivery transaction) | Publish journaled temporaries through durable atomic renames.
+inv | inv:mail:delivery-recovery | Invariant (Recovery preserves one delivery) | Decide publication from the temporary witness without consulting inbox survival.
+def | def:mail:records | Definition (Service records) | Retain service-owned delivery metadata, watermark and recovery staging.
+def | def:mail:retention-constants | Definition (Retention constants) | Declare journal, staging, checkpoint and pruning bounds.
+rule | rule:mail:retention | Rule (Bounded records and staging retention) | Compact eligible evidence and apply backpressure before capacity is exhausted.
+rule | rule:mail:refusal | Rule (Visible refusal) | Retain undeliverable letters with attributable reasons and a retry route.
+sec | sec:mail:notice-and-cutover | Notice, waiting and cutover | Specify observation and the one-time replacement of old correspondence.
+rule | rule:mail:notice | Rule (Loop notice) | Emit only the fixed one-line arrival notice.
+proto | proto:mail:watch | Protocol (Inbox watcher) | Wait on ordinary filesystem events and reconcile by listing.
+proto | proto:mail:migration | Protocol (One-time migration) | Move every legacy letter into read history without retaining an old reader.
+sec | sec:mail:implementation-contract | Implementation contract | Collect tools obligations and their evidence.
+req | req:mail:service-and-unit | Requirement (Delivery core and user unit) | Require the delivery core and subordinate user-unit boundary.
+req | req:mail:loop-birth | Requirement (Loop mail at birth) | Require mail folders and initial configuration at loop birth.
+req | req:mail:worker-birth | Requirement (Worker birth in the lane launcher) | Require names and folders before worker launch, preserving lifecycle identity.
+req | req:mail:box-mount | Requirement (Confined box mount) | Expose only the worker mailbox at the confined read-write mount.
+req | req:mail:notice-and-wait | Requirement (Notice and ordinary waiting) | Require notice-only hooks and ordinary inbox observation.
+req | req:mail:migration-command | Requirement (Migration command) | Require verifiable conversion, rollback and transport retirement.
+req | req:mail:round-transport | Requirement (Round transport over mail) | Require resumed and in-round steering with retained driver evidence.
+req | req:mail:name-alignment | Requirement (Registry and mail name alignment) | Require one shared validator contract without narrower mail names.
+req | req:mail:records-recovery-retention | Requirement (Records recovery and retention) | Assign journal provenance, restart and bounded retention to one persistence lane.
+req | req:mail:inbox-publication | Requirement (Journaled inbox publication) | Assign durable same-filesystem publication to one adapter lane.
+req | req:mail:legacy-entry-retirement | Requirement (Legacy loop entry retirement) | Remove obsolete loop entry handlers and reserved words.
+reg | reg:mail:tools-conformance | Register (Tools conformance) | Index the labelled requirements for implementation consumers.
+```
+
 ## Hook state-machines outline · `sec:assembly:hooks-outline`
 
 Part: `docs/spec/hooks.md`. It models both deployed hook machines as states, inputs, transitions, outputs, persistence, timing bounds, deduplication, exceptional paths, and fail-open behavior.
 
 ```text
-rule | rule:hooks:letters-context | Rule (Letters context) | Define the stateless bounded inbox tail as the second notification route, without delivery receipts.
+rule | rule:hooks:letters-context | Rule (Mail notice) | Emit only the one-line arrival notice at the existing hook positions.
 sec | sec:hooks:scope | Scope | Delimit hook behavior from orchestration policy and worker lifecycle.
 sec | sec:hooks:shared-machine-contract | Shared machine contract | Organize graph representation, inputs, persistence, outputs, and safety posture.
 sec | sec:hooks:orchestration-injection | Orchestration injection | Organize the top-level rulebook injection state machine.
@@ -306,5 +356,5 @@ def | def:conformance:burn-ratchet | Definition (Burn ratchet) | Define an exact
 proto | proto:conformance:server-verification-loop | Protocol (Server verification loop) | Run format, lint, and scoped tests on reviewed source and return the evidence tail for correction.
 rule | rule:conformance:server-green-is-advisory | Rule (Server-green is advisory) | Prevent a successful server loop from substituting for the trusted release verdict.
 gate | gate:conformance:trusted-release | Gate (Trusted release) | Require reviewed source, all adopted checks, server evidence, and final host verification.
-gate | gate:conformance:specification-conformance | Gate (Specification conformance) | Require the seven-part generic publication and the applicable imported adoption contracts to satisfy their conformance conditions.
+gate | gate:conformance:specification-conformance | Gate (Specification conformance) | Require the generic publication and the applicable imported adoption contracts to satisfy their conformance conditions.
 ```

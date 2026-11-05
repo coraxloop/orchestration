@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [0.1.3] - 2026-11-05
+
+### Added
+
+- The superloop mail system replaces letters with opaque file delivery for loops and stably named workers, loop-owned routing and whitelists, notice-only hooks, a one-time migration and a tools conformance register (`spec:mail:superloop-mail-system`).
+
+### Changed
+
+- The rulebook's tone, manners and attention paragraphs and its roadmap are tightened so the instance render stays within its size bound (`preview:orch:which-part-to-read`).
+
 ## [0.1.2] - 2026-11-02
 
 ### Changed
@@ -36,7 +46,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Installation maps and fictional instance templates under `docs/examples/`.
 - GPL-3.0-or-later code and configuration and CC0-1.0 documents, with no backwards compatibility before 1.0.
 
-[Unreleased]: https://github.com/coraxloop/orchestration/compare/v0.1.2...HEAD
+[Unreleased]: https://github.com/coraxloop/orchestration/compare/v0.1.3...HEAD
+[0.1.3]: https://github.com/coraxloop/orchestration/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/coraxloop/orchestration/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/coraxloop/orchestration/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/coraxloop/orchestration/releases/tag/v0.1.0

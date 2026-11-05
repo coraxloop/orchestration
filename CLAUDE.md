@@ -16,6 +16,10 @@ Rules and internal documents are stated timelessly and on their merits. Git's au
 
 A Markdown paragraph is one line, and so is each list item and table row; the viewer soft-wraps it. Prose is never hard-wrapped, a legacy-wrapped paragraph is reflowed when touched, and formatting is the toolchain's job rather than a hand-maintained artifact.
 
+**Convention (Default human presentation format)** · `conv:environment:default-human-presentation-format`
+
+A document made for a human to read (a report, a comparison, a plan, a rendered view of data) is delivered as one standalone HTML file saved to the host's downloads folder, `~/Downloads`, and never as a harness artifact or a hosted page: the file opens in any browser, carries its styles, scripts and data inline so it needs no server, lands where the human already looks, and stays under the loop's own custody, whereas an artifact is published on a service the estate does not operate and lives by that service's rules. A Markdown document that belongs in a repository is the other form, and an answer in the conversation needs neither.
+
 **Requirement (Wall time is measured and reported)** · `req:environment:wall-time-reported`
 
 Every action reports its duration: tests, gates, builds, scripts and lanes, with per-step wall times in reports (a `time` prefix, lane timers, report contracts and `duration_ms` all count). An action that did not report how long it took is a process defect, reported as a finding and fixed in the harness or script, and a duration regression is a finding like any other regression.
