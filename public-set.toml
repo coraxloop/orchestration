@@ -350,6 +350,9 @@ pattern = "meson.options"
 [[include.rows]]
 pattern = "public-set.toml"
 
+[[include.rows]]
+pattern = "tests/test_labels_record.py"
+
 [public]
 licence_code = "LICENSE-CODE"
 licence_docs = "LICENSE-DOCS"

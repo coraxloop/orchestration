@@ -18,6 +18,14 @@ Slice workers start with the contributing guide (`guide:contributing:orchestrati
 
 The linter from `superloop-tools` checks the label discipline: every label has one mint, every citation resolves, and document headings conform to their declared environment kinds. The repository's declarations also account for its files and check that the assembled specification agrees with its parts.
 
+## Build identity · `sec:publicorchestration:build-identity`
+
+Meson uses the deployed `superloop-lint` and `superloop-install` commands, with `git` for the source commit and `python3` for the record contract test. Supply `-Dtools_private_dir=PATH` for the directory containing the private `build-sync` helper; the default is the configured prefix and libexec directory followed by `superloop`. The build has no pack invocation; publication uses `superloop-pack` separately. The fictional instance Meson layer declares no program targets or helper lookups.
+
+The label export has exactly one configured program row in ``dependency-ledger.jsonl``. Its non-Cargo version authority is ``meson.build``'s script roster, using the build-sync shell form for generated output: package and release group `orchestration`, identity ``share/orchestration/labels.toml``, and the project's release version. The record beside ``labels.toml`` binds its digest, producer version, execution domain and source commit to that identity. A new commit or checkout reconfigures the build through Git's HEAD and branch ref, so the record names the checked-out commit. The install map consumes the export and verifies its record; staged installation permits a domain mismatch and reports it, while live installation enforces the declared server domain.
+
+The Meson lint suite tests the built export's record, repeated-record stability and named refusals for absent, duplicate and inconsistent identities. Invalid identity tests assert the diagnostic text as well as failure and absence of a record. The instance estate's separate build must declare its own generated identities when it produces them.
+
 ## Versioning · `sec:publicorchestration:versioning`
 
 Minor releases introduce big new features; patch releases cover everything else, including corrections and documentation changes. There is no 1.0 release planned. Backwards compatibility is explicitly excluded: every release may change the rules, labels, maps or template formats. Compatibility code for an earlier shape is a defect. The [changelog](CHANGELOG.md) records each release.

@@ -51,3 +51,8 @@ pattern = '( %s"docs/proposals" [ "/" *VCHAR ] / %s"docs/reference" [ "/" *VCHAR
 name = "instance-templates"
 owner = "EXAMPLES"
 pattern = '%s"docs/examples" [ "/" *VCHAR ]'
+
+[[partitions]]
+name = "build-tests"
+owner = "ORCHESTRATION"
+pattern = '%s"tests" [ "/" *VCHAR ]'

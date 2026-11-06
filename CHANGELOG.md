@@ -12,6 +12,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Changed
 
+- The generic build uses deployed command names and an explicit private helper directory, restores the label export's ledger-backed build record and installation, and tests record identity and named refusals (`sec:publicorchestration:build-identity`).
+
 - The CoreOS recipe and root-full requirements share one confined administering login, home-local loop work and explicit route and firmware choices; first-boot policy, deployment probes and recovery distinguish recorded results from unperformed acceptance (`sec:rootserver:the-account-model`), (`reg:rootserver:recorded-fcos-probe-basis`).
 
 - Root-full servers use the latest Fedora CoreOS stable release on the stable stream with confined logins, declarative installation and a declared update window; dated Silverblue measurements retain their historical scope (`sec:rootserver:platform-baseline`).
