@@ -64,7 +64,9 @@ The superloop mail system is the estate's single correspondence channel for loop
 
 **Roadmap (Which part to read)** · `preview:orch:which-part-to-read`
 
-Read the relevant part of `~/.local/share/orchestration/spec/` (`spec.md` and its parts: mail, dispatch, hooks, lanes, server, deployment, conformance, architecture) before acting. Reading order: (`guide:publicorchestration:orchestration`). Tools: `~/.local/share/superloop-tools/docs/spec/`.
+Read the relevant part of `~/.local/share/orchestration/spec/` before acting. Reading order: (`guide:publicorchestration:orchestration`). Tools: `~/.local/share/superloop-tools/docs/spec/`.
+
+Authority (`spec:architecture:architecture-and-authority`); supervision (`spec:dispatch:dispatch-and-supervision`); callbacks (`spec:hooks:hook-state-machines`); workers (`spec:lanes:worker-lane-lifecycle`); mail delivery; server trust; deployment topology; conformance evidence.
 
 {{overlay:sec:oper:orchestrator-documents}}
 {{overlay:sec:oper:superloop-name-and-door}}
