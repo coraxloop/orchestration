@@ -16,6 +16,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Changed
 
+- Dispatch names zero-offset civil timestamps among those refused by name, matching the hooks fixture boundary, and the hooks fixture matrix spells malformed-delay as one token (`rule:dispatch:timing-led-decisions`).
+
 - The rulebook roadmap gives a topic hint for each of the eight specification parts and cites the architecture, dispatch, hooks and lanes part heads, within the hook's bound as the production renderer measures it (`preview:orch:which-part-to-read`).
 
 - A template-suite test renders the rulebook through the production renderer over the fictional instance, or over an instance checkout named by `rulebook_instance_root`, under the hook's 9,500-byte bound and asserts the named refusal below it; the roadmap names its documentation folders in pointer form (`sec:contributing:verification`).
