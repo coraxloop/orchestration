@@ -12,6 +12,8 @@ The fictional [instance templates](docs/examples/README.md) illustrate those ove
 
 The companion repository [superloop-tools](https://github.com/coraxloop/superloop-tools) implements the tooling that reads these documents' labels and maps. Orchestration supplies the rules and shapes; its instance templates show how to supply the values for a particular installation.
 
+Slice workers start with the contributing guide (`guide:contributing:orchestration`), then read the backlog and its priorities register.
+
 ## Checking the documents · `sec:publicorchestration:checking-the-documents`
 
 The linter from `superloop-tools` checks the label discipline: every label has one mint, every citation resolves, and document headings conform to their declared environment kinds. The repository's declarations also account for its files and check that the assembled specification agrees with its parts.

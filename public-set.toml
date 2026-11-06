@@ -96,6 +96,9 @@ pattern = "ORCHESTRATION.md"
 pattern = "README.md"
 
 [[include.rows]]
+pattern = "CONTRIBUTING.md"
+
+[[include.rows]]
 pattern = "adr/011-environment-kinds.md"
 
 [[include.rows]]

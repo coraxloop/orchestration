@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Added
+
+- The contributing guide gives slice workers the repository workflow, declaration rules, node verification forms and working-step report contract (`guide:contributing:orchestration`).
+
 ### Changed
 
 - Producing workers run in boxes; work requiring an exception uses an in-harness subagent of the loop's session and records the friction (`rule:dispatch:producing-workers-run-in-boxes`).

@@ -25,7 +25,7 @@ pattern = '%s".linter" [ "/" *VCHAR ]'
 [[partitions]]
 name = "root-files"
 owner = "ORCHESTRATION"
-pattern = '( %s".gitignore" / %s"CHANGELOG.md" / %s"CLAUDE.md" / %s"LICENSE-CODE" / %s"LICENSE-DOCS" / %s"ORCHESTRATION.md" / %s"README.md" / %s"meson.build" / %s"meson.options" / %s"public-set.toml" )'
+pattern = '( %s".gitignore" / %s"CHANGELOG.md" / %s"CLAUDE.md" / %s"LICENSE-CODE" / %s"LICENSE-DOCS" / %s"ORCHESTRATION.md" / %s"README.md" / %s"CONTRIBUTING.md" / %s"meson.build" / %s"meson.options" / %s"public-set.toml" )'
 
 [[partitions]]
 name = "root-adrs"
