@@ -16,6 +16,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Changed
 
+- Mail distinguishes permanent worker birth names from reusable numeric uids, releasing a uid only after durable retirement and custody transfer (`rule:mail:worker-uid-lifetime`).
+
 - Mail defines the per-record serialized journal limit and distinguishes unavailable endpoints from unsafe storage, preserving pending accepted transactions (`def:mail:retention-constants`), (`rule:mail:refusal`).
 
 - The generic build uses deployed command names and an explicit private helper directory, restores the label export's ledger-backed build record and installation, and tests record identity and named refusals (`sec:publicorchestration:build-identity`).

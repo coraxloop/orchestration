@@ -12,7 +12,7 @@ The estate this backlog serves is becoming one where every producing worker runs
 
 |order|slice|rows|items, in order|depends on, and rows larger than one lane|held by|
 |-----|-----|----|---------------|-----------------------------------------|-------|
-|1|The whole generic backlog|9|(`prob:build:generic-documentation-installs-under-the-package-doc-root`), (`prob:build:generic-documents-install-natively`), (`open:mail:worker-uid-lifetime-stated`), (`prob:docs:todo-profile-admits-authored-backlog-heads`), (`prob:docs:rulebook-render-size-bound`), (`prob:docs:rulebook-roadmap-names-each-spec-part`), (`prob:docs:dispatch-rule-refuses-zero-offset-timestamps`), (`prob:build:burn-input-optional-for-the-public-tree`), (`prob:build:configure-says-which-lint-mode-it-selected`)|Reading: the slice work section (`sec:dispatch:slice-work`) for the exception rule and the contributing guide, the notes register of the estate's first root-full deploy, read as a whole, for the platform rows, and the estate's documentation-install decision for the install rows, which also settles the native install's map question. Bar: at each tip the generic gate on the root-full node, with the lint in public-pack mode over the burn input, the projection, the formatter and the Meson layer. The tools backlog's ``prob:linter:authored-todo-head-in-backlog-documents`` waits on the to-do profile's rule; the roadmap's topic hints use the headroom under the render bound, so the bound is settled first. No row is larger than one lane.|lane r002g83, the whole row|
+|1|The whole generic backlog|8|(`prob:build:generic-documentation-installs-under-the-package-doc-root`), (`prob:build:generic-documents-install-natively`), (`prob:docs:todo-profile-admits-authored-backlog-heads`), (`prob:docs:rulebook-render-size-bound`), (`prob:docs:rulebook-roadmap-names-each-spec-part`), (`prob:docs:dispatch-rule-refuses-zero-offset-timestamps`), (`prob:build:burn-input-optional-for-the-public-tree`), (`prob:build:configure-says-which-lint-mode-it-selected`)|Reading: the slice work section (`sec:dispatch:slice-work`) for the exception rule and the contributing guide, the notes register of the estate's first root-full deploy, read as a whole, for the platform rows, and the estate's documentation-install decision for the install rows, which also settles the native install's map question. Bar: at each tip the generic gate on the root-full node, with the lint in public-pack mode over the burn input, the projection, the formatter and the Meson layer. The tools backlog's ``prob:linter:authored-todo-head-in-backlog-documents`` waits on the to-do profile's rule; the roadmap's topic hints use the headroom under the render bound, so the bound is settled first. No row is larger than one lane.|lane r002g83, the whole row|
 
 ## Charter · `sec:genericbacklog:charter`
 
@@ -53,10 +53,6 @@ An item's area is the subject of what must change to discharge it, and the secti
 ## Open work · `sec:genericbacklog:open-work`
 
 ### The mail specification · `sec:genericbacklog:open-mail`
-
-**Open Question (Whether the mail specification states a worker uid's lifetime)** · `open:mail:worker-uid-lifetime-stated`
-
-**OPEN.** (2026-11-03 15:55Z, from lane r002g76's c06 review K1) Worker uids are recycled at retirement after custody transfer, while the specification states only that worker birth names are never reused (`rule:mail:worker-birth-name`); whether it states the uid's lifetime explicitly is open, and the tools' retirement operation, which recycles the uid after custody transfer, landed in tools v0.4.0.
 
 ### The division of documents · `sec:genericbacklog:open-estate`
 
