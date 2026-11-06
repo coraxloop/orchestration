@@ -37,6 +37,8 @@ meson test -C "$BUILDDIR" --suite lint --suite template --print-errorlogs
 git diff --check
 ```
 
+Before importing a generic shape into an instance, configure with ``-Drulebook_instance_root=/path/to/instance-checkout`` and run the template suite. The render-bound test invokes the production renderer with that instance's render target, reports the UTF-8 byte length and verifies the named `rendered_size` refusal one byte below the render without publishing overlay contents. An empty option checks the fictional instance only and is not evidence for a real instance. The bound is the hook's 9,500 bytes (`rule:hooks:rulebook-size-bound`).
+
 The assembly write precedes the final checks and commit. Keep staged installs in the letter's temporary root, not in a live prefix. If the deployed tools refuse a shape they predate, report the exact mismatch; do not add compatibility aliases or change an unrelated build contract to hide it. For a base failure, retain the same-test base and tip results; for a load retry, retain the rerun evidence and use the letter's classification rule.
 
 ## Close and report · `sec:contributing:close-and-report`

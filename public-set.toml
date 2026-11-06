@@ -354,6 +354,9 @@ pattern = "public-set.toml"
 pattern = "tests/test_labels_record.py"
 
 [[include.rows]]
+pattern = "tests/test_rulebook_render.py"
+
+[[include.rows]]
 pattern = "docs/README.md"
 
 [[include.rows]]

@@ -16,6 +16,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Changed
 
+- A template-suite test renders the rulebook through the production renderer over the fictional instance, or over an instance checkout named by `rulebook_instance_root`, under the hook's 9,500-byte bound and asserts the named refusal below it; the roadmap names its documentation folders in pointer form (`sec:contributing:verification`).
+
 - The to-do profile admits authored To-do heads on explicitly declared backlog surfaces, with disjoint source and authored censuses, collision refusals and permanent existing Problem identities (`conv:todos:authored-backlog`).
 
 - Mail distinguishes permanent worker birth names from reusable numeric uids, releasing a uid only after durable retirement and custody transfer (`rule:mail:worker-uid-lifetime`).

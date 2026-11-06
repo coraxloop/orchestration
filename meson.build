@@ -80,7 +80,7 @@ linter_paths = [
   '.linter/shape.toml',
   'docs/public/unpublished-labels.toml',
 ]
-root_paths = ['.gitignore', 'CHANGELOG.md', 'CLAUDE.md', 'LICENSE-CODE', 'LICENSE-DOCS', 'ORCHESTRATION.md', 'README.md', 'CONTRIBUTING.md', 'maps/generic-map.toml', 'public-set.toml', 'tests/test_labels_record.py']
+root_paths = ['.gitignore', 'CHANGELOG.md', 'CLAUDE.md', 'LICENSE-CODE', 'LICENSE-DOCS', 'ORCHESTRATION.md', 'README.md', 'CONTRIBUTING.md', 'maps/generic-map.toml', 'public-set.toml', 'tests/test_labels_record.py', 'tests/test_rulebook_render.py']
 example_subject_paths = []
 example_relative_subjects = []
 foreach path : example_names_paths
@@ -164,6 +164,12 @@ foreach map_name : ['routine-map', 'tools-map', 'install-map']
   test(map_name + '-first', installer, args: map_args, env: {'DESTDIR': stage_root}, workdir: source_root, suite: 'template', timeout: 120, is_parallel: false, priority: 10)
   test(map_name + '-again', installer, args: map_args, env: {'DESTDIR': stage_root}, workdir: source_root, suite: 'template', timeout: 120, is_parallel: false, priority: 0)
 endforeach
+
+# The production renderer checks both the public fixture and an explicitly
+# supplied instance, without copying private overlay values into this tree.
+test('rulebook-render-bound', python3,
+  args: [files('tests/test_rulebook_render.py'), installer.full_path(), source_root, get_option('rulebook_instance_root')],
+  suite: 'template', timeout: 120, is_parallel: false)
 
 install_args = ['--map', source_root / 'maps/generic-map.toml', '--build-root', build_root]
 if release_tag != ''

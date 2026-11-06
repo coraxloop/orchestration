@@ -12,7 +12,7 @@ The estate this backlog serves is becoming one where every producing worker runs
 
 |order|slice|rows|items, in order|depends on, and rows larger than one lane|held by|
 |-----|-----|----|---------------|-----------------------------------------|-------|
-|1|The whole generic backlog|7|(`prob:build:generic-documentation-installs-under-the-package-doc-root`), (`prob:build:generic-documents-install-natively`), (`prob:docs:rulebook-render-size-bound`), (`prob:docs:rulebook-roadmap-names-each-spec-part`), (`prob:docs:dispatch-rule-refuses-zero-offset-timestamps`), (`prob:build:burn-input-optional-for-the-public-tree`), (`prob:build:configure-says-which-lint-mode-it-selected`)|Reading: the slice work section (`sec:dispatch:slice-work`) for the exception rule and the contributing guide, the notes register of the estate's first root-full deploy, read as a whole, for the platform rows, and the estate's documentation-install decision for the install rows, which also settles the native install's map question. Bar: at each tip the generic gate on the root-full node, with the lint in public-pack mode over the burn input, the projection, the formatter and the Meson layer. The tools backlog's ``prob:linter:authored-todo-head-in-backlog-documents`` waits on the to-do profile's rule; the roadmap's topic hints use the headroom under the render bound, so the bound is settled first. No row is larger than one lane.|lane r002g83, the whole row|
+|1|The whole generic backlog|6|(`prob:build:generic-documentation-installs-under-the-package-doc-root`), (`prob:build:generic-documents-install-natively`), (`prob:docs:rulebook-roadmap-names-each-spec-part`), (`prob:docs:dispatch-rule-refuses-zero-offset-timestamps`), (`prob:build:burn-input-optional-for-the-public-tree`), (`prob:build:configure-says-which-lint-mode-it-selected`)|Reading: the slice work section (`sec:dispatch:slice-work`) for the exception rule and the contributing guide, the notes register of the estate's first root-full deploy, read as a whole, for the platform rows, and the estate's documentation-install decision for the install rows, which also settles the native install's map question. Bar: at each tip the generic gate on the root-full node, with the lint in public-pack mode over the burn input, the projection, the formatter and the Meson layer. The tools backlog's ``prob:linter:authored-todo-head-in-backlog-documents`` waits on the to-do profile's rule; the roadmap's topic hints use the headroom under the render bound, so the bound is settled first. No row is larger than one lane.|lane r002g83, the whole row|
 
 ## Charter · `sec:genericbacklog:charter`
 
@@ -81,16 +81,6 @@ This form meets the native install (`prob:build:generic-documents-install-native
 ### Linter declarations · `sec:genericbacklog:open-linter`
 
 ### Documents · `sec:genericbacklog:open-docs`
-
-**Problem (the orchestrator rulebook render sits just under the hook's size bound)** · `prob:docs:rulebook-render-size-bound`
-
-**OPEN.** The render sat 30 bytes under its 9,500-byte bound when this was recorded and has not been checked against the tree since; what remains is moving the generic register's long path register into the pointer form or raising the bound with a measured reason, and a generic gate that renders the instance shape so a breaking change is red before import.
-
-the orchestrator rulebook render sits 30 bytes under its 9,500-byte bound (2026-10-21T23:05:09Z): the generic shape ORCHESTRATION.md grew 148 bytes at 870be3c2 (its line 53 names the tools publication homes) and rulebook-install refused the instance render (reason rendered_size) until the instance register lines were trimmed four times (rabe rulebooks/orchestration.md 4,464 to 4,356 bytes; render 9,470). The bound is the hook's (rule:hooks:rulebook-size-bound); the next sentence added to either shape breaks the render again. Proper fix: the generic rulebook's register moves its long path register into the pointer form (the layout of record names the folders), or the bound rises with a measured reason; and the generic gate renders the instance shape so a generic change that breaks the render is red before import.
-
-(2026-11-04, from lane r002g77's review f19) After the watcher rule's rewrite the render measures 9,127 of 9,500 bytes; the tools backlog carries the renderer's one citation form (``prob:build:rulebook-render-emits-one-citation-form``).
-
-(2026-11-06, from lane r002g83's review) The roadmap's citation of the package reading guide adds 74 bytes: the deployed ``superloop-install`` renders the estate overlay over this shape at 9,467 of 9,500 bytes, against 9,393 at the preceding base, staged into a scratch root with the bound of the estate's tools map.
 
 **Problem (the dispatch rule on refused timestamps does not name the zero-offset form)** · `prob:docs:dispatch-rule-refuses-zero-offset-timestamps`
 
