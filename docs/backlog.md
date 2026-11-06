@@ -12,7 +12,7 @@ The estate this backlog serves is becoming one where every producing worker runs
 
 |order|slice|rows|items, in order|depends on, and rows larger than one lane|held by|
 |-----|-----|----|---------------|-----------------------------------------|-------|
-|1|The whole generic backlog|10|(`prob:build:generic-documentation-installs-under-the-package-doc-root`), (`prob:build:generic-documents-install-natively`), (`open:mail:per-record-maximum-and-unavailable-endpoint-code`), (`open:mail:worker-uid-lifetime-stated`), (`prob:docs:todo-profile-admits-authored-backlog-heads`), (`prob:docs:rulebook-render-size-bound`), (`prob:docs:rulebook-roadmap-names-each-spec-part`), (`prob:docs:dispatch-rule-refuses-zero-offset-timestamps`), (`prob:build:burn-input-optional-for-the-public-tree`), (`prob:build:configure-says-which-lint-mode-it-selected`)|Reading: the slice work section (`sec:dispatch:slice-work`) for the exception rule and the contributing guide, the notes register of the estate's first root-full deploy, read as a whole, for the platform rows, and the estate's documentation-install decision for the install rows, which also settles the native install's map question. Bar: at each tip the generic gate on the root-full node, with the lint in public-pack mode over the burn input, the projection, the formatter and the Meson layer. The tools backlog's ``prob:linter:authored-todo-head-in-backlog-documents`` waits on the to-do profile's rule; the roadmap's topic hints use the headroom under the render bound, so the bound is settled first. No row is larger than one lane.|lane r002g83, the whole row|
+|1|The whole generic backlog|9|(`prob:build:generic-documentation-installs-under-the-package-doc-root`), (`prob:build:generic-documents-install-natively`), (`open:mail:worker-uid-lifetime-stated`), (`prob:docs:todo-profile-admits-authored-backlog-heads`), (`prob:docs:rulebook-render-size-bound`), (`prob:docs:rulebook-roadmap-names-each-spec-part`), (`prob:docs:dispatch-rule-refuses-zero-offset-timestamps`), (`prob:build:burn-input-optional-for-the-public-tree`), (`prob:build:configure-says-which-lint-mode-it-selected`)|Reading: the slice work section (`sec:dispatch:slice-work`) for the exception rule and the contributing guide, the notes register of the estate's first root-full deploy, read as a whole, for the platform rows, and the estate's documentation-install decision for the install rows, which also settles the native install's map question. Bar: at each tip the generic gate on the root-full node, with the lint in public-pack mode over the burn input, the projection, the formatter and the Meson layer. The tools backlog's ``prob:linter:authored-todo-head-in-backlog-documents`` waits on the to-do profile's rule; the roadmap's topic hints use the headroom under the render bound, so the bound is settled first. No row is larger than one lane.|lane r002g83, the whole row|
 
 ## Charter · `sec:genericbacklog:charter`
 
@@ -53,12 +53,6 @@ An item's area is the subject of what must change to discharge it, and the secti
 ## Open work · `sec:genericbacklog:open-work`
 
 ### The mail specification · `sec:genericbacklog:open-mail`
-
-**Open Question (Whether the mail specification declares its per-record maximum, and which refusal code names an unavailable endpoint)** · `open:mail:per-record-maximum-and-unavailable-endpoint-code`
-
-**OPEN.** (2026-11-03 09:05Z, from the review of lane r002g76's c02, F5) The specification declares the journal and staging bounds as constants but not the per-record maximum, which the implementation sets at 65,536 bytes to size the reserved scratch: the specification declares it, or states that it is an implementation constant.
-
-(from the review of lane r002g76's c01, F3) The refusal-code list has no code for an unavailable endpoint, with unsafe-storage and io-failure as the candidates; the delivery core reports the gap until the specification names one. Both parts are answered in the mail specification (`spec:mail:superloop-mail-system`), the first beside its retention constants (`def:mail:retention-constants`), the second in its visible-refusal rule (`rule:mail:refusal`).
 
 **Open Question (Whether the mail specification states a worker uid's lifetime)** · `open:mail:worker-uid-lifetime-stated`
 

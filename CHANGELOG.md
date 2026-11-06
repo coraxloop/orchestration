@@ -16,6 +16,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Changed
 
+- Mail defines the per-record serialized journal limit and distinguishes unavailable endpoints from unsafe storage, preserving pending accepted transactions (`def:mail:retention-constants`), (`rule:mail:refusal`).
+
 - The generic build uses deployed command names and an explicit private helper directory, restores the label export's ledger-backed build record and installation, and tests record identity and named refusals (`sec:publicorchestration:build-identity`).
 
 - The CoreOS recipe and root-full requirements share one confined administering login, home-local loop work and explicit route and firmware choices; first-boot policy, deployment probes and recovery distinguish recorded results from unperformed acceptance (`sec:rootserver:the-account-model`), (`reg:rootserver:recorded-fcos-probe-basis`).
