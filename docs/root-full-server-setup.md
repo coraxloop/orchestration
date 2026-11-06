@@ -1,5 +1,7 @@
 # Root-full server setup · `guide:rootserver:root-full-server-setup`
 
+Reading order and parent: (`guide:docnav:documentation`).
+
 This guide turns a fresh machine into a persistent, estate-controlled compute server without importing facts from any existing instance. Replace uppercase words such as `ACCOUNT`, `ALIAS`, `UID`, `TABLE`, and `PACKAGE` with values selected in the private server registry; never substitute endpoint coordinates into a repository document. The guide gives the safe order and acceptance probes, while the linked specifications remain authoritative.
 
 ## What a root-full server is · `sec:rootserver:what-a-root-full-server-is`

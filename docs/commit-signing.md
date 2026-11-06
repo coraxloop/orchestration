@@ -1,5 +1,7 @@
 # GPG keys and commit signing · `spec:signing:gpg-keys-and-commit-signing`
 
+Reading order and parent: (`guide:docnav:documentation`).
+
 A signed commit binds a change to a key, and a key is only evidence when its custody is narrow, its lifetime is short, and its loss has a rehearsed answer. This document fixes how superloops hold OpenPGP keys and sign git history: one keyring per superloop, a certify-only root with a single signing subkey, one-year lifetimes rotated on time or on a new host, revocation certificates written before the root's private half is destroyed, and the signing half destroyed when the key ends. It extends the per-repository identity rule (`inv:environment:git-identity-per-repository`), which already refuses a machine-wide identity and any assumption that loops share a forge account; a signing key is the same kind of fact as an identity or a forge credential, so it follows the same per-loop discipline.
 
 ## One keyring per superloop · `sec:signing:one-keyring-per-superloop`

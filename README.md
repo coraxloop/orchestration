@@ -37,3 +37,16 @@ We thank the Torrust developers for the tooling that this philosophy grew beside
 ## Licensing · `sec:publicorchestration:licensing`
 
 Code and configuration are licensed under the GNU General Public License version 3 or any later version (`GPL-3.0-or-later`); see `LICENSE-CODE`. Documents are licensed under CC0 1.0 Universal (`CC0-1.0`); see `LICENSE-DOCS`. Third-party notices retain their own terms.
+
+## Documentation reading order · `sec:docnav:root-reading-order`
+
+The documentation entry in the orchestrator rulebook is (`preview:orch:which-part-to-read`).
+
+|Read in order|Label|
+|-------------|-----|
+|[Contributing to orchestration](CONTRIBUTING.md)|(`guide:contributing:orchestration`)|
+|[ORCHESTRATION.md](ORCHESTRATION.md)|(`spec:orch:repository-orchestration-policy`)|
+|[Environment (applies to every project on this machine)](CLAUDE.md)|(`spec:environment:global-project-environment`)|
+|[Documentation reading order](docs/README.md)|(`guide:docnav:documentation`)|
+|[Corpus Philosophy Records](adr/README.md)|(`reg:records:philosophy-records`)|
+|[Changelog](CHANGELOG.md)||

@@ -1,5 +1,7 @@
 ## Orchestrator documents · `sec:oper:orchestrator-documents`
 
+Reading order and parent: (`guide:examples:rulebooks`).
+
 **Register (Where the documents live)** · `reg:oper:document-locations`
 
 - The specification: `docs/spec.md` and its parts under `docs/spec/`, with the manifest `docs/spec/assembly.md`, in the loop's clone `/srv/example/example-user/projects/orchestration`.

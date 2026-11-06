@@ -1,5 +1,7 @@
 # Dispatch and supervision · `spec:dispatch:dispatch-and-supervision`
 
+Reading order and parent: (`reg:assembly:specification-assembly`).
+
 This part fixes the durable policy by which the orchestration system selects, authorizes, supervises, and closes worker assignments. It realizes the dispatch part accepted by the corpus owner (`dec:decisions:spec-concept-accepted`). Current roster membership, model and reasoning values, cadence intervals, and budget amounts remain owned registry data under (`rule:architecture:dynamic-facts-stay-in-registries`). This part instead fixes the constraints those values must satisfy and the evidence a dispatch must retain. Every label minted here has area `dispatch`.
 
 ## Scope · `sec:dispatch:scope`

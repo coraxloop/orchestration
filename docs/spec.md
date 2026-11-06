@@ -2,6 +2,8 @@
 
 # Architecture and authority · `spec:architecture:architecture-and-authority`
 
+Reading order and parent: (`reg:assembly:specification-assembly`).
+
 This part fixes the durable architecture of the orchestration system accepted by the corpus owner (`dec:decisions:spec-concept-accepted`). It specifies boundaries, authority, audiences, trust, and evidence flow; changing rosters, budgets, server identities, toolchain versions, and similar operating values remain in their owned registries. Every label minted here has area `architecture`.
 
 ## Purpose and boundary · `sec:architecture:purpose-and-boundary`
@@ -102,6 +104,16 @@ A worker's complete authority is the intersection of its harness charter chain a
 **Rule (Audience separation)** · `rule:architecture:audience-separation`
 
 Every instruction delivery mechanism must positively identify its audience before exposing content. The orchestrator rulebook is withheld from workers, subagents, and nonmatching harnesses; a worker charter is withheld from the orchestrator's policy surface and from workers of another harness; a brief is confined to its dispatch; and runbooks remain on-demand data rather than ambient prompt content. Hook filters, provider discovery rules, deployment copies, and repository-local instruction files must be audited as one delivery chain. A symlink, fallback discovery path, inherited prompt, or resume operation may not widen that chain.
+
+**Requirement (Documentation is reachable with a way back)** · `req:architecture:reachable-documentation`
+
+Every installed document is reachable from the rendered orchestrator rulebook by a chain of references and carries an explicit reference to its parent index, directory README or reading-order register. Following parents returns the reader to the rulebook; a cycle disconnected from that root does not count as a return path. A document with no forward route or no return route is an orphan and a lint error. Reachability describes available reading, not automatic instruction delivery: audience separation (`rule:architecture:audience-separation`) still governs what a session may receive or treat as authority.
+
+The rulebook's reading roadmap and document register point to the documentation root and package indexes, rather than listing all leaves inside the rulebook's render bound (`rule:hooks:rulebook-size-bound`). Each package index names its directory READMEs or reading-order registers and top-level documents; each directory entry point names its documents and child entry points in reading order. Every leaf names its parent, and sibling references may supplement that route. The complete generated inventory index and the authored reading order must agree on membership; neither replaces the other.
+
+Use label citations when the target participates in the citing corpus or its declared imports, and relative links for unlabelled material or a separate corpus whose labels are not imported. Relative links resolve in the selected installed layout, not just in the checkout. A source example with its own owner links back to its enclosing collection without inventing an imported label. Generated publications retain their authored navigation; quoted evidence has a navigation wrapper that leaves the evidence unchanged. A parent reference is navigation, not an instruction to load another audience's rulebook.
+
+The corpus owner maintains the references and selected-document inventory; the tools linter checks resolved edges, reachability and parent return paths, and publication or installation refuses an orphan. Evidence names the exact inventory, roots and source revision checked. Existing citation resolution alone proves that named edges resolve, not that the graph is connected. The full graph checker and staged installation acceptance are separate implementation obligations; adding these source references does not claim that either has run.
 
 ## Harness boundaries · `sec:architecture:harness-boundaries`
 
@@ -293,6 +305,8 @@ Specification publication is blocked until the authority-matrix verification (`v
 The gate also requires evidence for both failure scenarios, equivalent review outcomes from both harness boundaries, stable external command contracts, and a trusted verdict over the exact reviewed publication source. A server-green run or clean prose check is necessary evidence where applicable, but neither substitutes for this host-side architecture verdict.
 
 # Dispatch and supervision · `spec:dispatch:dispatch-and-supervision`
+
+Reading order and parent: (`reg:assembly:specification-assembly`).
 
 This part fixes the durable policy by which the orchestration system selects, authorizes, supervises, and closes worker assignments. It realizes the dispatch part accepted by the corpus owner (`dec:decisions:spec-concept-accepted`). Current roster membership, model and reasoning values, cadence intervals, and budget amounts remain owned registry data under (`rule:architecture:dynamic-facts-stay-in-registries`). This part instead fixes the constraints those values must satisfy and the evidence a dispatch must retain. Every label minted here has area `dispatch`.
 
@@ -689,6 +703,8 @@ A Sonnet watcher may close only its declared observation assignment and report; 
 
 # Superloop mail system · `spec:mail:superloop-mail-system`
 
+Reading order and parent: (`reg:assembly:specification-assembly`).
+
 The superloop mail system is the single correspondence system for every loop and every worker on a host. It replaces the letters system, including its separate worker transport. This part owns mail identity, storage, delivery and notification; dispatch and instruction authority remain with (`rule:architecture:charter-plus-brief`) and (`rule:architecture:audience-separation`). Every label minted here has area `mail`.
 
 ## Domain and names · `sec:mail:domain-and-names`
@@ -956,6 +972,8 @@ Each row is one independently reviewable implementation lane with one owning bou
 |(`req:mail:legacy-entry-retirement`)|Loop-home entry parser|Retire legacy letters commands, reserved words and metadata interfaces.|
 
 # Hook state machines · `spec:hooks:hook-state-machines`
+
+Reading order and parent: (`reg:assembly:specification-assembly`).
 
 This part realizes the hook-machine outline (`sec:assembly:hooks-outline`). It specifies the two deployed callbacks as total transition systems whose observable decisions, state changes, timing bounds, and recovery behavior can be carried unchanged into a direct graph implementation. Every label minted here has area `hooks`.
 
@@ -1348,6 +1366,8 @@ For a replacement, observational equivalence includes top-level audience filteri
 
 # Worker-lane lifecycle · `spec:lanes:worker-lane-lifecycle`
 
+Reading order and parent: (`reg:assembly:specification-assembly`).
+
 This part realizes the worker-lane lifecycle outline (`sec:assembly:lanes-outline`). It specifies the durable execution contract from creation of a Codex lane, through gated resumes, work and verification, to observation, recovery, and terminal evidence. Every label minted here has area `lanes`.
 
 ## Scope · `sec:lanes:scope`
@@ -1692,6 +1712,8 @@ A worker assertion, growing event stream, successful Sonnet watcher observation,
 
 # Server execution and trust · `spec:server:server-execution-and-trust`
 
+Reading order and parent: (`reg:assembly:specification-assembly`).
+
 This part fixes the durable constraints for shared server execution and the review path by which its results return to trusted host state. It realizes the server outline (`sec:assembly:server-outline`) and refines the architectural trust direction without freezing mutable operating facts. Current aliases, identities, capacities, versions, storage selections, and authentication material remain registry data, as required by (`rule:architecture:dynamic-facts-stay-in-registries`). Every label minted here has area `server`.
 
 ## Scope · `sec:server:scope`
@@ -1955,6 +1977,8 @@ The verdict is recorded on reviewed host state in accordance with (`inv:architec
 
 # Build and deployment topology · `spec:deployment:build-and-deployment-topology`
 
+Reading order and parent: (`reg:assembly:specification-assembly`).
+
 This part specifies the agent execution environment and the orchestrator's selection of execution domains, containers, scheduling priority and routine toolchains (`sec:assembly:deployment-outline`). Tool construction, installation, managed-copy semantics and deployment evidence belong to (`[TOOLS-spec:deployment:tool-build-and-install-contracts]`). Every label minted here has area `deployment`.
 
 ## Scope · `sec:deployment:scope`
@@ -2000,6 +2024,8 @@ Routine Rust development, meaning every routine build, test, gate, and formatter
 `cargo fmt` resolves through the cargo home's `bin` shims before `PATH`, so inside a toolbox it can run a different rustfmt than the one on `PATH`. Recipes therefore invoke the binary form `cargo-fmt`, which resolves the formatter on `PATH` deterministically.
 
 # Conformance and evidence · `spec:conformance:conformance-and-evidence`
+
+Reading order and parent: (`reg:assembly:specification-assembly`).
 
 This part governs the connection between normative claims and reproducible evidence, the standing of the participating corpus, the generic specification assembly, and trusted verification (`sec:assembly:conformance-outline`). Linter construction and verification contracts belong to the tools specification (`[TOOLS-spec:conformance:linter-conformance]`); its census and frontier campaign are historical adoption evidence, not measurements of this repository. Every label minted here has area `conformance`.
 

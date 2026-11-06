@@ -1,5 +1,7 @@
 # Hook state machines · `spec:hooks:hook-state-machines`
 
+Reading order and parent: (`reg:assembly:specification-assembly`).
+
 This part realizes the hook-machine outline (`sec:assembly:hooks-outline`). It specifies the two deployed callbacks as total transition systems whose observable decisions, state changes, timing bounds, and recovery behavior can be carried unchanged into a direct graph implementation. Every label minted here has area `hooks`.
 
 ## Scope · `sec:hooks:scope`

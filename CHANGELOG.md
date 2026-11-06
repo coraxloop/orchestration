@@ -1,5 +1,7 @@
 # Changelog
 
+Reading order and parent: (`guide:publicorchestration:orchestration`).
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -7,6 +9,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 ## [Unreleased]
 
 ### Added
+
+- The architecture requires documentation reachability and parent return paths; generic directory indexes and upward references provide the authored navigation (`req:architecture:reachable-documentation`).
 
 - The contributing guide gives slice workers the repository workflow, declaration rules, node verification forms and working-step report contract (`guide:contributing:orchestration`).
 

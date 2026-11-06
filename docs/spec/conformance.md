@@ -1,5 +1,7 @@
 # Conformance and evidence · `spec:conformance:conformance-and-evidence`
 
+Reading order and parent: (`reg:assembly:specification-assembly`).
+
 This part governs the connection between normative claims and reproducible evidence, the standing of the participating corpus, the generic specification assembly, and trusted verification (`sec:assembly:conformance-outline`). Linter construction and verification contracts belong to the tools specification (`[TOOLS-spec:conformance:linter-conformance]`); its census and frontier campaign are historical adoption evidence, not measurements of this repository. Every label minted here has area `conformance`.
 
 ## Scope · `sec:conformance:scope`

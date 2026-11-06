@@ -1,5 +1,7 @@
 # Backlog of the generic repository · `plan:genericbacklog:orchestration-backlog`
 
+Reading order and parent: (`guide:docnav:documentation`).
+
 This backlog holds the open work that a change to this repository discharges: the specification, the rulebooks, the generic documents, the examples and the kind registry, with the Meson layer and the linter declarations that carry them. It holds open work only, and every item keeps the label it was minted with for life: the kind of the label says what the item is, and the first word of its first paragraph says where the item stands.
 
 ## Priorities · `sec:genericbacklog:priorities`
@@ -10,7 +12,7 @@ The estate this backlog serves is becoming one where every producing worker runs
 
 |order|slice|rows|items, in order|depends on, and rows larger than one lane|held by|
 |-----|-----|----|---------------|-----------------------------------------|-------|
-|1|The whole generic backlog|11|(`prob:build:generic-documentation-installs-under-the-package-doc-root`), (`prob:docs:documentation-graph-requirement-in-the-architecture-part`), (`prob:build:generic-documents-install-natively`), (`open:mail:per-record-maximum-and-unavailable-endpoint-code`), (`open:mail:worker-uid-lifetime-stated`), (`prob:docs:todo-profile-admits-authored-backlog-heads`), (`prob:docs:rulebook-render-size-bound`), (`prob:docs:rulebook-roadmap-names-each-spec-part`), (`prob:docs:dispatch-rule-refuses-zero-offset-timestamps`), (`prob:build:burn-input-optional-for-the-public-tree`), (`prob:build:configure-says-which-lint-mode-it-selected`)|Reading: the slice work section (`sec:dispatch:slice-work`) for the exception rule and the contributing guide, the notes register of the estate's first root-full deploy, read as a whole, for the platform rows, and the estate's documentation-install decision for the install rows, which also settles the native install's map question. Bar: at each tip the generic gate on the root-full node, with the lint in public-pack mode over the burn input, the projection, the formatter and the Meson layer. The tools backlog's ``prob:linter:authored-todo-head-in-backlog-documents`` waits on the to-do profile's rule; the roadmap's topic hints use the headroom under the render bound, so the bound is settled first. No row is larger than one lane.|lane r002g83, the whole row|
+|1|The whole generic backlog|10|(`prob:build:generic-documentation-installs-under-the-package-doc-root`), (`prob:build:generic-documents-install-natively`), (`open:mail:per-record-maximum-and-unavailable-endpoint-code`), (`open:mail:worker-uid-lifetime-stated`), (`prob:docs:todo-profile-admits-authored-backlog-heads`), (`prob:docs:rulebook-render-size-bound`), (`prob:docs:rulebook-roadmap-names-each-spec-part`), (`prob:docs:dispatch-rule-refuses-zero-offset-timestamps`), (`prob:build:burn-input-optional-for-the-public-tree`), (`prob:build:configure-says-which-lint-mode-it-selected`)|Reading: the slice work section (`sec:dispatch:slice-work`) for the exception rule and the contributing guide, the notes register of the estate's first root-full deploy, read as a whole, for the platform rows, and the estate's documentation-install decision for the install rows, which also settles the native install's map question. Bar: at each tip the generic gate on the root-full node, with the lint in public-pack mode over the burn input, the projection, the formatter and the Meson layer. The tools backlog's ``prob:linter:authored-todo-head-in-backlog-documents`` waits on the to-do profile's rule; the roadmap's topic hints use the headroom under the render bound, so the bound is settled first. No row is larger than one lane.|lane r002g83, the whole row|
 
 ## Charter · `sec:genericbacklog:charter`
 
@@ -98,6 +100,8 @@ the orchestrator rulebook render sits 30 bytes under its 9,500-byte bound (2026-
 
 (2026-11-04, from lane r002g77's review f19) After the watcher rule's rewrite the render measures 9,127 of 9,500 bytes; the tools backlog carries the renderer's one citation form (``prob:build:rulebook-render-emits-one-citation-form``).
 
+(2026-11-06, from lane r002g83's review) The roadmap's citation of the package reading guide adds 74 bytes: the deployed ``superloop-install`` renders the estate overlay over this shape at 9,467 of 9,500 bytes, against 9,393 at the preceding base, staged into a scratch root with the bound of the estate's tools map.
+
 **Problem (the dispatch rule on refused timestamps does not name the zero-offset form)** · `prob:docs:dispatch-rule-refuses-zero-offset-timestamps`
 
 **OPEN.** The dispatch rule at `docs/spec/dispatch.md:232` still does not name the zero-offset form (`+00:00`) that the hooks fixture sentence pins since lane r002f37; what remains is one line naming zero-offset beside naive, local and nonzero-offset, committed with its regeneration, together with the stray space of "malformed- delay" at hooks.md:380.
@@ -113,12 +117,6 @@ the orchestrator rulebook render sits 30 bytes under its 9,500-byte bound (2026-
 **OPEN.** (lane bkm01 step 1, 2026-11-03) an authored To-do head is refused by the linter in all three repositories because the registry reserves `todo` for the to-do profile's derived notices; the backlogs carry `prob` (Problem) for work meanwhile. Decide: admit an authored To-do head in backlog documents (ADR-016 + the linter), then rename by one transform.
 
 The rule half is this repository's: the to-do profile (`rec:todos:deficiency-notice-profile`) and its kind extension (`sig:todos:kind-extension`) reserve `todo` for machine-derived notices, so a backlog document needs a stated profile under which an authored To-do head is admitted; the linter's half follows in the tools backlog as ``prob:linter:authored-todo-head-in-backlog-documents``.
-
-**Problem (The specification requires the documentation to be one connected graph rooted at the rulebook)** · `prob:docs:documentation-graph-requirement-in-the-architecture-part`
-
-**OPEN.** (2026-11-05, the organizing rule of the documentation-install set) The architecture part states, beside the audience separation (`rule:architecture:audience-separation`), that every installed document is reachable from the rendered ``ORCHESTRATION.md`` by a chain of references and carries a reference back to the layer above it, so that a reader at any document can walk to the rulebook and a session that starts from the injected rulebook can reach every document; a document reachable from nowhere, or with no way back, is an orphan and a lint error. The layers follow from the rulebook's render bound (`rule:hooks:rulebook-size-bound`), under which the rulebook cannot name everything: its reading roadmap and document register name the documentation root and its package indexes; each package index names every directory's README or reading-order register and every top-level document; each directory README names its documents in reading order; and each document cites a label of its parent register or README and may cite its siblings.
-
-References are label citations where the target mints a label and relative links otherwise, so the existing check that every citation resolves is the edge check; the linter's check and the installer's refusal are the tools' half (``prob:linter:documentation-graph-check`` in the tools backlog), and this repository's documents carry their own upward references, as the CoreOS set does through its reading-order register (`reg:coreos:reading-order`).
 
 ### Dispatch and lanes · `sec:genericbacklog:open-dispatch`
 

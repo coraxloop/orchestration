@@ -22,7 +22,7 @@ Edit authored specification parts under ``docs/spec`` and regenerate the committ
 
 ## Verification on the named compute node · `sec:contributing:verification`
 
-Use the compute node, tool paths, temporary root and gate form in the working letter. Do not build or run checks in a worker sandbox that the charter reserves for editing. Run the repository's node gate chain over each candidate: root lint in public-pack mode with the externally held burn input, format and projection checks, assembly and census, the Meson lint and template suites, and staged installation twice to prove the second pass changes no file. The build's conditional Cargo and bootstrap checks apply only when their source trees exist; report an absent branch as inapplicable, not as a test passed. A code-class letter requires the whole bar it names.
+Use the compute node, tool paths, temporary root and gate form in the working letter. Do not build or run checks in a worker sandbox that the charter reserves for editing. Run the repository's node gate chain over each candidate: root lint in public-pack mode with the externally held burn input, format and projection checks, assembly and census, the Meson lint and template suites, and staged installation twice to prove the second pass changes no file. The gate's conditional Cargo and bootstrap checks apply only when their source trees exist; report an absent branch as inapplicable, not as a test passed. A code-class letter requires the whole bar it names.
 
 The following forms name the linter operations; ``LINTER``, ``BURN_INPUT`` and ``BUILDDIR`` are supplied by the working letter. The burn input stays outside the checkout: pass its path to the linter, never print or copy its contents.
 

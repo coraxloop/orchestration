@@ -1,5 +1,7 @@
 # Recovery, updates and operating lessons · `guide:coreos:operations`
 
+Reading order and parent: (`guide:coreos:bare-metal-server-guides`).
+
 **Remark (Operating scope)** · `rem:coreos:operations-context`
 
 Operations use the fictional reference-state limits in (`conv:coreos:measurement-scope`) and the monitoring mechanisms in (`sec:coreos:watchdogs`). The estate’s source-of-record recovery model remains (`sec:rootserver:recovery`), (`rule:server:host-is-restore-source`); the procedures here illustrate engine restores, provider rescue and FCOS update recovery.

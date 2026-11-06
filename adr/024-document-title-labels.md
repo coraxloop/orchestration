@@ -1,5 +1,7 @@
 # Document-Title Labels · `rec:doctitles:document-title-labels`
 
+Reading order and parent: (`reg:records:philosophy-records`).
+
 **Status:** Decided
 
 This record makes the document concept citable through its first structural level-one heading. It extends the existing label calculus structurally and leaves occurrence grammar, owner-scoped uniqueness, and citation reach unchanged.

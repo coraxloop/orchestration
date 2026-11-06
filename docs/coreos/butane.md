@@ -1,5 +1,7 @@
 # Butane installation configuration · `guide:coreos:butane`
 
+Reading order and parent: (`guide:coreos:bare-metal-server-guides`).
+
 **Remark (Listing scope)** · `rem:coreos:butane-scope`
 
 The listing is a fictional installation configuration under (`conv:coreos:measurement-scope`), not a validated deployment artifact. Select actual keys, disk, release and resource limits, then validate with `butane --strict` and rehearse the generated Ignition before installing. It includes the first-login confinement boundary; role-specific service additions and later state are identified in (`reg:coreos:first-boot-additions`), and the fixed ceilings are superseded by (`tab:coreos:slice-ceilings`). Installation order and the overwrite failure are in (`guide:coreos:boot`).

@@ -1,5 +1,7 @@
 # Example estate backlog · `plan:examplebacklog:fictional-estate-backlog`
 
+Reading order and parent: (`guide:examples:plans`).
+
 This is a complete example of the instance repository's `plans/backlog.md` document. Every entry is fictional and demonstrates the label head and status trail expected of estate work.
 
 ## Fictional work queue · `sec:examplebacklog:fictional-work-queue`

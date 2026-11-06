@@ -1,5 +1,7 @@
 # The security posture of the root-capable servers · `spec:security:root-server-security-posture`
 
+Reading order and parent: (`guide:docnav:documentation`).
+
 Root-capable servers can apply a small set of deliberate configurations on top of the Fedora CoreOS stable baseline (`sec:rootserver:platform-baseline`), producing a posture materially stronger than typical "hardened" server setups through a compact set of actions. This document records the argument for that posture — what the platform provides, what the model adds, precisely which attack surface moves, and what deliberately stays out of scope — so the posture is defensible from this page alone. The mechanics live in [confined-admin.md](confined-admin.md), the account classes in [the ratified model](proposals/root-server-account-model.md), and deployment-specific per-machine state belongs in a private server registry.
 
 ## What the platform provides, and where its defaults stop · `sec:security:what-the-platform-provides-and-where-its-defaults-stop`

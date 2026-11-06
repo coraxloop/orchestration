@@ -1,5 +1,7 @@
 # Resident server steward · `proposal:residentsteward:resident-server-steward`
 
+Reading order and parent: (`guide:docnav:proposals`).
+
 Status: DRAFT — the programme requirements are fixed; the operating choices marked as proposals remain subject to the open questions at the end.
 
 ## Purpose and decision provenance · `sec:residentsteward:purpose-and-decision-provenance`

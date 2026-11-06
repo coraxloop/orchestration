@@ -1,5 +1,7 @@
 # Root-server account model · `proposal:serveraccounts:root-server-account-model`
 
+Reading order and parent: (`guide:docnav:proposals`).
+
 Status: RATIFIED in its four-class form for the Silverblue deployment, and amended for the root-full FCOS baseline to the model that baseline's first deploy measured: one confined administering login, no separate owner or unconfined administrator login, and independent provider rescue. The earlier Silverblue account split is historical evidence, not the current provisioning recipe. Live identities and key custody stay in the private registry; the setup recipe is (`sec:rootserver:the-account-model`).
 
 ## Purpose · `sec:serveraccounts:purpose`

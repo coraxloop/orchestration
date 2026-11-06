@@ -1,5 +1,7 @@
 # A Calculus of Documentation and Source Labels · `rec:labels:calculus`
 
+Reading order and parent: (`reg:records:philosophy-records`).
+
 **Status:** Decided
 
 This record defines the owner-scoped reference graph shared by Markdown and source documentation. Authored concepts mint at their heads, derived assets mint through declared profiles, and citations consume those mints without becoming a second source of authority.

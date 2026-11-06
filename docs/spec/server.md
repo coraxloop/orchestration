@@ -1,5 +1,7 @@
 # Server execution and trust · `spec:server:server-execution-and-trust`
 
+Reading order and parent: (`reg:assembly:specification-assembly`).
+
 This part fixes the durable constraints for shared server execution and the review path by which its results return to trusted host state. It realizes the server outline (`sec:assembly:server-outline`) and refines the architectural trust direction without freezing mutable operating facts. Current aliases, identities, capacities, versions, storage selections, and authentication material remain registry data, as required by (`rule:architecture:dynamic-facts-stay-in-registries`). Every label minted here has area `server`.
 
 ## Scope · `sec:server:scope`

@@ -1,5 +1,7 @@
 # The TODO Label Profile · `rec:todos:deficiency-notice-profile`
 
+Reading order and parent: (`reg:records:philosophy-records`).
+
 **Status:** Decided
 
 This record instantiates the inventory-profile signature for deficiency notices. The declared policy selects owners and surfaces; this record fixes what the derived identity means.

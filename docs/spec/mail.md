@@ -1,5 +1,7 @@
 # Superloop mail system · `spec:mail:superloop-mail-system`
 
+Reading order and parent: (`reg:assembly:specification-assembly`).
+
 The superloop mail system is the single correspondence system for every loop and every worker on a host. It replaces the letters system, including its separate worker transport. This part owns mail identity, storage, delivery and notification; dispatch and instruction authority remain with (`rule:architecture:charter-plus-brief`) and (`rule:architecture:audience-separation`). Every label minted here has area `mail`.
 
 ## Domain and names · `sec:mail:domain-and-names`

@@ -1,5 +1,7 @@
 # The Test Label Profile · `rec:profiles:test-inventory-profile`
 
+Reading order and parent: (`reg:records:philosophy-records`).
+
 **Status:** Decided
 
 This record instantiates the inventory-profile signature for Rust tests. The runtime catalogue and owner activations live in the declared surface; this record supplies the human derivation warrant.

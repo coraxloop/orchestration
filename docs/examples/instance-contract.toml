@@ -144,3 +144,33 @@ path = "meson.options"
 purpose = "Instance layer shape_root option, with its targets arriving in bite 15."
 required = true
 template = true
+
+[[paths]]
+path = "infra/README.md"
+purpose = "Provide directory reading order and a parent route within the example corpus."
+required = false
+template = true
+
+[[paths]]
+path = "pack/README.md"
+purpose = "Provide directory reading order and a parent route within the example corpus."
+required = false
+template = true
+
+[[paths]]
+path = "permissions/README.md"
+purpose = "Provide directory reading order and a parent route within the example corpus."
+required = false
+template = true
+
+[[paths]]
+path = "plans/README.md"
+purpose = "Provide directory reading order and a parent route within the example corpus."
+required = false
+template = true
+
+[[paths]]
+path = "rulebooks/README.md"
+purpose = "Provide directory reading order and a parent route within the example corpus."
+required = false
+template = true

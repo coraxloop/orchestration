@@ -1,5 +1,7 @@
 # Test Documentation Policy · `rec:testdocs:documentation-policy`
 
+Reading order and parent: (`reg:records:philosophy-records`).
+
 **Status:** Decided
 
 This record defines the authored documentation that accompanies the derived test inventory. Projection files are views of live source and never become a second mint authority.

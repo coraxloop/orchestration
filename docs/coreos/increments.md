@@ -1,5 +1,7 @@
 # Post-install identities and host services · `guide:coreos:increments`
 
+Reading order and parent: (`guide:coreos:bare-metal-server-guides`).
+
 **Requirement (Increment contract)** · `req:coreos:increment-contract`
 
 Each increment is a small idempotent shell script kept in git, with a header naming its running account, prerequisites and undo path. Apply it to the replica first, including a reboot, and then to the host. Copy it to a file and execute the file; the illustrated stdin failure is (`warn:coreos:ssh-stdin`). Preserve inputs across reboot on disk (`rule:server:disk-backed-workspace`), (`warn:coreos:temporary-inputs`). The evidence standard is (`req:server:idempotent-bootstrap`).

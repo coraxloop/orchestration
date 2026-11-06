@@ -1,5 +1,7 @@
 # Design and systemd orchestration · `guide:coreos:design`
 
+Reading order and parent: (`guide:coreos:bare-metal-server-guides`).
+
 **Principle (Reproducible host)** · `prin:coreos:reproducible-host`
 
 A host is manageable when one installation file and versioned increments reproduce it, and everything running on it is supervised, bounded and backed up. FCOS supplies the immutable base; the reference setup layered only the few extra packages it needed, including tmux and python3, through rpm-ostree and rebooted to activate layers. Small idempotent scripts add post-install state. The installation listing is (`listing:coreos:butane-file`), and the increment contract is (`req:coreos:increment-contract`).

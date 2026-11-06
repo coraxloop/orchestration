@@ -1,5 +1,7 @@
 # Bare-metal Fedora CoreOS server guides · `guide:coreos:bare-metal-server-guides`
 
+Reading order and parent: (`guide:docnav:documentation`).
+
 **Remark (Scope and neighbouring setup)** · `rem:coreos:scope`
 
 This set is an expressly fictional worked example: it describes the fictional node `example-node.example.invalid` under fictional names, addresses, account mappings, device identifiers and operating figures. It is not a record of a deployed estate. The example has 96 GiB of RAM and 24 CPU threads; its documentation addresses are `192.0.2.10` for the node and `198.51.100.20` for `example-backup.example.invalid`, with SSH aliases `example-node` and `example-backup`. The fictional accounts are one administering login, `example-admin`, and unprivileged roles, `example-ops`, `example-dev`, `example-agent-1` and `example-worker`, using UIDs 41010 through 41014 respectively; their private subordinate UID/GID ranges are assigned separately. The fictional system disk is `/dev/disk/by-id/nvme-EXAMPLE_SYSTEM_DISK`. Names and values must be selected and verified for an actual installation. The example complements (`guide:rootserver:root-full-server-setup`): common root-custody, confinement and execution-domain requirements remain there, while these guides illustrate FCOS installation, systemd service composition and recovery.

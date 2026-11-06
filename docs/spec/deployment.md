@@ -1,5 +1,7 @@
 # Build and deployment topology · `spec:deployment:build-and-deployment-topology`
 
+Reading order and parent: (`reg:assembly:specification-assembly`).
+
 This part specifies the agent execution environment and the orchestrator's selection of execution domains, containers, scheduling priority and routine toolchains (`sec:assembly:deployment-outline`). Tool construction, installation, managed-copy semantics and deployment evidence belong to (`[TOOLS-spec:deployment:tool-build-and-install-contracts]`). Every label minted here has area `deployment`.
 
 ## Scope · `sec:deployment:scope`

@@ -1,5 +1,7 @@
 # Illustrated FCOS frictions and workarounds · `guide:coreos:frictions`
 
+Reading order and parent: (`guide:coreos:bare-metal-server-guides`).
+
 **Observation (Reproduction scope)** · `obs:coreos:friction-scope`
 
 The six failure mechanisms below are carried into the fictional example under (`conv:coreos:measurement-scope`). Public software versions and upstream issue references identify technical context, not a deployed node: the source cases span Podman 5.8.4–6.1.1 and selinux-policy 44.6. Upstream status is the recorded source observation, not a present-day issue-status claim. Reproduce the cases on the selected stable, `testing` and `next` releases and re-test local rules before each window (`rule:coreos:deployment-rules`).

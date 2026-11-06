@@ -1,5 +1,7 @@
 # Hardware and installation rehearsal · `guide:coreos:boot`
 
+Reading order and parent: (`guide:coreos:bare-metal-server-guides`).
+
 **Remark (Measurement context)** · `rem:coreos:boot-context`
 
 Hardware and reboot results are fictional fixtures under (`conv:coreos:measurement-scope`). The installation configuration is (`guide:coreos:butane`); ongoing recovery is (`proto:coreos:rescue`).
