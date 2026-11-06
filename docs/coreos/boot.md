@@ -8,7 +8,7 @@ Hardware and reboot results are fictional fixtures under (`conv:coreos:measureme
 
 **Observation (Hardware constraints)** · `obs:coreos:hardware`
 
-The board had legacy BIOS and no TPM, excluding TPM2-bound Clevis/LUKS encryption for that hardware. The owner deferred disk encryption. One NVMe disk supplied storage without RAID; losing that disk loses the local machine state. Encryption must be decided before installation and hardware selection: retrofitting it into this setup entails reinstalling. Offsite recovery therefore matters independently of whether this host can reboot.
+The fictional board boots legacy BIOS and has no TPM, excluding TPM2-bound Clevis/LUKS encryption for that scenario. These are recorded hardware limits, not a requirement to disable UEFI or Secure Boot; an actual UEFI installation retains the root-full firmware and module checks (`sec:rootserver:platform-baseline`). The owner deferred disk encryption. One NVMe disk supplied storage without RAID; losing that disk loses the local machine state. Encryption must be decided before installation and hardware selection: retrofitting it into this setup entails reinstalling. Offsite recovery therefore matters independently of whether this host can reboot.
 
 **Setup (Provider rescue environment)** · `setup:coreos:rescue-environment`
 
@@ -58,7 +58,7 @@ A file exists there already and overwrite is false
 2. Prove rescue activation and hardware reset, and obtain a provider console if available.
 3. In rescue, boot a disposable FCOS image in QEMU/KVM with the intended Ignition file and the board's illustrated BIOS or UEFI mode. Log serial output; require completed Ignition, key login, SSH through the firewall and a successful VM reboot (`verif:coreos:boot-acceptance`).
 4. Install the NVMe with the serial-console arguments in (`listing:coreos:install-command`). This is the destructive boundary; the preceding three steps do not erase the physical disk.
-5. Before rebooting the board, boot the installed NVMe in QEMU with `-snapshot` so the rehearsal's first-boot changes are not written back. Inspect bootloader, serial output, embedded configuration checksum and networking.
+5. Before rebooting the board, boot the installed NVMe in QEMU with `-snapshot` so the rehearsal's first-boot changes are not written back. Inspect bootloader, serial output, embedded configuration checksum and networking. Bound snapshot storage before this step: a mirrored-disk resync can exhaust RAM-backed overlays. Use adequate disk-backed overlays or record the unperformed check and its explicit disposition; do not call a skipped snapshot boot accepted.
 6. Reboot the physical board with a watcher measuring against the selected alarm and the rescue return path established. Retain the physical reboot result separately from the VM result.
 
 **Observation (Rescue and VM rehearsal timings)** · `obs:coreos:rehearsal-timings`
@@ -81,7 +81,7 @@ The fictional host uses 300 s without SSH as its operating alarm, twice its illu
 
 **Verification (Boot acceptance)** · `verif:coreos:boot-acceptance`
 
-Require completed Ignition, key login to the configured accounts, firewall-permitted SSH, a returning VM reboot, `systemctl is-system-running` reporting `running` and zero failed units. The example installation also requires SELinux enforcing and nftables, sshd and Zincati active; its fixture first SSH is at 160 s (`obs:coreos:installation-result`).
+Require completed Ignition and successful pre-sshd identity activation (`setup:coreos:first-boot-identity`), fresh key logins confined to `staff_t`, the administering sudo transition to `sysadm_t`, refusal of loop sudo, firewall-permitted SSH, a returning VM reboot, `systemctl is-system-running` reporting `running` and zero failed units. The example installation also requires SELinux enforcing and nftables, sshd and Zincati active; its fixture first SSH is at 160 s (`obs:coreos:installation-result`). Verify the selected stable release, live versus staged package layer, booted deployment after reboot, and Zincati's declared window with the root-full checklist (`sec:rootserver:verification-checklist`). Log partition re-read warnings with their completion result; a known warning is not permission to ignore failed Ignition.
 
 **Procedure (Pin identity at verified first login)** · `alg:coreos:pin-identity`
 

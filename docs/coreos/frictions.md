@@ -15,19 +15,19 @@ The six failure mechanisms below are carried into the fictional example under (`
 |5|On shutdown, the `staff_t` user manager cannot signal the rootless network helper (`pasta_t`): `denied { signal sigkill }`. The container itself stops cleanly|stable|none needed so far; the helper dies with the session|
 |6|`staff_t` cannot bind ports that carry their own label (illustrated denied: 3000, 3001, 8080, 8081, 9080, 9090, 9100; allowed: unlabelled ports such as 3002, 8300, 9081, 50051)|stable|either a narrow `name_bind` rule per port type, unreserved ports, or running the process in a container (`container_t`)|
 
-**Remark (Estate rpm-ostree route differs)** · `rem:coreos:rpm-ostree-difference`
+**Remark (Baseline rpm-ostree route)** · `rem:coreos:rpm-ostree-difference`
 
-The table records the FCOS `connectto` allow rule and explicit unconfined invocation as illustrated alternatives. The estate recipe instead runs rpm-ostree through a system-context transient unit (`sec:confinedadmin:rpm-ostree-the-daemon-refuses-confined-dbus`). A historical workaround here does not broaden that estate administration path.
+The table retains the FCOS `connectto` allow rule and explicit unconfined invocation as historical alternatives, not current instructions. The baseline runs rpm-ostree through a system-context transient unit (`sec:confinedadmin:rpm-ostree-the-daemon-refuses-confined-dbus`). A historical workaround here does not broaden that estate administration path.
 
 ## Other illustrated traps · `sec:coreos:other-gotchas`
 
 **Hint (Missing policy utilities)** · `hint:coreos:policy-utilities`
 
-FCOS had neither `semanage` nor `setools`. Edit the local login and file-context stores and rebuild with `semodule -B` for the illustrated FCOS path; query policy with containerised setools against a copy of `/etc/selinux/targeted/policy/policy.*`. Workspace placement differs from the estate home-local recipe (`warn:coreos:workspace-labels`).
+FCOS had neither `semanage` nor `setools`. Edit the local login and file-context stores and rebuild with `semodule -B` for the illustrated FCOS path; query policy with containerised setools against a copy of `/etc/selinux/targeted/policy/policy.*`. Loop workspace placement follows the home-local recipe; the optional shared application-data case has its own label requirements (`warn:coreos:workspace-labels`).
 
 **Observation (Python layering)** · `obs:coreos:python-layering`
 
-The fictional base image lacks Python. Small tools use bash and jq until python3 is needed; the example layers it and reboots. That layer-and-reboot practice differs from the estate’s illustrated apply-live route (`sec:confinedadmin:rpm-ostree-the-daemon-refuses-confined-dbus`).
+The fictional base image lacks Python. Declare the required runtime layer, including python3, tmux and policycoreutils-python-utils when the bootstrap needs them, in a system-context first-boot unit ordered before Zincati. The recorded FCOS deployment made the initial packages live with `rpm-ostree install --apply-live`; a later reboot booted the staged layer. Probe both states rather than requiring a reboot merely to obtain the live programs (`reg:rootserver:recorded-fcos-probe-basis`). For later confined administration, use the system-context transient-unit route (`sec:confinedadmin:rpm-ostree-the-daemon-refuses-confined-dbus`). A compute role also declares its actual C/Rust and gate-program dependencies; the initial three packages are not a complete tool inventory.
 
 **Warning (Temporary inputs disappear)** · `warn:coreos:temporary-inputs`
 

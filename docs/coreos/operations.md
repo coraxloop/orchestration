@@ -30,8 +30,10 @@ At the fictional reference state, transferring the repository passphrase and dat
 2. Trigger the boot, using hardware reset for an unresponsive machine and respecting (`warn:coreos:power-button`).
 3. Measure ping and SSH-port reachability at a selected interval, 12 s in the fictional example, against the illustrated threshold (`obs:coreos:reboot-alarm`).
 4. Verify the rescue host key against the panel value and log in by key using a dedicated `known_hosts` file. Where the panel supplies no host key, use the recorded hardware identifiers as the limited cross-check in (`alg:coreos:pin-identity`) and pass no secret through that session.
-5. For a broken installed system, boot the NVMe in QEMU with `-snapshot` and inspect the serial console.
+5. For a broken installed system, inspect the serial console and the retained boot journals. A QEMU snapshot boot of the NVMe is a diagnostic option only after bounding its overlay storage, especially with a mirror that resyncs (`alg:coreos:reboot-rehearsal`). If it cannot be run safely, record that missing evidence; use provider console and reviewed offline repair instead of claiming the snapshot passed.
 6. `systemctl reboot` from rescue returns to the installed disk. Rescue activation is consumed by one boot; reactivate it before reboot if another rescue boot is required.
+
+The installed console uses the same confined administering login, not a separate unconfined account (`sec:rootserver:the-account-model`). Provider rescue is the independent path when installed policy prevents that login or its sudo transition. A pinned deployment restores an image, not every edited file under ``/etc`` or data under ``/var``; restore reviewed configuration from the host-held source as part of recovery (`sec:rootserver:recovery`).
 
 ## Update coordination · `sec:coreos:update-operations`
 

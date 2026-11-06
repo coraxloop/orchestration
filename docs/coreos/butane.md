@@ -2,7 +2,7 @@
 
 **Remark (Listing scope)** · `rem:coreos:butane-scope`
 
-The listing is a fictional installation configuration under (`conv:coreos:measurement-scope`), not a validated deployment artifact. Select actual keys, disk, release and resource limits, then validate with `butane --strict` and rehearse the generated Ignition before installing. It is the example baseline, not the complete later state: subsequent additions are identified in (`reg:coreos:first-boot-additions`), and the fixed ceilings are superseded by (`tab:coreos:slice-ceilings`). Installation order and the overwrite failure are in (`guide:coreos:boot`).
+The listing is a fictional installation configuration under (`conv:coreos:measurement-scope`), not a validated deployment artifact. Select actual keys, disk, release and resource limits, then validate with `butane --strict` and rehearse the generated Ignition before installing. It includes the first-login confinement boundary; role-specific service additions and later state are identified in (`reg:coreos:first-boot-additions`), and the fixed ceilings are superseded by (`tab:coreos:slice-ceilings`). Installation order and the overwrite failure are in (`guide:coreos:boot`).
 
 **Listing (Installation Butane)** · `listing:coreos:butane-file`
 
@@ -13,14 +13,14 @@ variant: fcos
 version: 1.5.0
 passwd:
   users:
-    - name: example-admin                 # the owner: wheel + sudo
+    - name: example-admin                 # the single confined administering login
       uid: 41010
+      password_hash: "<console password hash supplied only at staging>"
       groups: [wheel, sudo]
       ssh_authorized_keys:
         - <owner public key>
-    - name: example-ops                   # operations account: wheel + sudo
+    - name: example-ops                   # unprivileged service account
       uid: 41011
-      groups: [wheel, sudo]
       ssh_authorized_keys:
         - <example-ops public key>
     - name: example-agent-1               # unprivileged automation account: no sudo
@@ -29,6 +29,34 @@ passwd:
         - <agent public key>
 storage:
   files:
+    - path: /etc/selinux/targeted/active/seusers.local
+      overwrite: true
+      mode: 0644
+      contents:
+        inline: |
+          __default__:staff_u:s0-s0:c0.c1023
+          core:staff_u:s0-s0:c0.c1023
+          example-admin:staff_u:s0-s0:c0.c1023
+          example-ops:staff_u:s0-s0:c0.c1023
+          example-agent-1:staff_u:s0-s0:c0.c1023
+    - path: /etc/sudoers.d/zz-admins
+      overwrite: true
+      mode: 0440
+      contents:
+        inline: |
+          %sudo ALL=(ALL) TYPE=sysadm_t ROLE=sysadm_r NOPASSWD: ALL
+    - path: /etc/selinux/local_fixes.cil
+      overwrite: true
+      mode: 0644
+      contents:
+        inline: |
+          (allow domain sshd_session_t (fifo_file (read write getattr ioctl append)))
+    - path: /etc/selinux/staff_spc.cil
+      overwrite: true
+      mode: 0644
+      contents:
+        inline: |
+          (roletype staff_r spc_t)
     - path: /etc/hostname
       overwrite: true             # REQUIRED: without it Ignition fails at boot (rehearsed overwrite failure)
       mode: 0644
@@ -68,6 +96,8 @@ storage:
               ct state established,related accept
               iif lo accept
               meta l4proto { icmp, ipv6-icmp } accept
+              udp sport 67 udp dport 68 accept  # DHCPv4 replies where DHCP is selected
+              udp sport 547 udp dport 546 accept  # DHCPv6 replies where selected
               tcp dport 22 accept
             }
           }
@@ -97,13 +127,39 @@ systemd:
   units:
     - name: nftables.service
       enabled: true
+    - name: identity-increment.service
+      enabled: true
+      contents: |
+        [Unit]
+        Description=Activate confined identities and reviewed modules before SSH
+        DefaultDependencies=no
+        After=local-fs.target systemd-tmpfiles-setup.service
+        Before=sshd.service
+        ConditionPathExists=!/var/lib/identity-increment.stamp
+        [Service]
+        Type=oneshot
+        RemainAfterExit=yes
+        ExecStart=/usr/sbin/semodule -i /etc/selinux/local_fixes.cil
+        ExecStart=/usr/sbin/semodule -i /etc/selinux/staff_spc.cil
+        ExecStart=/usr/sbin/semodule -B
+        ExecStart=/usr/sbin/visudo -cf /etc/sudoers.d/zz-admins
+        ExecStart=/bin/touch /var/lib/identity-increment.stamp
+        [Install]
+        RequiredBy=sshd.service
+        WantedBy=multi-user.target
 ```
 
 ## Block annotations · `sec:coreos:butane-blocks`
 
 **Setup (Login accounts)** · `setup:coreos:butane-users`
 
-`passwd.users` declares three key-only accounts: `example-admin` and `example-ops` in `wheel` and `sudo`, and `example-agent-1` in neither. The replica has these same accounts and no `core` account. Hours were once lost trying to log in to a replica as `core`; replicas use the declared role names. This differs from the account roster in (`sec:rootserver:the-account-model`).
+The administering login is `example-admin`, the only declared account in the administrative groups; `example-ops` and `example-agent-1` have no sudo. SSH is key-only for all three. The optional console-password placeholder is filled outside Git, never with a public fixture credential. The replica uses the same role names and admits no key for the image's default `core` account; the explicit `core` mapping still prevents an inherited unconfined mapping. This instantiates (`sec:rootserver:the-account-model`) without a separate owner or unconfined rescue login.
+
+**Setup (Confinement before the first login)** · `setup:coreos:first-boot-identity`
+
+The identity unit installs the reviewed SSH-session FIFO fix and the container-role authorization, rebuilds the login store and validates sudoers before sshd. Its required dependency prevents a failed activation from being treated as a usable SSH setup; the stamp is written only after success. Preserve the independent rescue path while rehearsing this boundary. The FIFO rule addresses the recorded noninteractive-output denial; the other illustrated service and process rules are not copied without a reproduced need (`tab:coreos:fcos-frictions`). A later policy change uses a separately recorded increment and a pinned deployment, not deletion of the first-boot stamp as a substitute for review.
+
+The public listing is a fictional recipe requiring strict translation and replica acceptance, not a claim that these exact bytes were deployed. Compare the configured modules and first-login results with (`reg:rootserver:recorded-fcos-probe-basis`); the recorded deployment establishes the mechanism and the denial, while this recipe's complete acceptance belongs to its next deployment.
 
 **Requirement (Overwrite content-bearing files)** · `req:coreos:overwrite`
 
@@ -119,7 +175,7 @@ The fictional Zincati periodic strategy selects UTC and one Saturday 04:00 windo
 
 **Setup (Input firewall)** · `setup:coreos:butane-firewall`
 
-The nftables input policy drops traffic except established/related traffic, loopback, ICMP and SSH. firewalld remains inactive. Because the configuration begins with `flush ruleset`, additional tables must be included from this file to survive `nftables.service` reload (`req:coreos:guard-persistence`).
+The nftables input policy drops traffic except established/related traffic, loopback, ICMP, selected DHCP replies and SSH. firewalld remains inactive. Because the configuration begins with `flush ruleset`, additional tables must be included from this file to survive `nftables.service` reload (`req:coreos:guard-persistence`).
 
 **Observation (Initial aggregate ceiling)** · `obs:coreos:initial-ceiling`
 
@@ -137,7 +193,9 @@ The empty `/var/lib/systemd/linger/example-agent-1` file enables that account’
 
 - Add `/etc/systemd/resolved.conf.d/10-no-llmnr.conf` with `[Resolve]` and `LLMNR=no` (`alg:coreos:disable-llmnr`).
 - Add the `multi-user.target.wants` entry pulling in `network-online.target` (`tab:coreos:fcos-frictions`).
-- Preserve `seusers.local`, sudoers and the complete local CIL module; activate the policy through a first-boot script because it requires `semodule` at runtime (`listing:coreos:identity-increment`).
+- Preserve the login store, sudoers, SSH FIFO fix, container-role module and identity unit from (`setup:coreos:first-boot-identity`); later identity increments keep that same boundary (`listing:coreos:identity-increment`).
+- Declare the required package layer and its system-context first-boot unit before Zincati, checking the live and staged deployment states separately (`obs:coreos:python-layering`).
+- Declare loop accounts from the registry with home-local hubs and workspaces at mode 0750, private temporary roots and lingering managers; a compute-only role omits production services, backups and an application tunnel with the omission recorded (`sec:rootserver:the-door`).
 - Fold the revised ceilings and other host-level increments into Butane or a first-boot unit so reinstalling reproduces the post-install state (`tab:coreos:slice-ceilings`).
 
 **Listing (Translation and installation)** · `listing:coreos:install-command`
