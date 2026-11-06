@@ -12,6 +12,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Changed
 
+- Root-full servers use the latest Fedora CoreOS stable release on the stable stream with confined logins, declarative installation and a declared update window; dated Silverblue measurements retain their historical scope (`sec:rootserver:platform-baseline`).
+
 - The priorities register defines its holdings column: each holding lane with the whole row, an item range or labels, the unheld rest of a row held in part and none for an unheld row, reported by the loop and recorded by the backlog manager; slice selection takes unheld items (`def:dispatch:priorities-register`).
 
 - Producing workers run in boxes; work requiring an exception uses an in-harness subagent of the loop's session and records the friction (`rule:dispatch:producing-workers-run-in-boxes`).

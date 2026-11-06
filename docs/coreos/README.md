@@ -10,12 +10,12 @@ Every observation, timing, capacity and scenario result in this set is an illust
 
 **Observation (Fictional reference state)** · `obs:coreos:reference-state`
 
-The fictional state uses a selected Fedora CoreOS release, kernel and Podman version, with SELinux enforcing, `/var` on XFS with `prjquota`, nftables active, firewalld inactive and the default `net.ipv4.ip_unprivileged_port_start=1024`. The example assumes one NVMe disk, legacy BIOS boot, no TPM and no disk encryption; installation uses `coreos-installer` from a fictional provider rescue system. Zincati uses a periodic Saturday window at 04:00 UTC for 45 minutes. The backup destination is initially a practice VM on this same hardware: a separate-provider offsite target and owner-held backup/database secret custody remain planned, not executed within the scenario (`obs:coreos:backup-deployment-gap`), (`obs:coreos:secret-custody-gap`).
+The fictional state selects the latest Fedora CoreOS stable release on the stable stream at installation and records its kernel and Podman version, with SELinux enforcing, `/var` on XFS with `prjquota`, nftables active, firewalld inactive and the default `net.ipv4.ip_unprivileged_port_start=1024`. The example assumes one NVMe disk, legacy BIOS boot, no TPM and no disk encryption; installation uses `coreos-installer` from a fictional provider rescue system. Zincati uses a periodic Saturday window at 04:00 UTC for 45 minutes. The backup destination is initially a practice VM on this same hardware: a separate-provider offsite target and owner-held backup/database secret custody remain planned, not executed within the scenario (`obs:coreos:backup-deployment-gap`), (`obs:coreos:secret-custody-gap`).
 
 **Register (Reading order)** · `reg:coreos:reading-order`
 
 1. `README.md` — fictional scope, fixture vocabulary and reading order (`guide:coreos:bare-metal-server-guides`).
-2. `design.md` — principles, systemd mechanisms and differences from the estate baseline (`guide:coreos:design`).
+2. `design.md` — principles, systemd mechanisms and the root-full baseline recipe (`guide:coreos:design`).
 3. `boot.md` — hardware, deployment rules, reboot rehearsal and identity pinning (`guide:coreos:boot`).
 4. `butane.md` — the installation file, block annotations and first-boot additions (`guide:coreos:butane`).
 5. `increments.md` — identities, workspaces, user managers, ceilings, supervision, networking, replicas and watchdogs (`guide:coreos:increments`).
