@@ -468,6 +468,10 @@ Slice work is the dispatch form for a backlog: a worker reads the whole backlog 
 
 A slice worker is a producing worker dispatched over a workspace of bare repositories with a general brief, whose first deliverable is its own selection of a slice of the backlog and whose later deliverables are the commits that work that slice on its lane branch. It is a worker in the sense of the charter: it never orchestrates, never signs, never pushes anywhere but its workspace bares, and reports to its loop; its selection is a proposal the loop answers, not an authority over the backlog.
 
+**Rule (Producing workers run in boxes)** · `rule:dispatch:producing-workers-run-in-boxes`
+
+A producing worker, including a slice worker (`def:dispatch:slice-worker`), runs in a box, the confined and reviewable form: its writable filesystem is its box home, and every outward effect passes through a door request with a record. When work requires execution outside that form, the loop uses an in-harness subagent of its own session and reports the need as a friction finding; it does not launch a separate host worker. Work requiring the desktop, visual work or the browser tool is the standing case of this exception. The exception changes the execution form, not the loop's authority or its obligation to review the work.
+
 **Definition (Backlog manager)** · `def:dispatch:backlog-manager`
 
 The backlog manager is the persistent worker whose one subject is a loop's backlog documents: it receives rows and priorities from the loop by letter, classifies, de-duplicates, sequences and sizes them into labelled records, keeps the priorities register current and folds closed records out into the documentation. The loop alone edits its backlog, and it does so through the manager, so that every item carries the manager's classification and the register stays one argument; a slice worker updates an item's status only in the commit that works it.

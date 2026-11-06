@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Changed
+
+- Producing workers run in boxes; work requiring an exception uses an in-harness subagent of the loop's session and records the friction (`rule:dispatch:producing-workers-run-in-boxes`).
+
 ## [0.1.3] - 2026-11-05
 
 ### Added
