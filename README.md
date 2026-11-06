@@ -18,6 +18,8 @@ Slice workers start with the contributing guide (`guide:contributing:orchestrati
 
 The linter from `superloop-tools` checks the label discipline: every label has one mint, every citation resolves, and document headings conform to their declared environment kinds. The repository's declarations also account for its files and check that the assembled specification agrees with its parts.
 
+The burn input is optional. A public consumer can configure with ``meson setup BUILDDIR`` and run ordinary lint checks without an estate burn register. Supplying ``-Dburn_input=PATH`` selects public-pack checks using that external input. Configure reports `Lint mode: ordinary (no burn input supplied)` or `Lint mode: public-pack (external burn input supplied)`; the message does not disclose the supplied path or contents. An ordinary-mode pass does not establish the instance's burn-value check.
+
 ## Build identity · `sec:publicorchestration:build-identity`
 
 Meson uses the deployed `superloop-lint` and `superloop-install` commands, with `git` for the source commit and `python3` for the record contract test. Supply `-Dtools_private_dir=PATH` for the directory containing the private `build-sync` helper; the default is the configured prefix and libexec directory followed by `superloop`. The build has no pack invocation; publication uses `superloop-pack` separately. The fictional instance Meson layer declares no program targets or helper lookups.

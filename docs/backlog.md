@@ -12,7 +12,7 @@ The estate this backlog serves is becoming one where every producing worker runs
 
 |order|slice|rows|items, in order|depends on, and rows larger than one lane|held by|
 |-----|-----|----|---------------|-----------------------------------------|-------|
-|1|The whole generic backlog|4|(`prob:build:generic-documentation-installs-under-the-package-doc-root`), (`prob:build:generic-documents-install-natively`), (`prob:build:burn-input-optional-for-the-public-tree`), (`prob:build:configure-says-which-lint-mode-it-selected`)|Reading: the slice work section (`sec:dispatch:slice-work`) for the exception rule and the contributing guide, the notes register of the estate's first root-full deploy, read as a whole, for the platform rows, and the estate's documentation-install decision for the install rows, which also settles the native install's map question. Bar: at each tip the generic gate on the root-full node, with the lint in public-pack mode over the burn input, the projection, the formatter and the Meson layer. The tools backlog's ``prob:linter:authored-todo-head-in-backlog-documents`` waits on the to-do profile's rule; the roadmap's topic hints use the headroom under the render bound, so the bound is settled first. No row is larger than one lane.|lane r002g83, the whole row|
+|1|The whole generic backlog|2|(`prob:build:generic-documentation-installs-under-the-package-doc-root`), (`prob:build:generic-documents-install-natively`)|Reading: the slice work section (`sec:dispatch:slice-work`) for the exception rule and the contributing guide, the notes register of the estate's first root-full deploy, read as a whole, for the platform rows, and the estate's documentation-install decision for the install rows, which also settles the native install's map question. Bar: at each tip the generic gate on the root-full node, with the lint in public-pack mode over the burn input, the projection, the formatter and the Meson layer. The tools backlog's ``prob:linter:authored-todo-head-in-backlog-documents`` waits on the to-do profile's rule; the roadmap's topic hints use the headroom under the render bound, so the bound is settled first. No row is larger than one lane.|lane r002g83, the whole row|
 
 ## Charter · `sec:genericbacklog:charter`
 
@@ -57,14 +57,6 @@ An item's area is the subject of what must change to discharge it, and the secti
 ### The division of documents · `sec:genericbacklog:open-estate`
 
 ### The Meson layer · `sec:genericbacklog:open-build`
-
-**Problem (The generic Meson layer configures without the burn input, so a public consumer can run it)** · `prob:build:burn-input-optional-for-the-public-tree`
-
-**OPEN.** (r002g41 review 1 N4; taken into r002g41 fix round 2 as c09) the generic meson.build refused to configure without `-Dburn_input`, so a public consumer could not run the documents-only Meson layer; the option becomes optional with ordinary-mode lint targets without it. N5 (optional): the root README's install guidance, without estate paths, into a public document later.
-
-**Problem (The generic configure step says which lint mode it selected)** · `prob:build:configure-says-which-lint-mode-it-selected`
-
-**OPEN.** (r002g41 review 2 N1) since c09 (generic 8c121992) a `meson setup` without `-Dburn_input` silently selects ordinary lint mode, shown only as `"public_pack":false` in the report; the estate gate always passes the input, but a hand-run configure could get the weaker check unnoticed. Add a configure-time `message()` (or `warning()`) naming the selected mode when the input is empty.
 
 **Problem (The generic repository installs its documents by Meson's native rules and retires its install map)** · `prob:build:generic-documents-install-natively`
 

@@ -17,6 +17,9 @@ burn_input = get_option('burn_input')
 lint_mode_args = []
 if burn_input != ''
   lint_mode_args = ['--public-pack', '--burn-input', burn_input]
+  message('Lint mode: public-pack (external burn input supplied)')
+else
+  message('Lint mode: ordinary (no burn input supplied)')
 endif
 domain = get_option('domain')
 release_tag = get_option('release_tag')
