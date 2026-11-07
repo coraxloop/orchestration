@@ -12,7 +12,7 @@ The estate this backlog serves is becoming one where every producing worker runs
 
 |order|slice|rows|items, in order|depends on, and rows larger than one lane|held by|
 |-----|-----|----|---------------|-----------------------------------------|-------|
-|1|The whole generic backlog|2|(`prob:build:generic-documentation-installs-under-the-package-doc-root`), (`prob:build:generic-documents-install-natively`)|Reading: the slice work section (`sec:dispatch:slice-work`) for the exception rule and the contributing guide, the notes register of the estate's first root-full deploy, read as a whole, for the platform rows, and the estate's documentation-install decision for the install rows, which also settles the native install's map question. Bar: at each tip the generic gate on the root-full node, with the lint in public-pack mode over the burn input, the projection, the formatter and the Meson layer. The tools backlog's ``prob:linter:authored-todo-head-in-backlog-documents`` waits on the to-do profile's rule; the roadmap's topic hints use the headroom under the render bound, so the bound is settled first. No row is larger than one lane.|lane r002g83, the whole row; its two documentation install items, (`prob:build:generic-documentation-installs-under-the-package-doc-root`) and (`prob:build:generic-documents-install-natively`), wait on the estate gate's native-install predicate (``prob:gates:generic-gate-accepts-a-native-documentation-install`` in its backlog) and on the tools' index writer and provenance contract, held by lane r002g79 (``prob:build:installer-tree-targets-and-index-writer`` in the tools backlog)|
+|1|The whole generic backlog|5|(`prob:build:generic-install-map-carries-the-mail-part`), (`prob:build:generic-documentation-installs-under-the-package-doc-root`), (`prob:build:generic-documents-install-natively`), (`prob:build:render-test-checks-survive-optimised-python`), (`open:docs:rulebook-render-headroom-budget-or-raised-bound`)|Reading: the slice work section (`sec:dispatch:slice-work`) for the exception rule and the contributing guide, the notes register of the estate's first root-full deploy, read as a whole, for the platform rows, and the estate's documentation-install decision for the install rows, which also settles the native install's map question. Bar: at each tip the generic gate on the root-full node, with the lint in public-pack mode over the burn input, the projection, the formatter and the Meson layer. The tools backlog's ``prob:linter:authored-todo-head-in-backlog-documents`` waits on the to-do profile's rule; the roadmap's topic hints use the headroom under the render bound, so the bound is settled first. No row is larger than one lane.|lane r002g83, its two documentation install items, (`prob:build:generic-documentation-installs-under-the-package-doc-root`) and (`prob:build:generic-documents-install-natively`), wait on the estate gate's native-install predicate (``prob:gates:generic-gate-accepts-a-native-documentation-install`` in its backlog) and on the tools' index writer and provenance contract, held by lane r002g79 (``prob:build:installer-tree-targets-and-index-writer`` in the tools backlog); unheld: (`prob:build:generic-install-map-carries-the-mail-part`), (`prob:build:render-test-checks-survive-optimised-python`) and (`open:docs:rulebook-render-headroom-budget-or-raised-bound`)|
 
 ## Charter · `sec:genericbacklog:charter`
 
@@ -70,9 +70,21 @@ Measured on 2026-11-05 at main d574ea8: the map copies the specification parts, 
 
 This form meets the native install (`prob:build:generic-documents-install-natively`) head-on: that item retires the install map, while this one makes the map the documentation's declaration, so the estate's decision settles which form carries the documentation and the other item follows it.
 
+**Problem (The generic install carries the mail part to the host's specification root)** · `prob:build:generic-install-map-carries-the-mail-part`
+
+**OPEN.** (2026-11-06, from the review of lane r002g83's mail-part rows) The base install map, ``maps/generic-map.toml``, has no target for ``docs/spec/mail.md``, so the host's specification root carries no mail part while the rulebook's reading roadmap (`preview:orch:which-part-to-read`) lists mail among the parts (`spec:mail:superloop-mail-system`); the hotfix publication under the documentation root is complete, and the map is not. The map gains the part's target, or the native install that retires the map installs it from the generated inventory, so that every part the roadmap names is installed where the roadmap points.
+
+**Problem (The render test's checks survive optimised Python)** · `prob:build:render-test-checks-survive-optimised-python`
+
+**OPEN.** (2026-11-06, from the review of lane r002g83's render rows) The render test, ``tests/test_rulebook_render.py``, relies on bare `assert` statements, so under `PYTHONOPTIMIZE` it runs no check at all and passes; its checks raise an explicit failure or run under a test runner that keeps them, so that the render's size gate holds in every interpreter mode.
+
 ### Linter declarations · `sec:genericbacklog:open-linter`
 
 ### Documents · `sec:genericbacklog:open-docs`
+
+**Open Question (Whether the rulebook render keeps a measured headroom budget or the hook's bound rises)** · `open:docs:rulebook-render-headroom-budget-or-raised-bound`
+
+**OPEN.** (2026-11-06, measured by the render test and by lane r002g83) The rendered instance stands at 9,465 of the hook's 9,500 bytes (`rule:hooks:rulebook-size-bound`) after the roadmap's topic hints and again after the mail operating form: 35 bytes of headroom, less than one overlay sentence, so the next sentence of either shape breaks the render. Two forms answer it, and the choice is the rulebook's owner's: a measured budget, in which the render test fails below a declared minimum headroom such as 100 bytes while the hook keeps 9,500, so that a change approaching the bound is red before it lands; or a raised hook bound with a measured reason, the render's cost in the session's context against what the added bytes carry.
 
 ### Dispatch and lanes · `sec:genericbacklog:open-dispatch`
 
