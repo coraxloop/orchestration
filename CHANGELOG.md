@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
+- Dispatch requires tree claims in briefs to be checked before sending and letters about worker files to state the governing boundary rather than a record shape (`rule:dispatch:brief-and-letter-claims`).
+
 - Dispatch limits file confinement to existing mutations, keeps mechanism placement with the loop and requires workers to report duplication as a brief defect (`rule:dispatch:confinement-governs-mutations`).
 
 - The architecture requires documentation reachability and parent return paths; generic directory indexes and upward references provide the authored navigation (`req:architecture:reachable-documentation`).

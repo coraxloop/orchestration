@@ -146,6 +146,12 @@ The audit also reconciles allowed paths, verification scope, deviations, and ter
 
 A requested design is a claim subject to the same review as a worker's implementation. If the design prescribed by the brief is itself at fault, the review states that fault and returns its correction to the brief's author; passing tests or faithful execution do not transfer the design fault to the worker.
 
+**Rule (Check brief and letter claims before sending)** · `rule:dispatch:brief-and-letter-claims`
+
+Before sending a brief, check its claims about the tree against the tree, including a file's formatting route, a module's declaration, a cited line and a command's behavior. A requested design is itself a claim under review (`rule:dispatch:brief-design-review`), not evidence that those facts hold.
+
+A letter that names what a worker file carries restates the standing boundary that governs it, never the record's shape: a shape restated by hand can drift from the boundary it is meant to express.
+
 **Rule (Briefs bound shared implementation)** · `rule:dispatch:briefs-bound-shared-implementation`
 
 A brief that asks two things to share an implementation names the exact judgement or component to share and the behavior each must keep separate. Saying only “one implementation” can make a shared walk alter one command's calls, order or stopping behavior and cost a correction round, even when the common judgement was right (`rule:architecture:shared-judgement-keeps-walk`).
