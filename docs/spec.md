@@ -456,6 +456,14 @@ A requested design is a claim subject to the same review as a worker's implement
 
 A brief that asks two things to share an implementation names the exact judgement or component to share and the behavior each must keep separate. Saying only “one implementation” can make a shared walk alter one command's calls, order or stopping behavior and cost a correction round, even when the common judgement was right (`rule:architecture:shared-judgement-keeps-walk`).
 
+**Rule (Confinement governs mutations, not placement)** · `rule:dispatch:confinement-governs-mutations`
+
+A brief's file confinement governs mutations of what exists and never licenses a worker to introduce a mechanism. A new checker, census, tracker, enforcement list, tool, subcommand or data format that the work seems to need is at most a suggestion in the worker's report, with an argument for its placement against the existing owners. A gate establishes that an implementation meets its checked contract, not that the mechanism belongs with that owner.
+
+The loop places the mechanism as a design row, then dispatches a lane whose brief names the owner it extends. The design step belongs to the loop when it cuts the row and writes the brief; it is never delegated to the worker. The placement is part of the brief's design under review (`rule:dispatch:brief-design-review`), and the brief bounds any shared implementation by the judgement to share and the behavior to keep separate (`rule:dispatch:briefs-bound-shared-implementation`).
+
+A worker that finds itself duplicating similar functionality already in the repository, such as a checker, walker, register or parser, treats that as a sign of a brief defect, stops the duplication and reports it: a correct brief names the owner to extend. The report is the worker's route for placement; a separately placed mechanism follows the owning backlog and dispatch route rather than becoming a detached follow-up (`rule:dispatch:no-background-task-chips`).
+
 **Rule (No background-task chips)** · `rule:dispatch:no-background-task-chips`
 
 The orchestrator and workers must not create detached, untracked task chips for follow-up work. A newly discovered item outside the current bite is recorded in the owning project backlog with its evidence, scope, dependency, and disposition, then considered later as a separately declared dispatch. Workers may not spawn sub-workers to pursue it.

@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
+- Dispatch limits file confinement to existing mutations, keeps mechanism placement with the loop and requires workers to report duplication as a brief defect (`rule:dispatch:confinement-governs-mutations`).
+
 - The architecture requires documentation reachability and parent return paths; generic directory indexes and upward references provide the authored navigation (`req:architecture:reachable-documentation`).
 
 - The contributing guide gives slice workers the repository workflow, declaration rules, node verification forms and working-step report contract (`guide:contributing:orchestration`).
