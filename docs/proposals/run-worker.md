@@ -1,5 +1,7 @@
 # Worker launcher · `proposal:runworker:per-worker-uid-launcher`
 
+Reading order and parent: (`guide:docnav:proposals`).
+
 The agent-side watching and waiting recipes retained below, including fresh-agent, never-resume, listener and session-side polling instructions, are superseded by (`proto:dispatch:log-eater-callback`) and (`proto:dispatch:heartbeat-supervision`); program interfaces, historical observations and quoted former instructions remain as recorded.
 
 Status: DRAFT — this proposes a package that does not exist. Nothing here installs, launches, or changes a live loop; the first bite and its acceptance are named at the end.

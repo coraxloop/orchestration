@@ -1,5 +1,7 @@
 # Concept proposal for the orchestration specification · `proposal:specconcept:orchestration-specification-concept`
 
+Reading order and parent: (`guide:docnav:proposals`).
+
 The agent-side watching and waiting recipes retained below, including fresh-agent, never-resume, listener and session-side polling instructions, are superseded by (`proto:dispatch:log-eater-callback`) and (`proto:dispatch:heartbeat-supervision`); program interfaces, historical observations and quoted former instructions remain as recorded.
 
 Status: PROPOSAL for corpus-owner review. This document proposes the shape of the specification; it is not the specification and makes no new operational ruling.

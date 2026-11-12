@@ -96,6 +96,9 @@ pattern = "ORCHESTRATION.md"
 pattern = "README.md"
 
 [[include.rows]]
+pattern = "CONTRIBUTING.md"
+
+[[include.rows]]
 pattern = "adr/011-environment-kinds.md"
 
 [[include.rows]]
@@ -347,9 +350,36 @@ pattern = "meson.options"
 [[include.rows]]
 pattern = "public-set.toml"
 
+[[include.rows]]
+pattern = "tests/test_labels_record.py"
+
+[[include.rows]]
+pattern = "tests/test_rulebook_render.py"
+
+[[include.rows]]
+pattern = "docs/README.md"
+
+[[include.rows]]
+pattern = "docs/proposals/README.md"
+
+[[include.rows]]
+pattern = "docs/examples/infra/README.md"
+
+[[include.rows]]
+pattern = "docs/examples/pack/README.md"
+
+[[include.rows]]
+pattern = "docs/examples/permissions/README.md"
+
+[[include.rows]]
+pattern = "docs/examples/plans/README.md"
+
+[[include.rows]]
+pattern = "docs/examples/rulebooks/README.md"
+
 [public]
 licence_code = "LICENSE-CODE"
 licence_docs = "LICENSE-DOCS"
 name = "orchestration"
 readme = "README.md"
-version = "0.1.3"
+version = "0.1.4"

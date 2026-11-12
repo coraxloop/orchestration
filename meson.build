@@ -1,28 +1,57 @@
-project('orchestration', meson_version: '>=1.12.0')
+project('orchestration', version: '0.1.3', meson_version: '>=1.12.0')
 
 source_root = meson.project_source_root()
 build_root = meson.project_build_root()
-linter = find_program('orchestration-linter', required: true)
-installer = find_program('rulebook-install', required: true)
-sync = find_program('build-sync', required: true)
+fs = import('fs')
+linter = find_program('superloop-lint', required: true)
+installer = find_program('superloop-install', required: true)
+tools_private_dir = get_option('tools_private_dir')
+if tools_private_dir == ''
+  tools_private_dir = get_option('prefix') / get_option('libexecdir') / 'superloop'
+endif
+sync = find_program(tools_private_dir / 'build-sync', required: true)
+python3 = find_program('python3', required: true)
 git = find_program('git', required: true)
 
 burn_input = get_option('burn_input')
 lint_mode_args = []
 if burn_input != ''
   lint_mode_args = ['--public-pack', '--burn-input', burn_input]
+  message('Lint mode: public-pack (external burn input supplied)')
+else
+  message('Lint mode: ordinary (no burn input supplied)')
 endif
 domain = get_option('domain')
 release_tag = get_option('release_tag')
+source_commit = run_command(git, '-C', source_root, 'rev-parse', 'HEAD', check: true).stdout().strip()
+# A new commit or checkout changes the recorded source commit, so Git's HEAD and its branch ref reconfigure the build.
+source_head = run_command(git, '-C', source_root, 'rev-parse', '--path-format=absolute', '--git-path', 'HEAD', check: true).stdout().strip()
+configure_file(input: source_head, output: 'source-head', copy: true)
+source_ref = run_command(git, '-C', source_root, 'symbolic-ref', '-q', 'HEAD', check: false)
+if source_ref.returncode() == 0
+  source_ref_path = run_command(git, '-C', source_root, 'rev-parse', '--path-format=absolute', '--git-path', source_ref.stdout().strip(), check: true).stdout().strip()
+  if fs.exists(source_ref_path)
+    configure_file(input: source_ref_path, output: 'source-ref', copy: true)
+  endif
+endif
 release_commit = ''
 if release_tag != ''
-  release_commit = run_command(git, '-C', source_root, 'rev-parse', 'HEAD', check: true).stdout().strip()
+  release_commit = source_commit
   tagged_commit = run_command(git, '-C', source_root, 'rev-list', '-n', '1', release_tag, check: true).stdout().strip()
   dirty = run_command(git, '-C', source_root, 'status', '--porcelain', check: true).stdout().strip()
   if tagged_commit != release_commit or dirty != ''
     error('release_tag must name HEAD over a clean tree')
   endif
 endif
+
+# Generated output uses build-sync's non-Cargo version authority.
+script_version_roster = {
+  'share/orchestration/labels.toml': ['', '0.1.3', 'orchestration'],
+}
+assert(script_version_roster['share/orchestration/labels.toml'][1] == meson.project_version(), 'labels export version must equal the project version')
+labels_program = '{"kind":"program","identity":"share/orchestration/labels.toml","output":"labels.toml","package":"orchestration","form":"shell","version_authority":"meson.build:script_version_roster","version":"@0@","release_group":"orchestration"}'.format(meson.project_version())
+labels_ledger = configure_file(input: 'maps/list.in', output: 'dependency-ledger.jsonl', configuration: {'PATHS': labels_program})
+record_args = ['--ledger', labels_ledger, '--source-root', source_root, '--source-repository', 'orchestration', '--source-commit', source_commit, '--producer', linter.full_path(), '--domain', domain]
 
 subdir('adr')
 subdir('docs/spec')
@@ -54,7 +83,7 @@ linter_paths = [
   '.linter/shape.toml',
   'docs/public/unpublished-labels.toml',
 ]
-root_paths = ['.gitignore', 'CHANGELOG.md', 'CLAUDE.md', 'LICENSE-CODE', 'LICENSE-DOCS', 'ORCHESTRATION.md', 'README.md', 'maps/generic-map.toml', 'public-set.toml']
+root_paths = ['.gitignore', 'CHANGELOG.md', 'CLAUDE.md', 'LICENSE-CODE', 'LICENSE-DOCS', 'ORCHESTRATION.md', 'README.md', 'CONTRIBUTING.md', 'maps/generic-map.toml', 'public-set.toml', 'tests/test_labels_record.py', 'tests/test_rulebook_render.py']
 example_subject_paths = []
 example_relative_subjects = []
 foreach path : example_names_paths
@@ -67,7 +96,7 @@ foreach name : example_names
     example_relative_subjects += name.replace('examples/', '')
   endif
 endforeach
-prose_paths = adr_names_paths + spec_names_paths + docs_top_names_paths + coreos_names_paths + reference_names_paths + proposal_names_paths + ['CHANGELOG.md', 'CLAUDE.md', 'ORCHESTRATION.md', 'README.md']
+prose_paths = adr_names_paths + spec_names_paths + docs_top_names_paths + coreos_names_paths + reference_names_paths + proposal_names_paths + ['CHANGELOG.md', 'CLAUDE.md', 'ORCHESTRATION.md', 'README.md', 'CONTRIBUTING.md']
 foreach path : example_subject_paths
   if path.endswith('.md')
     prose_paths += path
@@ -102,7 +131,7 @@ foreach path : linter_paths
   project_inputs += files(path)
   export_inputs += files(path)
 endforeach
-foreach path : adr_names_paths + spec_names_paths + docs_top_names_paths + coreos_names_paths + reference_names_paths + proposal_names_paths + ['CLAUDE.md', 'ORCHESTRATION.md', 'README.md']
+foreach path : adr_names_paths + spec_names_paths + docs_top_names_paths + coreos_names_paths + reference_names_paths + proposal_names_paths + ['CLAUDE.md', 'ORCHESTRATION.md', 'README.md', 'CONTRIBUTING.md']
   export_inputs += files(path)
 endforeach
 foreach path : spec_names_paths + ['docs/spec.md']
@@ -116,6 +145,8 @@ assembly_stamp = custom_target('spec-assembly', input: assembly_inputs, output: 
 census_stamp = custom_target('census', input: [declared_list, excluded_list], output: ['census.stamp', 'census.json'], command: [linter, 'census'] + lint_mode_args + ['--root', source_root, '--declared', declared_list, '--excluded', excluded_list, '--pattern', excluded_pattern, '--write-report', '@OUTPUT1@', '--write-stamp', '@OUTPUT0@'], build_always_stale: true, build_by_default: true)
 labels_export = custom_target('labels-export', input: export_inputs, output: 'labels.toml', command: [linter, 'export'] + lint_mode_args + ['--root', source_root, '--owner', 'ORCHESTRATION', '--out', '@OUTPUT0@'], build_by_default: true)
 
+labels_record = custom_target('labels-record', input: labels_export, output: 'labels.toml.build.json', command: [sync] + record_args + ['--record', '@INPUT@'], depend_files: files('meson.build'), build_by_default: true)
+
 run_target('spec-assemble', command: [linter, 'assemble'] + lint_mode_args + ['--root', source_root, '--write'])
 run_target('linter-project-write', command: [linter, 'project'] + lint_mode_args + ['--root', source_root, '--write'])
 run_target('linter-fmt-write', command: [linter, 'fmt'] + fmt_args)
@@ -124,6 +155,8 @@ test('linter-check', sync, args: ['--probe', check_stamp[0]], depends: check_sta
 test('linter-fmt', sync, args: ['--probe', fmt_stamp[0]], depends: fmt_stamp, suite: 'lint', timeout: 120)
 test('linter-project', sync, args: ['--probe', project_stamp[0]], depends: project_stamp, suite: 'lint', timeout: 120)
 test('spec-assembly', sync, args: ['--probe', assembly_stamp[0]], depends: assembly_stamp, suite: 'lint', timeout: 120)
+
+test('labels-record-contract', python3, args: [files('tests/test_labels_record.py'), sync.full_path(), linter.full_path(), source_root, build_root, source_commit, meson.project_version(), domain], depends: labels_record, suite: 'lint', timeout: 120)
 
 example_root = source_root / 'docs/examples'
 test('example-census', linter, args: ['census', '--root', example_root, '--declared', example_list, '--excluded', example_excluded, '--pattern', '^meson[.](build|options)$', '--required', example_root / 'instance-contract.toml'], suite: 'template', timeout: 120)
@@ -134,6 +167,12 @@ foreach map_name : ['routine-map', 'tools-map', 'install-map']
   test(map_name + '-first', installer, args: map_args, env: {'DESTDIR': stage_root}, workdir: source_root, suite: 'template', timeout: 120, is_parallel: false, priority: 10)
   test(map_name + '-again', installer, args: map_args, env: {'DESTDIR': stage_root}, workdir: source_root, suite: 'template', timeout: 120, is_parallel: false, priority: 0)
 endforeach
+
+# The production renderer checks both the public fixture and an explicitly
+# supplied instance, without copying private overlay values into this tree.
+test('rulebook-render-bound', python3,
+  args: [files('tests/test_rulebook_render.py'), installer.full_path(), source_root, get_option('rulebook_instance_root')],
+  suite: 'template', timeout: 120, is_parallel: false)
 
 install_args = ['--map', source_root / 'maps/generic-map.toml', '--build-root', build_root]
 if release_tag != ''

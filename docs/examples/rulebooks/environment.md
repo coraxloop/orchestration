@@ -1,5 +1,7 @@
 ## Build toolbox profile · `sec:environment:build-toolbox-profile`
 
+Reading order and parent: (`guide:examples:rulebooks`).
+
 **Listing (Build-toolbox recipe)** · `listing:environment:build-toolbox-recipe`
 
 The fictional build box is `sagofink-build`. Its recipe pins `PATH` and keeps the cargo home and one target directory per purpose below `/srv/example/example-user/cache/build-box/`:

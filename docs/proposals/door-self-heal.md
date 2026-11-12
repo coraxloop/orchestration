@@ -1,5 +1,7 @@
 # Provider-door self-healing · `proposal:doorselfheal:provider-door-self-healing`
 
+Reading order and parent: (`guide:docnav:proposals`).
+
 Status: DRAFT — programme requirements are fixed; the numerical thresholds and operating mechanisms identified as proposals remain subject to owner review.
 
 ## Purpose and decision provenance · `sec:doorselfheal:purpose-and-decision-provenance`

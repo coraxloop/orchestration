@@ -1,5 +1,7 @@
 # The Constant Label Profile · `rec:constants:value-accountability-profile`
 
+Reading order and parent: (`reg:records:philosophy-records`).
+
 **Status:** Decided
 
 This record makes selected production constants answerable to authored warrants and deterministic value pins. The declared policy selects the participating owners and programs; the algorithms below define the stable program identities cited by source documentation.

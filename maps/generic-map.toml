@@ -245,3 +245,10 @@ kind = "copy"
 source = "docs/examples/signing.md"
 destination = "examples/signing.md"
 mode = "0644"
+
+[[targets]]
+kind = "build"
+output = "labels.toml"
+destination = "labels.toml"
+mode = "0644"
+domain = "server"

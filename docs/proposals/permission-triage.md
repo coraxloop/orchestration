@@ -1,5 +1,7 @@
 # Permission triage · `proposal:permissiontriage:rubric-driven-model-gate`
 
+Reading order and parent: (`guide:docnav:proposals`).
+
 Status: IMPLEMENTED PROCEDURE — revised after the September 2026 rollback. Explicit audit/enforce mode, audit/bypass probe evidence, scoped verdicts, registry-selected per-loop state, audit-only assembly and owner enforce-readiness validation are implemented. The timestamp-reader sharing boundary is recorded in bite 5. Real authenticated host acceptance and live deployment remain separate owner acts; this document does not install a hook or change harness settings.
 
 ## Problem and measurement · `sec:permissiontriage:problem-and-measurement`

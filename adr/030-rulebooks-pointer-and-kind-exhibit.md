@@ -1,5 +1,7 @@
 # The Rulebooks as a Pointer and a Kind Exhibit · `rec:rulebooks:rulebooks-pointer-and-kind-exhibit`
 
+Reading order and parent: (`reg:records:philosophy-records`).
+
 The agent-side watching and waiting recipes retained below, including fresh-agent, never-resume, listener and session-side polling instructions, are superseded by (`proto:dispatch:log-eater-callback`) and (`proto:dispatch:heartbeat-supervision`); program interfaces, historical observations and quoted former instructions remain as recorded.
 
 **Status:** Decided

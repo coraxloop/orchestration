@@ -1,5 +1,7 @@
 # Hook state machines · `spec:hooks:hook-state-machines`
 
+Reading order and parent: (`reg:assembly:specification-assembly`).
+
 This part realizes the hook-machine outline (`sec:assembly:hooks-outline`). It specifies the two deployed callbacks as total transition systems whose observable decisions, state changes, timing bounds, and recovery behavior can be carried unchanged into a direct graph implementation. Every label minted here has area `hooks`.
 
 ## Scope · `sec:hooks:scope`
@@ -377,7 +379,7 @@ Each fixture asserts semantic verdict, complete captured standard streams and st
 
 **Verification (Heartbeat transitions)** · `verif:hooks:heartbeat-transitions`
 
-Graph and subprocess fixtures cover `OFF`, `FAIL_OPEN`, `ARMED`, `PROMPT`, all four exception states, and every fresh-warning and already-warned edge. The structural matrix includes successful, failed, in-flight, stopped, malformed- delay, and untimestamped calls; result-before-call association; multiple calls; sidechains; rejected naive, zero-offset and nonzero-offset timestamps (every form without the trailing `Z`), and accepted canonical UTC timestamps with the trailing `Z`; past and future entries; strict expiry; 59/60/3,600/3,601-second delay inputs; 120-second slack; and the 3,720-second horizon boundary. No assertion may inspect result prose.
+Graph and subprocess fixtures cover `OFF`, `FAIL_OPEN`, `ARMED`, `PROMPT`, all four exception states, and every fresh-warning and already-warned edge. The structural matrix includes successful, failed, in-flight, stopped, malformed-delay, and untimestamped calls; result-before-call association; multiple calls; sidechains; rejected naive, zero-offset and nonzero-offset timestamps (every form without the trailing `Z`), and accepted canonical UTC timestamps with the trailing `Z`; past and future entries; strict expiry; 59/60/3,600/3,601-second delay inputs; 120-second slack; and the 3,720-second horizon boundary. No assertion may inspect result prose.
 
 State fixtures cover absent, malformed, mismatched, negative, zero, two, three, and larger counts; warning absent/present; no real user turn; new real user turn; string and list guard feedback; tool-result carriers; session and project isolation; and write failure for both counter and warning. Transition fixtures exercise all three prompt exits, unprompted arm while pending and after stop or expiry, first and repeated correction, three prompt blocks, the additional armed-correction path, both lapses, and next-turn recovery.
 

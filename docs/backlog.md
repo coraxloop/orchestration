@@ -1,16 +1,18 @@
 # Backlog of the generic repository · `plan:genericbacklog:orchestration-backlog`
 
+Reading order and parent: (`guide:docnav:documentation`).
+
 This backlog holds the open work that a change to this repository discharges: the specification, the rulebooks, the generic documents, the examples and the kind registry, with the Meson layer and the linter declarations that carry them. It holds open work only, and every item keeps the label it was minted with for life: the kind of the label says what the item is, and the first word of its first paragraph says where the item stands.
 
 ## Priorities · `sec:genericbacklog:priorities`
 
 **Register (Priorities)** · `reg:genericbacklog:priorities`
 
-The estate this backlog serves is becoming one where every loop and every worker corresponds through one plain mail system, whose specification this repository carries, where workers are handed bare repositories and make their own checkouts, a rule the dispatch part of the specification is to state, and where the documents say what holds while the backlogs say what is still to do. The whole backlog is one slice, in the order below: the mail specification's follow-ups first as rows for them arrive, then the bare-repository rule, then the to-do profile's rule for authored backlog heads, on which the tools backlog's linter half waits, then the rest. A slice worker reads this register first and reports what it will work on.
+The estate this backlog serves is becoming one where every producing worker runs in a box and a loop's exception is an in-harness subagent of its own session, where slice workers read one contributing guide per repository and work under the slice form this repository's specification states, where a root-held server is installed from this repository's guides and the estate's kit, where every document this repository carries is installed on a host and reachable from the rulebook, and where every loop and every worker corresponds through one plain mail system whose specification this repository carries. The whole backlog is one slice, in the order below: the rule for producing workers and their exception first, the generic half of the removal of non-boxed worker support that leads the tools and estate registers after the Claude boxed workers; the contributing guide next, because the slice form's general brief points at it; then the root-full platform baseline, the CoreOS example's reconciliation and the build's installer name, because a second root-full server must be installable from the documents; then the documentation install and the documentation-graph requirement; then the mail specification's follow-ups and the to-do profile's rule for authored backlog heads, on which the tools backlog's linter half waits; then the rest. A slice worker reads this register first and reports what it will work on. The holdings column follows the priorities-register definition (`def:dispatch:priorities-register`).
 
-|order|slice|rows|items, in order|depends on, and rows larger than one lane|
-|-----|-----|----|---------------|-----------------------------------------|
-|1|The whole generic backlog|11|(`open:mail:per-record-maximum-and-unavailable-endpoint-code`), (`open:mail:worker-uid-lifetime-stated`), (`dec:dispatch:workers-clone-from-bare-repositories`), (`prob:docs:todo-profile-admits-authored-backlog-heads`), (`prob:docs:rulebook-render-size-bound`), (`prob:docs:rulebook-roadmap-names-each-spec-part`), (`prob:docs:dispatch-rule-refuses-zero-offset-timestamps`), (`prob:build:generic-layer-program-identity-under-ledger-contract`), (`prob:build:burn-input-optional-for-the-public-tree`), (`prob:build:configure-says-which-lint-mode-it-selected`), (`prob:build:generic-documents-install-natively`)|The tools backlog's ``prob:linter:authored-todo-head-in-backlog-documents`` waits on the to-do profile's rule; the roadmap's topic hints use the headroom under the render bound, so the bound is settled first. No row is larger than one lane.|
+|order|slice|rows|items, in order|depends on, and rows larger than one lane|held by|
+|-----|-----|----|---------------|-----------------------------------------|-------|
+|1|The whole generic backlog|6|(`prob:build:generic-install-map-carries-the-mail-part`), (`prob:build:generic-documentation-installs-under-the-package-doc-root`), (`prob:build:generic-documents-install-natively`), (`prob:build:render-test-checks-survive-optimised-python`), (`open:docs:rulebook-render-headroom-budget-or-raised-bound`), (`prob:dispatch:a-bar-on-a-tree-with-held-switches-is-run-again-on-the-landed-tree`)|Reading: the slice work section (`sec:dispatch:slice-work`) for the exception rule and the contributing guide, the notes register of the estate's first root-full deploy, read as a whole, for the platform rows, and the estate's documentation-install decision for the install rows, which also settles the native install's map question. Bar: at each tip the generic gate on the root-full node, with the lint in public-pack mode over the burn input, the projection, the formatter and the Meson layer. The tools backlog's ``prob:linter:authored-todo-head-in-backlog-documents`` waits on the to-do profile's rule; the roadmap's topic hints use the headroom under the render bound, so the bound is settled first. No row is larger than one lane.|lane r002g83, its two documentation install items, (`prob:build:generic-documentation-installs-under-the-package-doc-root`) and (`prob:build:generic-documents-install-natively`), wait on the estate gate's native-install predicate (``prob:gates:generic-gate-accepts-a-native-documentation-install`` in its backlog) and on the tools' index writer and provenance contract, held by lane r002g79 (``prob:build:installer-tree-targets-and-index-writer`` in the tools backlog); unheld: (`prob:build:generic-install-map-carries-the-mail-part`), (`prob:build:render-test-checks-survive-optimised-python`), (`open:docs:rulebook-render-headroom-budget-or-raised-bound`) and (`prob:dispatch:a-bar-on-a-tree-with-held-switches-is-run-again-on-the-landed-tree`)|
 
 ## Charter · `sec:genericbacklog:charter`
 
@@ -20,7 +22,7 @@ Every item opens with one of three statuses in bold, followed by the evidence fo
 
 **Convention (Item kinds)** · `conv:genericbacklog:item-kinds`
 
-An item's kind says what it is, and its status where it stands. A Problem (`prob`) is work assigned: a defect or a change, with its remedy where one is known; a Claim (`claim`) is a finding stated to be verified before it is relied on; an Open Problem or Open Question (`open`) is a design question whose answer is not yet known; a Question (`q`) asks a plain question of a named party; a Goal (`goal`) is a desideratum or a direction without one bounded piece of work; a Decision (`dec`) is a decided rule or form whose adoption or statement is still open; and a Record (`rec`) keeps a measurement or a piece of evidence until its revisit condition decides it. Work items carry Problem rather than To-do because the kind registry reserves `todo` for the machine-derived deficiency notices of the to-do profile (`sig:todos:kind-extension`), so no authored head may mint it.
+An item's kind says what it is, and its status where it stands. A Problem (`prob`) is work assigned: a defect or a change, with its remedy where one is known; a Claim (`claim`) is a finding stated to be verified before it is relied on; an Open Problem or Open Question (`open`) is a design question whose answer is not yet known; a Question (`q`) asks a plain question of a named party; a Goal (`goal`) is a desideratum or a direction without one bounded piece of work; a Decision (`dec`) is a decided rule or form whose adoption or statement is still open; and a Record (`rec`) keeps a measurement or a piece of evidence until its revisit condition decides it. Existing work items retain their Problem identities permanently. The authored backlog profile (`conv:todos:authored-backlog`) admits new To-do heads on explicitly declared surfaces once the tools linter implements that admission; until then new work uses the supported Problem form. Profile adoption never renames an existing `prob` label.
 
 **Convention (Intake and exit)** · `conv:genericbacklog:intake-and-exit`
 
@@ -28,9 +30,11 @@ New items come from letters to the loop and from review findings, sorted at inta
 
 **Convention (Working the backlog)** · `conv:genericbacklog:working-the-backlog`
 
-Every worker of every loop receives clones of the bare repositories it needs in its workspace and makes its own checkouts; the loop pushes into and fetches from those bares, and a superloop keeps its own bares of record with mirror bares on the compute server, so that a hand-over is a repository rather than a prepared checkout and a clone on the node is a delta.
+Every worker of every loop receives clones of the bare repositories it needs in its workspace and makes its own checkouts; the loop pushes into and fetches from those bares, and a superloop keeps its own bares of record with mirror bares on the compute server, so that a hand-over is a repository rather than a prepared checkout and a clone on the node is a delta (`rule:dispatch:workers-clone-from-bare-repositories`).
 
-This backlog is worked in slices: the loop sets the priorities and submits rows to the backlog manager by letter; a slice worker reads the backlog with its priorities register, takes a large slice of thirty rows or more and reports what it will work on; the loop steers it by mail, cherry-picks its commits into review branches for review workers, and alone makes the commits of record, squashed and remade with its own messages after an importable review.
+This backlog is worked in slices (`sec:dispatch:slice-work`): the loop sets the priorities and submits rows to the backlog manager by letter; a slice worker, briefed with the workspace, the repository's contributing guide and a budget, reads the backlog with its priorities register, proposes a slice of twenty to thirty rows, or the whole backlog where it holds fewer, and stops; the loop answers that proposal and steers by letter afterwards, never before it. A slice worker never rebases, squashes, amends or force-pushes what it has pushed (`rule:dispatch:lane-branch-merge-in`): when the base branch moves it merges the base in, and a correction after a review is a fixup commit on top, so that a review in flight keeps its anchors and the worker keeps its own trail. The loop stages the lane branch on a review branch, `review/<topic>`, which the worker never touches (`proto:dispatch:review-branch-landing`): basic rebasing of the staged work is the loop's, advanced rebasing is the reviewer's, done on the review branch with its trivial fixups named in the review, and a correction beyond trivial returns to the worker as a fixup under the merge-in rule. The loop alone makes the commits of record, remade onto the development branch with its own identity and messages, gates them, and pushes the base back into the workspace bares.
+
+Holdings follow the priorities-register definition (`def:dispatch:priorities-register`); selection among unheld items follows the slice protocol (`proto:dispatch:slice-dispatch`).
 
 **Register (Areas)** · `reg:genericbacklog:areas`
 
@@ -44,73 +48,50 @@ An item's area is the subject of what must change to discharge it, and the secti
 |`linter`|this repository's linter declarations and the values they name|
 |`docs`|the specification, the rulebooks and the generic documents where the fix is prose|
 |`dispatch`|the specification's dispatch and lanes parts: how a superloop gives its workers their repositories|
+|`servers`|the root-full server guides and the CoreOS worked example: the platform baseline, the account model, the verification checklist and the recovery|
 
 ## Open work · `sec:genericbacklog:open-work`
 
 ### The mail specification · `sec:genericbacklog:open-mail`
 
-**Open Question (Whether the mail specification declares its per-record maximum, and which refusal code names an unavailable endpoint)** · `open:mail:per-record-maximum-and-unavailable-endpoint-code`
-
-**OPEN.** (2026-11-03 09:05Z, from the review of lane r002g76's c02, F5) The specification declares the journal and staging bounds as constants but not the per-record maximum, which the implementation sets at 65,536 bytes to size the reserved scratch: the specification declares it, or states that it is an implementation constant.
-
-(from the review of lane r002g76's c01, F3) The refusal-code list has no code for an unavailable endpoint, with unsafe-storage and io-failure as the candidates; the delivery core reports the gap until the specification names one. Both parts are answered in the mail specification (`spec:mail:superloop-mail-system`), the first beside its retention constants (`def:mail:retention-constants`), the second in its visible-refusal rule (`rule:mail:refusal`).
-
-**Open Question (Whether the mail specification states a worker uid's lifetime)** · `open:mail:worker-uid-lifetime-stated`
-
-**OPEN.** (2026-11-03 15:55Z, from lane r002g76's c06 review K1) Worker uids are recycled at retirement after custody transfer, while the specification states only that worker birth names are never reused (`rule:mail:worker-birth-name`); whether it states the uid's lifetime explicitly is open, and the tools' retirement operation lands meanwhile (``prob:mail:worker-run-retirement-recycles-the-uid`` in the tools backlog).
-
 ### The division of documents · `sec:genericbacklog:open-estate`
 
 ### The Meson layer · `sec:genericbacklog:open-build`
-
-**Problem (The generic document layer's labels build record predates the deployed build-sync ledger contract)** · `prob:build:generic-layer-program-identity-under-ledger-contract`
-
-**OPEN.** Measured on 2026-10-29 at 08:35Z: the generic repository's `meson.build`, since 8de937f (the documents-only layer), declares a `labels-record` custom target that calls `build-sync --record labels.toml --producer <linter> --domain server`, while the build-sync deployed to the node tools directory since the dependency-ledger inventories (tools 8e57926, ``entry:build:dependency-bite-version-line-and-ledger``) requires `--ledger`, `--source-root`, `--source-repository` and `--source-commit` and resolves the output's identity from exactly one ledger `program` row whose package, version and release group are checked against the source `meson.build`, which a documents-only layer does not declare. The generic gate on lane r002g03's candidate 44f2f4d7 went red at ninja step 6/7 with `missing_required_argument`, as the base f6052e07 would; the last green generic gate (r002f33, 2026-10-23, base b169374e) ran against the earlier build-sync, and the deploy note of the bite 6 commit (tools 14d6c41) names the document layers' `meson.build` lookups and their report and stamp arguments as a pending change that the layers never received. The unblocking change is r002g03's second commit, which drops the record target and keeps the export. What remains: the generic layer declares its program identity under the ledger contract, so that the label export carries a build record again, and its lookups move to the deployed names (`superloop-lint`, `superloop-pack`, `superloop-install`, and build-sync by its private directory option) in the same change; the instance layer's `meson.build` is checked for the same debt.
-
-Measured on 2026-10-29 at 09:02Z, after generic main moved to 5743fe9a: the host's `~/.local/share/orchestration/labels.toml`, installed on 2026-10-23 by the build target of that time, has no map target any more and stays as a leftover until the record returns or the publisher removes the files the map no longer names; nothing reads it.
-
-**Problem (The generic Meson layer configures without the burn input, so a public consumer can run it)** · `prob:build:burn-input-optional-for-the-public-tree`
-
-**OPEN.** (r002g41 review 1 N4; taken into r002g41 fix round 2 as c09) the generic meson.build refused to configure without `-Dburn_input`, so a public consumer could not run the documents-only Meson layer; the option becomes optional with ordinary-mode lint targets without it. N5 (optional): the root README's install guidance, without estate paths, into a public document later.
-
-**Problem (The generic configure step says which lint mode it selected)** · `prob:build:configure-says-which-lint-mode-it-selected`
-
-**OPEN.** (r002g41 review 2 N1) since c09 (generic 8c121992) a `meson setup` without `-Dburn_input` silently selects ordinary lint mode, shown only as `"public_pack":false` in the report; the estate gate always passes the input, but a hand-run configure could get the weaker check unnoticed. Add a configure-time `message()` (or `warning()`) naming the selected mode when the input is empty.
 
 **Problem (The generic repository installs its documents by Meson's native rules and retires its install map)** · `prob:build:generic-documents-install-natively`
 
 **OPEN.** (2026-11-03) This repository's part of the tools' native install, ``prob:build:native-meson-install`` in the tools backlog: bite 5, the generic repository a documents-only install by Meson's own rules, and its half of bite 8, its install map's removal. Measured at development e8b83958: the layer is documents-only, but its install still runs the tools' install primitive over the generic install map as an install script, so the documents install by map rather than by Meson's native rules.
 
+**Problem (The generic repository installs its documentation under the package documentation root)** · `prob:build:generic-documentation-installs-under-the-package-doc-root`
+
+**OPEN.** (2026-11-05, a slice of the documentation-install set, whose lead is the estate's decision that each repository installs its complete documentation set as a package does) The install map ``maps/generic-map.toml`` gains one `tree` target from the repository root to ``~/.local/share/doc/orchestration/``, including ``README.md``, ``CHANGELOG.md``, ``ORCHESTRATION.md``, ``CLAUDE.md``, ``adr/**`` and ``docs/**`` (the specification, the CoreOS guides, the proposals, the reference, the examples, the decisions and the guides); the program-read copies stay as `copy` targets under ``~/.local/share/orchestration/`` (the specification, the rulebook shape, ``CLAUDE.md``, ``labels.toml`` and the examples), and the human-read specification parts and ADRs under that root are removed with no compatibility copy. The document route re-renders, and its provenance records the removal.
+
+Measured on 2026-11-05 at main d574ea8: the map copies the specification parts, one ADR, the commit-signing document, the two rulebooks and the fictional examples and nothing else, so the CoreOS guides (eight, 68 KB), the root-full server setup (36 KB), the confined-administration guide, the security posture, the decisions, the harness user channels, the reference and the proposals are declared in ``docs/meson.build`` with no copy target and absent from the host, where a session asked about the server design walks past them; a host script publishes them under the documentation root as a hotfix until this lands. The rulebook's reading roadmap (`preview:orch:which-part-to-read`) points at the documentation root and its package indexes in the same change, and the instance register's line naming the server guides is the estate's half.
+
+This form meets the native install (`prob:build:generic-documents-install-natively`) head-on: that item retires the install map, while this one makes the map the documentation's declaration, so the estate's decision settles which form carries the documentation and the other item follows it.
+
+**Problem (The generic install carries the mail part to the host's specification root)** · `prob:build:generic-install-map-carries-the-mail-part`
+
+**OPEN.** (2026-11-06, from the review of lane r002g83's mail-part rows) The base install map, ``maps/generic-map.toml``, has no target for ``docs/spec/mail.md``, so the host's specification root carries no mail part while the rulebook's reading roadmap (`preview:orch:which-part-to-read`) lists mail among the parts (`spec:mail:superloop-mail-system`); the hotfix publication under the documentation root is complete, and the map is not. The map gains the part's target, or the native install that retires the map installs it from the generated inventory, so that every part the roadmap names is installed where the roadmap points.
+
+(2026-11-11, read on a host while checking where a newly landed dispatch rule is installed) The map still has no target for ``docs/spec/mail.md``, so the installed specification under the share root has no mail part beside it while the rendered rulebook's roadmap names it among the parts beside the specification, and the complete documentation root has it. The copy targets also follow the `main` branch, last refreshed on 2026-11-03, so a rule landed on `development`, such as (`rule:dispatch:letters-carry-communication`), reaches the installed specification only at the next release and the documentation root at the next documentation publish. The map gains the mail part, and the rulebook's pointer names whichever root is current.
+
+**Problem (The render test's checks survive optimised Python)** · `prob:build:render-test-checks-survive-optimised-python`
+
+**OPEN.** (2026-11-06, from the review of lane r002g83's render rows) The render test, ``tests/test_rulebook_render.py``, relies on bare `assert` statements, so under `PYTHONOPTIMIZE` it runs no check at all and passes; its checks raise an explicit failure or run under a test runner that keeps them, so that the render's size gate holds in every interpreter mode.
+
 ### Linter declarations · `sec:genericbacklog:open-linter`
 
 ### Documents · `sec:genericbacklog:open-docs`
 
-**Problem (the orchestrator rulebook render sits just under the hook's size bound)** · `prob:docs:rulebook-render-size-bound`
+**Open Question (Whether the rulebook render keeps a measured headroom budget or the hook's bound rises)** · `open:docs:rulebook-render-headroom-budget-or-raised-bound`
 
-**OPEN.** The render sat 30 bytes under its 9,500-byte bound when this was recorded and has not been checked against the tree since; what remains is moving the generic register's long path register into the pointer form or raising the bound with a measured reason, and a generic gate that renders the instance shape so a breaking change is red before import.
-
-the orchestrator rulebook render sits 30 bytes under its 9,500-byte bound (2026-10-21T23:05:09Z): the generic shape ORCHESTRATION.md grew 148 bytes at 870be3c2 (its line 53 names the tools publication homes) and rulebook-install refused the instance render (reason rendered_size) until the instance register lines were trimmed four times (rabe rulebooks/orchestration.md 4,464 to 4,356 bytes; render 9,470). The bound is the hook's (rule:hooks:rulebook-size-bound); the next sentence added to either shape breaks the render again. Proper fix: the generic rulebook's register moves its long path register into the pointer form (the layout of record names the folders), or the bound rises with a measured reason; and the generic gate renders the instance shape so a generic change that breaks the render is red before import.
-
-(2026-11-04, from lane r002g77's review f19) After the watcher rule's rewrite the render measures 9,127 of 9,500 bytes; the tools backlog carries the renderer's one citation form (``prob:build:rulebook-render-emits-one-citation-form``).
-
-**Problem (the dispatch rule on refused timestamps does not name the zero-offset form)** · `prob:docs:dispatch-rule-refuses-zero-offset-timestamps`
-
-**OPEN.** The dispatch rule at `docs/spec/dispatch.md:232` still does not name the zero-offset form (`+00:00`) that the hooks fixture sentence pins since lane r002f37; what remains is one line naming zero-offset beside naive, local and nonzero-offset, committed with its regeneration, together with the stray space of "malformed- delay" at hooks.md:380.
-
-`docs/spec/dispatch.md:232` (publication `docs/spec.md:526`) says "Naive, local and nonzero-offset civil timestamps are refused by name rather than assigned a zone" and does not name a zero-offset stamp without a Z (`+00:00`), the boundary the hooks fixture sentence now pins (lane r002f37); its earlier clause "only explicit UTC instants or declared epochs are parsed" may exclude it depending on how "explicit UTC" is read (review of r002f37, 2026-10-23). Fix: the dispatch rule names zero-offset beside naive, local and nonzero-offset, so the two parts agree; one line, one commit with its regeneration. Where: generic docs/spec/dispatch.md; with items ``entry:dispatch:utc-instants-everywhere`` and ``entry:docs:hooks-fixture-pins-zero-offset-timestamp``. Also: the token "malformed- delay" at hooks.md:380 (publication :1018) carries a stray space (`hooks.md:257` spells it `malformed-delay`); fix in the same step.
-
-**Problem (The rulebook roadmap names what each specification part covers)** · `prob:docs:rulebook-roadmap-names-each-spec-part`
-
-**OPEN.** GENERIC rulebook roadmap (r002g72 F1, 2026-11-02): the roadmap no longer lists what each spec part covers; four part labels (spec:dispatch:dispatch-and-supervision, spec:hooks:hook-state-machines, spec:lanes:worker-lane-lifecycle, spec:architecture:architecture-and-authority) are now cited nowhere in the generic tree (no uncited-mint linter check). ~500 B of headroom under the 9,500 B render bound could carry short topic hints back.
-
-**Problem (The to-do profile admits an authored To-do head in backlog documents)** · `prob:docs:todo-profile-admits-authored-backlog-heads`
-
-**OPEN.** (lane bkm01 step 1, 2026-11-03) an authored To-do head is refused by the linter in all three repositories because the registry reserves `todo` for the to-do profile's derived notices; the backlogs carry `prob` (Problem) for work meanwhile. Decide: admit an authored To-do head in backlog documents (ADR-016 + the linter), then rename by one transform.
-
-The rule half is this repository's: the to-do profile (`rec:todos:deficiency-notice-profile`) and its kind extension (`sig:todos:kind-extension`) reserve `todo` for machine-derived notices, so a backlog document needs a stated profile under which an authored To-do head is admitted; the linter's half follows in the tools backlog as ``prob:linter:authored-todo-head-in-backlog-documents``.
+**OPEN.** (2026-11-06, measured by the render test and by lane r002g83) The rendered instance stands at 9,465 of the hook's 9,500 bytes (`rule:hooks:rulebook-size-bound`) after the roadmap's topic hints and again after the mail operating form: 35 bytes of headroom, less than one overlay sentence, so the next sentence of either shape breaks the render. Two forms answer it, and the choice is the rulebook's owner's: a measured budget, in which the render test fails below a declared minimum headroom such as 100 bytes while the hook keeps 9,500, so that a change approaching the bound is red before it lands; or a raised hook bound with a measured reason, the render's cost in the session's context against what the added bytes carry.
 
 ### Dispatch and lanes · `sec:genericbacklog:open-dispatch`
 
-**Decision (Workers receive clones of the bare repositories they need and make their own checkouts)** · `dec:dispatch:workers-clone-from-bare-repositories`
+**Problem (A worker's bar on a tree that carries held switches runs again on the landed tree before the next review stacks)** · `prob:dispatch:a-bar-on-a-tree-with-held-switches-is-run-again-on-the-landed-tree`
 
-**OPEN.** (2026-11-03) Workers of any loop get clones of the bare repositories they need in their workspace and make their own checkouts; the loop pushes into and fetches from those bares; superloops keep their own bares of record and mirror bares on the compute server for fast differential clones. To state in the generic specification (dispatch/lanes part), where the lane forms of each superloop then re-state their provisioning on bares.
+**OPEN.** (2026-11-08, from a gate after a review landing) A worker whose branch carried held switches, which the landing leaves out, passed its bar on that branch, while three of the tests it touched went red at the first gate of the landed tree, which the review's caveat had named as that tree's first run. A branch with held switches tests a tree other than the landing, so the review's caveat that the gate is the landed tree's first run is the signal to gate that tree before the next review stacks on it, or the worker reruns its bar on the landed tree before claiming it; the gate at the landed tip (`proto:dispatch:review-branch-landing`) is then a confirmation rather than the first measurement.
+
+### The root-full servers · `sec:genericbacklog:open-servers`

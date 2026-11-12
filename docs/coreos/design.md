@@ -1,12 +1,14 @@
 # Design and systemd orchestration · `guide:coreos:design`
 
+Reading order and parent: (`guide:coreos:bare-metal-server-guides`).
+
 **Principle (Reproducible host)** · `prin:coreos:reproducible-host`
 
 A host is manageable when one installation file and versioned increments reproduce it, and everything running on it is supervised, bounded and backed up. FCOS supplies the immutable base; the reference setup layered only the few extra packages it needed, including tmux and python3, through rpm-ostree and rebooted to activate layers. Small idempotent scripts add post-install state. The installation listing is (`listing:coreos:butane-file`), and the increment contract is (`req:coreos:increment-contract`).
 
 **Remark (Estate boundary and FCOS differences)** · `rem:coreos:estate-boundary`
 
-The root-full meaning and root custody are already defined in (`sec:rootserver:what-a-root-full-server-is`), and confinement's scope and limits in (`spec:security:root-server-security-posture`). This setup uses FCOS with legacy BIOS, a provider rescue system and nftables rather than the Silverblue platform baseline in (`sec:rootserver:platform-baseline`). All its login accounts map to `staff_u`; it does not document the separate unconfined `administrator` account in (`sec:rootserver:the-account-model`). Its shared project workspaces are explicitly labelled under `/var/lib/example/`, unlike the home-local layout in (`sec:confinedadmin:the-filesystem-is-typed-loop-data-lives-in-homes`). Its outbound application tunnel also differs from the provider/site WireGuard door in (`sec:rootserver:the-door`). These are facts of two setups, not substitutions for the estate's requirements.
+This is the fictional recipe for the root-full Fedora CoreOS stable baseline (`sec:rootserver:platform-baseline`), under the root-custody and source-of-record boundary (`sec:rootserver:what-a-root-full-server-is`). Every login is confined; one registry-selected login administers through the explicit transition and provider rescue remains independent (`sec:rootserver:the-account-model`). Loop hubs, lanes and caches stay in homes; the labelled shared-project tree is optional application data, not an alternative loop layout (`sec:confinedadmin:the-filesystem-is-typed-loop-data-lives-in-homes`). The outbound application tunnel publishes selected services, while a site WireGuard door supplies a separately selected administration route; neither replaces provider rescue (`sec:rootserver:the-door`). The recipe uses nftables. Its fictional legacy BIOS and no-TPM hardware do not claim UEFI Secure Boot acceptance; firmware-specific probes follow the selected machine (`sec:rootserver:platform-baseline`).
 
 **Remark (Execution and authority)** · `rem:coreos:execution-authority`
 
@@ -32,7 +34,7 @@ Systemd is the only orchestrator in this setup: there is no Kubernetes or compos
 
 **Principle (Confinement and resource boundaries)** · `prin:coreos:confinement-and-ceilings`
 
-The common staff-to-sysadm transition is described in (`sec:rootserver:administering-under-confinement`). Here every login account maps to `staff_u`, example-admin accounts elevate to `sysadm_r:sysadm_t` through sudo, and agent and worker accounts have no sudo. Aggregate and per-account slices bound workloads so one account does not consume the capacity reserved for production and the kernel; the illustrated failures and revised fractions are in (`scenario:coreos:aggregate-pressure`) and (`tab:coreos:slice-ceilings`).
+The common staff-to-sysadm transition is described in (`sec:rootserver:administering-under-confinement`). Here every login account maps to `staff_u`, the single example-admin login elevates to `sysadm_r:sysadm_t` through sudo, and all other example accounts have no sudo. Aggregate and per-account slices bound workloads so one account does not consume the capacity reserved for production and the kernel; the illustrated failures and revised fractions are in (`scenario:coreos:aggregate-pressure`) and (`tab:coreos:slice-ceilings`).
 
 **Principle (Backups and a known update window)** · `prin:coreos:backups-and-window`
 

@@ -1,5 +1,7 @@
 # Architecture and authority · `spec:architecture:architecture-and-authority`
 
+Reading order and parent: (`reg:assembly:specification-assembly`).
+
 This part fixes the durable architecture of the orchestration system accepted by the corpus owner (`dec:decisions:spec-concept-accepted`). It specifies boundaries, authority, audiences, trust, and evidence flow; changing rosters, budgets, server identities, toolchain versions, and similar operating values remain in their owned registries. Every label minted here has area `architecture`.
 
 ## Purpose and boundary · `sec:architecture:purpose-and-boundary`
@@ -100,6 +102,16 @@ A worker's complete authority is the intersection of its harness charter chain a
 **Rule (Audience separation)** · `rule:architecture:audience-separation`
 
 Every instruction delivery mechanism must positively identify its audience before exposing content. The orchestrator rulebook is withheld from workers, subagents, and nonmatching harnesses; a worker charter is withheld from the orchestrator's policy surface and from workers of another harness; a brief is confined to its dispatch; and runbooks remain on-demand data rather than ambient prompt content. Hook filters, provider discovery rules, deployment copies, and repository-local instruction files must be audited as one delivery chain. A symlink, fallback discovery path, inherited prompt, or resume operation may not widen that chain.
+
+**Requirement (Documentation is reachable with a way back)** · `req:architecture:reachable-documentation`
+
+Every installed document is reachable from the rendered orchestrator rulebook by a chain of references and carries an explicit reference to its parent index, directory README or reading-order register. Following parents returns the reader to the rulebook; a cycle disconnected from that root does not count as a return path. A document with no forward route or no return route is an orphan and a lint error. Reachability describes available reading, not automatic instruction delivery: audience separation (`rule:architecture:audience-separation`) still governs what a session may receive or treat as authority.
+
+The rulebook's reading roadmap and document register point to the documentation root and package indexes, rather than listing all leaves inside the rulebook's render bound (`rule:hooks:rulebook-size-bound`). Each package index names its directory READMEs or reading-order registers and top-level documents; each directory entry point names its documents and child entry points in reading order. Every leaf names its parent, and sibling references may supplement that route. The complete generated inventory index and the authored reading order must agree on membership; neither replaces the other.
+
+Use label citations when the target participates in the citing corpus or its declared imports, and relative links for unlabelled material or a separate corpus whose labels are not imported. Relative links resolve in the selected installed layout, not just in the checkout. A source example with its own owner links back to its enclosing collection without inventing an imported label. Generated publications retain their authored navigation; quoted evidence has a navigation wrapper that leaves the evidence unchanged. A parent reference is navigation, not an instruction to load another audience's rulebook.
+
+The corpus owner maintains the references and selected-document inventory; the tools linter checks resolved edges, reachability and parent return paths, and publication or installation refuses an orphan. Evidence names the exact inventory, roots and source revision checked. Existing citation resolution alone proves that named edges resolve, not that the graph is connected. The full graph checker and staged installation acceptance are separate implementation obligations; adding these source references does not claim that either has run.
 
 ## Harness boundaries · `sec:architecture:harness-boundaries`
 

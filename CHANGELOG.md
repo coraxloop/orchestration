@@ -1,10 +1,50 @@
 # Changelog
 
+Reading order and parent: (`guide:publicorchestration:orchestration`).
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.1.4] - 2026-11-12
+
+### Added
+
+- Dispatch requires tree claims in briefs to be checked before sending and letters about worker files to state the governing boundary rather than a record shape (`rule:dispatch:brief-and-letter-claims`).
+
+- Dispatch limits file confinement to existing mutations, keeps mechanism placement with the loop and requires workers to report duplication as a brief defect (`rule:dispatch:confinement-governs-mutations`).
+
+- The architecture requires documentation reachability and parent return paths; generic directory indexes and upward references provide the authored navigation (`req:architecture:reachable-documentation`).
+
+- The contributing guide gives slice workers the repository workflow, declaration rules, node verification forms and working-step report contract (`guide:contributing:orchestration`).
+
+### Changed
+
+- Configure reports whether it selected ordinary or public-pack lint mode, and the README states that a public consumer configures without a burn input (`sec:publicorchestration:checking-the-documents`).
+
+- Dispatch names zero-offset civil timestamps among those refused by name, matching the hooks fixture boundary, and the hooks fixture matrix spells malformed-delay as one token (`rule:dispatch:timing-led-decisions`).
+
+- The rulebook roadmap gives a topic hint for each of the eight specification parts and cites the architecture, dispatch, hooks and lanes part heads, within the hook's bound as the production renderer measures it (`preview:orch:which-part-to-read`).
+
+- A template-suite test renders the rulebook through the production renderer over the fictional instance, or over an instance checkout named by `rulebook_instance_root`, under the hook's 9,500-byte bound and asserts the named refusal below it; the roadmap names its documentation folders in pointer form (`sec:contributing:verification`).
+
+- The to-do profile admits authored To-do heads on explicitly declared backlog surfaces, with disjoint source and authored censuses, collision refusals and permanent existing Problem identities (`conv:todos:authored-backlog`).
+
+- Mail distinguishes permanent worker birth names from reusable numeric uids, releasing a uid only after durable retirement and custody transfer (`rule:mail:worker-uid-lifetime`).
+
+- Mail defines the per-record serialized journal limit and distinguishes unavailable endpoints from unsafe storage, preserving pending accepted transactions (`def:mail:retention-constants`), (`rule:mail:refusal`).
+
+- The generic build uses deployed command names and an explicit private helper directory, restores the label export's ledger-backed build record and installation, and tests record identity and named refusals (`sec:publicorchestration:build-identity`).
+
+- The CoreOS recipe and root-full requirements share one confined administering login, home-local loop work and explicit route and firmware choices; first-boot policy, deployment probes and recovery distinguish recorded results from unperformed acceptance (`sec:rootserver:the-account-model`), (`reg:rootserver:recorded-fcos-probe-basis`).
+
+- Root-full servers use the latest Fedora CoreOS stable release on the stable stream with confined logins, declarative installation and a declared update window; dated Silverblue measurements retain their historical scope (`sec:rootserver:platform-baseline`).
+
+- The priorities register defines its holdings column: each holding lane with the whole row, an item range or labels, the unheld rest of a row held in part and none for an unheld row, reported by the loop and recorded by the backlog manager; slice selection takes unheld items (`def:dispatch:priorities-register`).
+
+- Producing workers run in boxes; work requiring an exception uses an in-harness subagent of the loop's session and records the friction (`rule:dispatch:producing-workers-run-in-boxes`).
 
 ## [0.1.3] - 2026-11-05
 
@@ -46,7 +86,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Installation maps and fictional instance templates under `docs/examples/`.
 - GPL-3.0-or-later code and configuration and CC0-1.0 documents, with no backwards compatibility before 1.0.
 
-[Unreleased]: https://github.com/coraxloop/orchestration/compare/v0.1.3...HEAD
+[Unreleased]: https://github.com/coraxloop/orchestration/compare/v0.1.4...HEAD
+[0.1.4]: https://github.com/coraxloop/orchestration/compare/v0.1.3...v0.1.4
 [0.1.3]: https://github.com/coraxloop/orchestration/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/coraxloop/orchestration/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/coraxloop/orchestration/compare/v0.1.0...v0.1.1

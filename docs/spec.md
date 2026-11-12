@@ -2,6 +2,8 @@
 
 # Architecture and authority · `spec:architecture:architecture-and-authority`
 
+Reading order and parent: (`reg:assembly:specification-assembly`).
+
 This part fixes the durable architecture of the orchestration system accepted by the corpus owner (`dec:decisions:spec-concept-accepted`). It specifies boundaries, authority, audiences, trust, and evidence flow; changing rosters, budgets, server identities, toolchain versions, and similar operating values remain in their owned registries. Every label minted here has area `architecture`.
 
 ## Purpose and boundary · `sec:architecture:purpose-and-boundary`
@@ -102,6 +104,16 @@ A worker's complete authority is the intersection of its harness charter chain a
 **Rule (Audience separation)** · `rule:architecture:audience-separation`
 
 Every instruction delivery mechanism must positively identify its audience before exposing content. The orchestrator rulebook is withheld from workers, subagents, and nonmatching harnesses; a worker charter is withheld from the orchestrator's policy surface and from workers of another harness; a brief is confined to its dispatch; and runbooks remain on-demand data rather than ambient prompt content. Hook filters, provider discovery rules, deployment copies, and repository-local instruction files must be audited as one delivery chain. A symlink, fallback discovery path, inherited prompt, or resume operation may not widen that chain.
+
+**Requirement (Documentation is reachable with a way back)** · `req:architecture:reachable-documentation`
+
+Every installed document is reachable from the rendered orchestrator rulebook by a chain of references and carries an explicit reference to its parent index, directory README or reading-order register. Following parents returns the reader to the rulebook; a cycle disconnected from that root does not count as a return path. A document with no forward route or no return route is an orphan and a lint error. Reachability describes available reading, not automatic instruction delivery: audience separation (`rule:architecture:audience-separation`) still governs what a session may receive or treat as authority.
+
+The rulebook's reading roadmap and document register point to the documentation root and package indexes, rather than listing all leaves inside the rulebook's render bound (`rule:hooks:rulebook-size-bound`). Each package index names its directory READMEs or reading-order registers and top-level documents; each directory entry point names its documents and child entry points in reading order. Every leaf names its parent, and sibling references may supplement that route. The complete generated inventory index and the authored reading order must agree on membership; neither replaces the other.
+
+Use label citations when the target participates in the citing corpus or its declared imports, and relative links for unlabelled material or a separate corpus whose labels are not imported. Relative links resolve in the selected installed layout, not just in the checkout. A source example with its own owner links back to its enclosing collection without inventing an imported label. Generated publications retain their authored navigation; quoted evidence has a navigation wrapper that leaves the evidence unchanged. A parent reference is navigation, not an instruction to load another audience's rulebook.
+
+The corpus owner maintains the references and selected-document inventory; the tools linter checks resolved edges, reachability and parent return paths, and publication or installation refuses an orphan. Evidence names the exact inventory, roots and source revision checked. Existing citation resolution alone proves that named edges resolve, not that the graph is connected. The full graph checker and staged installation acceptance are separate implementation obligations; adding these source references does not claim that either has run.
 
 ## Harness boundaries · `sec:architecture:harness-boundaries`
 
@@ -294,6 +306,8 @@ The gate also requires evidence for both failure scenarios, equivalent review ou
 
 # Dispatch and supervision · `spec:dispatch:dispatch-and-supervision`
 
+Reading order and parent: (`reg:assembly:specification-assembly`).
+
 This part fixes the durable policy by which the orchestration system selects, authorizes, supervises, and closes worker assignments. It realizes the dispatch part accepted by the corpus owner (`dec:decisions:spec-concept-accepted`). Current roster membership, model and reasoning values, cadence intervals, and budget amounts remain owned registry data under (`rule:architecture:dynamic-facts-stay-in-registries`). This part instead fixes the constraints those values must satisfy and the evidence a dispatch must retain. Every label minted here has area `dispatch`.
 
 ## Scope · `sec:dispatch:scope`
@@ -438,9 +452,27 @@ The audit also reconciles allowed paths, verification scope, deviations, and ter
 
 A requested design is a claim subject to the same review as a worker's implementation. If the design prescribed by the brief is itself at fault, the review states that fault and returns its correction to the brief's author; passing tests or faithful execution do not transfer the design fault to the worker.
 
+**Rule (Check brief and letter claims before sending)** · `rule:dispatch:brief-and-letter-claims`
+
+Before sending a brief, check its claims about the tree against the tree, including a file's formatting route, a module's declaration, a cited line and a command's behavior. A requested design is itself a claim under review (`rule:dispatch:brief-design-review`), not evidence that those facts hold.
+
+A letter that names what a worker file carries restates the standing boundary that governs it, never the record's shape: a shape restated by hand can drift from the boundary it is meant to express.
+
+**Rule (Letters carry communication; data travels by ref)** · `rule:dispatch:letters-carry-communication`
+
+A letter says what is wanted and why, what was found and decided, and which commits are meant. Data a worker needs, such as a patch, a diff, a file to apply or copy, generated sources, a fixture, a work list to be processed or a log to analyse, is committed and placed in the worker's bare repository for the repository it belongs to, under a ref of its own, and the letter names the ref, its full object identifier, what it holds and what to do with it; the worker checks the identifier before reading. A commit identifier, a ref name, a path, an exact error line or a short quotation needed to understand a sentence remains communication: the test is whether the reader is meant to understand the text or to apply, copy or process it. The rule reaches data in both directions, while a worker's report stays its letter back. A letter is opaque, unversioned text with no object identifier and no integrity check, exposed to what a text transport does to it, and a letter from a worker's own loop steers with a brief's authority, so data inside it sits in the instruction channel; a ref is content-addressed, reviewable and fetched with tools every worker has, and it leaves the worker's repositories as the single place its inputs come from. Private material goes to a private repository's bare and never onto refs of a public repository, whose object store one broad refspec, bundle, mirror or backup carries out whole.
+
 **Rule (Briefs bound shared implementation)** · `rule:dispatch:briefs-bound-shared-implementation`
 
 A brief that asks two things to share an implementation names the exact judgement or component to share and the behavior each must keep separate. Saying only “one implementation” can make a shared walk alter one command's calls, order or stopping behavior and cost a correction round, even when the common judgement was right (`rule:architecture:shared-judgement-keeps-walk`).
+
+**Rule (Confinement governs mutations, not placement)** · `rule:dispatch:confinement-governs-mutations`
+
+A brief's file confinement governs mutations of what exists and never licenses a worker to introduce a mechanism. A new checker, census, tracker, enforcement list, tool, subcommand or data format that the work seems to need is at most a suggestion in the worker's report, with an argument for its placement against the existing owners. A gate establishes that an implementation meets its checked contract, not that the mechanism belongs with that owner.
+
+The loop places the mechanism as a design row, then dispatches a lane whose brief names the owner it extends. The design step belongs to the loop when it cuts the row and writes the brief; it is never delegated to the worker. The placement is part of the brief's design under review (`rule:dispatch:brief-design-review`), and the brief bounds any shared implementation by the judgement to share and the behavior to keep separate (`rule:dispatch:briefs-bound-shared-implementation`).
+
+A worker that finds itself duplicating similar functionality already in the repository, such as a checker, walker, register or parser, treats that as a sign of a brief defect, stops the duplication and reports it: a correct brief names the owner to extend. The report is the worker's route for placement; a separately placed mechanism follows the owning backlog and dispatch route rather than becoming a detached follow-up (`rule:dispatch:no-background-task-chips`).
 
 **Rule (No background-task chips)** · `rule:dispatch:no-background-task-chips`
 
@@ -459,6 +491,53 @@ FIRST TURN: read-back ONLY — restate scope, hard rules, verification bar, repo
 **Convention (Two commit tracks)** · `conv:dispatch:two-commit-tracks`
 
 Commits run on two tracks because progress tracking and a readable history pull apart. Frequent `squash:` commits carry no gate expectation and keep a dead lane's work visible; a brief states a small budget of named commits, each a meaningful step in Conventional Commits form with a body stating why, and each passing the gate. Squash commits are folded into their named commit before the ship that ends a step, so candidates are reviewed and imported as named commits only.
+
+## Slice work · `sec:dispatch:slice-work`
+
+Slice work is the dispatch form for a backlog: a worker reads the whole backlog with its priorities register, chooses a large slice, works it on a branch of its own that is never rewritten, and the loop lands the reviewed work in commits of its own. The form separates three concerns that a single-bite lane folds together: what to work on (the worker's selection under the register's order), how the work is reviewed (on a staging branch the worker never touches) and what history the repository keeps (the loop's).
+
+**Definition (Slice worker)** · `def:dispatch:slice-worker`
+
+A slice worker is a producing worker dispatched over a workspace of bare repositories with a general brief, whose first deliverable is its own selection of a slice of the backlog and whose later deliverables are the commits that work that slice on its lane branch. It is a worker in the sense of the charter: it never orchestrates, never signs, never pushes anywhere but its workspace bares, and reports to its loop; its selection is a proposal the loop answers, not an authority over the backlog.
+
+**Rule (Producing workers run in boxes)** · `rule:dispatch:producing-workers-run-in-boxes`
+
+A producing worker, including a slice worker (`def:dispatch:slice-worker`), runs in a box, the confined and reviewable form: its writable filesystem is its box home, and every outward effect passes through a door request with a record. When work requires execution outside that form, the loop uses an in-harness subagent of its own session and reports the need as a friction finding; it does not launch a separate host worker. Work requiring the desktop, visual work or the browser tool is the standing case of this exception. The exception changes the execution form, not the loop's authority or its obligation to review the work.
+
+**Definition (Backlog manager)** · `def:dispatch:backlog-manager`
+
+The backlog manager is the persistent worker whose one subject is a loop's backlog documents: it receives rows and priorities from the loop by letter, classifies, de-duplicates, sequences and sizes them into labelled records, keeps the priorities register current and folds closed records out into the documentation. The loop alone edits its backlog, and it does so through the manager, so that every item carries the manager's classification and the register stays one argument; a slice worker updates an item's status only in the commit that works it.
+
+**Definition (Priorities register)** · `def:dispatch:priorities-register`
+
+The priorities register is the table at the head of a backlog document that orders the open work as an engineering argument: each row names a group of items, their count, the items in order, the dependencies between them and the items larger than one lane, and the reading and the bar a worker needs. Its last column states the holdings, because a register that several workers read at once otherwise sends every general brief to its first row: a working lane holds the rows it took, and the column names each holding lane with what it holds, the whole row, a range of its items or their labels, and names the unheld rest of a row held in part; a row no lane holds reads none. The loop reports a holding to the backlog manager (`def:dispatch:backlog-manager`) when it accepts a worker's proposal and its end when the lane closes, and the manager records both; the commit that meets a held item removes it from the row and from the holding. The register is the loop's instrument of steering before a selection: a loop that wants rows first puts them first in the register through the manager, never in a worker's brief.
+
+**Rule (Workers clone from bare repositories)** · `rule:dispatch:workers-clone-from-bare-repositories`
+
+A worker's workspace holds bare clones of the repositories its task needs and nothing else of the loop's; the worker makes its own checkouts beside them, works on a branch named for its lane and pushes that branch into the workspace bare of the repository it changes. The loop pushes updated base branches into those bares and fetches the lane branch from them, so a hand-over in either direction is a repository operation with a hash, never a copy of a working tree. A superloop keeps its own bares of record and mirror bares on its compute server, from which a worker's node checkout clones and to which it pushes only its lane branch.
+
+**Protocol (Slice dispatch)** · `proto:dispatch:slice-dispatch`
+
+1. The loop prepares the workspace (`rule:dispatch:workers-clone-from-bare-repositories`) with the base branches at their current tips and launches the worker with a general brief: the workspace, the instruction to read each repository's contributing guide (`req:dispatch:contributing-guide`), and the request to report back with a significant slice of twenty to thirty rows of the worker's own choosing, or the whole backlog where a repository holds fewer, with a budget for that step. The brief names no row, excludes no group and carries no order of its own: the selection is the worker's, under the register's order.
+2. The worker reads the backlog with its register and the documents the register names, selects among the unheld items (`def:dispatch:priorities-register`), then reports its selection and stops: for each row its label and repository, the order it would take them in and why, the commits it intends, the files each touches, the tests each adds or changes, its wall estimate per commit, and every contradiction it found between an item and the code or the documents the item points at. This report is the slice worker's read-back under the read-back gate (`proto:dispatch:read-back-gate`); the working letter that answers it is the proceed event.
+3. The loop answers by letter on the same thread: it accepts, reorders or drops rows of the proposal with reasons, states the rules of the repositories the worker touches, the compute node and the bar at each commit's tip, and the budget of the first working step. Steering happens here and in the letters that follow, on the worker's own proposal, never before it.
+4. Working steps run on the same thread, each with its budget and its report: one section per named commit with the hash, subject, files and line counts, the check table with walls, the wait form of every server round, the items closed and their status lines, deviations or none, and the ready or blocked word. Each named commit is pushed into the workspace bare as it completes, so the loop can stage and review while the worker continues.
+
+**Rule (Lane branches merge in, never rewrite)** · `rule:dispatch:lane-branch-merge-in`
+
+A slice worker never rebases, squashes, amends or force-pushes what it has pushed: when the base branch moves, the worker merges the base into its lane branch; a correction after a review is a fixup commit on top of the lane branch. A rewritten branch destroys the anchors of a review in flight and the worker's own evidence of what changed when; merges and fixups keep the whole trail, and a clean history is produced once, by the loop, at the landing (`proto:dispatch:review-branch-landing`). The two-track convention's fold of squash commits before a ship (`conv:dispatch:two-commit-tracks`) is the single-bite lane's form and does not apply to a slice worker, whose brief says so.
+
+**Protocol (Review-branch staging and landing)** · `proto:dispatch:review-branch-landing`
+
+1. The loop fetches the lane branch from the workspace bare and stages the commits under review on a review branch of the repository of record, named `review/<topic>`; later fixups of the same topic are merged into the same review branch. The review branch is the staging area: the worker never touches it, and the base branch never receives a worker's commit.
+2. Basic rebasing of the staged work is the loop's: bringing the review branch onto the moved base and resolving plain conflicts.
+3. The reviewer reviews on the review branch and reports findings against its commits. Advanced rebasing, where the staged history has to be reordered, split or reconciled with the base beyond plain conflicts, is handed to the reviewer, who performs it on the review branch as part of the review and may make trivial fixups while doing so, each named in the review report; a correction beyond trivial goes back to the slice worker by letter, who makes it as a fixup commit under the merge-in rule (`rule:dispatch:lane-branch-merge-in`), after which the staging repeats from step 1.
+4. After the review the loop re-commits the reviewed work onto the development branch in commits of its own: the loop's identity, the loop's messages stating the engineering reason, the loop's signature where the repository signs, and the loop's audit of the diff against the declared starting state (`rule:dispatch:gated-tier-audit`). The development branch receives only the loop's commits.
+5. The loop gates the landed tip on the compute node, pushes the updated base branch into the worker's workspace bare and tells the worker by letter what landed and under which hashes, so the worker's next merge-in finds its own work already in the base.
+
+**Requirement (Contributing guide)** · `req:dispatch:contributing-guide`
+
+Each repository worked in slices carries a contributing guide, the one document a slice worker reads first: the working paradigm (bare workspace, own checkouts, the lane branch and its merge-in rule, the review branch and the loop's landing), the repository's rules of text and declaration, the location of its backlog and register, the shape of a slice report and the report contract of a working step. The general brief points at the guide instead of restating the rules, so that every slice worker of every loop reads the same rules from the repository and a brief stays what it is: the workspace, the guide and the budget.
 
 ## Supervision · `sec:dispatch:supervision`
 
@@ -527,7 +606,7 @@ The Sonnet watcher serves its lane through this protocol:
 
 **Rule (Timing-led decisions)** · `rule:dispatch:timing-led-decisions`
 
-Workers measure and report; the orchestrator decides with the numbers. It cites the last measured duration before starting expensive work, defines a budget for every recurring action, and treats an overrun or a missing timing as a finding. Verification is scoped to the content that changed, and full surfaces run at batch or merge boundaries. An instant identifies one point on the UTC timeline; elapsed durations and boot-clock readings do not. Every civil instant is reported as a calendar-valid `YYYY-MM-DDTHH:MM:SS[.fraction]Z`, as prose explicitly labelled UTC, or as a machine epoch field with its unit and origin documented. Every duration states its unit. Current civil time is read with `date -u +%Y-%m-%dT%H:%M:%SZ`; only explicit UTC instants or declared epochs are parsed. Naive, local and nonzero-offset civil timestamps are refused by name rather than assigned a zone. Every watcher deadline is an absolute UTC instant.
+Workers measure and report; the orchestrator decides with the numbers. It cites the last measured duration before starting expensive work, defines a budget for every recurring action, and treats an overrun or a missing timing as a finding. Verification is scoped to the content that changed, and full surfaces run at batch or merge boundaries. An instant identifies one point on the UTC timeline; elapsed durations and boot-clock readings do not. Every civil instant is reported as a calendar-valid `YYYY-MM-DDTHH:MM:SS[.fraction]Z`, as prose explicitly labelled UTC, or as a machine epoch field with its unit and origin documented. Every duration states its unit. Current civil time is read with `date -u +%Y-%m-%dT%H:%M:%SZ`; only explicit UTC instants or declared epochs are parsed. Naive, local, zero-offset (`+00:00`) and nonzero-offset civil timestamps are refused by name rather than assigned a zone. Every watcher deadline is an absolute UTC instant.
 
 **Rule (Turn end)** · `rule:dispatch:turn-end`
 
@@ -642,6 +721,8 @@ A Sonnet watcher may close only its declared observation assignment and report; 
 
 # Superloop mail system · `spec:mail:superloop-mail-system`
 
+Reading order and parent: (`reg:assembly:specification-assembly`).
+
 The superloop mail system is the single correspondence system for every loop and every worker on a host. It replaces the letters system, including its separate worker transport. This part owns mail identity, storage, delivery and notification; dispatch and instruction authority remain with (`rule:architecture:charter-plus-brief`) and (`rule:architecture:audience-separation`). Every label minted here has area `mail`.
 
 ## Domain and names · `sec:mail:domain-and-names`
@@ -721,6 +802,12 @@ The round transport retires `send-letter`, `withdraw-letter` and `launch --round
 **Rule (Worker birth name)** · `rule:mail:worker-birth-name`
 
 The creating loop assigns a `worker` name under (`lang:mail:names`) when it creates the worker's home, before the first harness process starts. The name is unique within that loop and stable for the worker's whole life, across process exits, rounds, provider resumes and box replacement that preserve worker identity. A replacement dispatch with a new worker gets a new name. Names are never reused: the loop retains retired entries, so delayed mail cannot reach a different worker. A name identifies a mailbox, not standing authority or a permanent agent role (`def:architecture:worker`).
+
+**Rule (Worker uid lifetime)** · `rule:mail:worker-uid-lifetime`
+
+A worker's uid is reserved for that worker's lifetime and cannot identify another active worker. Resume and process replacement within the same lifetime preserve the reservation. Retirement releases the uid only after worker processes are drained, custody of retained mail and worker files has transferred to the service, reusable group and actor access has been revoked, and the loop configuration, reservation pins and the worker's protected lifetime receipt durably record the terminal transition. An interrupted retirement keeps the uid reserved until those steps complete; a process exit alone releases nothing.
+
+A later worker may reuse the numeric uid after that completed retirement, but receives a fresh birth name and reservation identity. It inherits neither the old address nor authority over retained files or journal history. Birth names and retired entries remain permanent under (`rule:mail:worker-birth-name`); numeric uid equality is never evidence that two worker lifetimes are the same. Allocation and recovery reconcile protected lifetime receipts with configuration before making a uid available again (`req:mail:worker-birth`).
 
 **Definition (Loop configuration)** · `def:mail:loop-configuration`
 
@@ -806,7 +893,7 @@ Delivery records and private payloads follow the bounded retention classes in (`
 
 **Definition (Retention constants)** · `def:mail:retention-constants`
 
-`JOURNAL_HISTORY_SECONDS = 2592000` retains full terminal records for thirty days before ordinary compaction. `JOURNAL_MAX_BYTES = 268435456` caps the aggregate service journal, checkpoints and record-replacement scratch at 256 MiB. `STAGING_MAX_BYTES = 67108864` caps the aggregate private payload staging across all endpoint filesystems at 64 MiB, including claimed originals and any independent sent-copy temporary. `PRUNE_INTERVAL_SECONDS = 3600` bounds the service's interval between retention passes to one hour while running. `SUMMARY_MAX_BYTES = 4096` caps the current cumulative summary checkpoint at 4 KiB. These are byte and elapsed-second constants, not per-loop tuning values; hard-link aliases count once for payload accounting, and independently copied bytes count separately.
+`JOURNAL_HISTORY_SECONDS = 2592000` retains full terminal records for thirty days before ordinary compaction. `JOURNAL_MAX_BYTES = 268435456` caps the aggregate service journal, checkpoints and record-replacement scratch at 256 MiB. `STAGING_MAX_BYTES = 67108864` caps the aggregate private payload staging across all endpoint filesystems at 64 MiB, including claimed originals and any independent sent-copy temporary. `PRUNE_INTERVAL_SECONDS = 3600` bounds the service's interval between retention passes to one hour while running. `RECORD_MAX_BYTES = 65536` is the inclusive serialized size limit for one delivery journal record, including its exact paths and disposition fields; record-replacement capacity reserves against this limit before acceptance. It is distinct from the opaque letter payload limit. `SUMMARY_MAX_BYTES = 4096` caps the current cumulative summary checkpoint at 4 KiB. These are byte and elapsed-second constants, not per-loop tuning values; hard-link aliases count once for payload accounting, and independently copied bytes count separately.
 
 **Rule (Bounded records and staging retention)** · `rule:mail:retention`
 
@@ -820,6 +907,8 @@ After terminal cleanup is durable, its payload temporaries are removed in that o
 
 A pre-acceptance refusal leaves the letter unchanged at its outgoing name and atomically publishes a service-owned sidecar in the same outbox named `FILENAME.reason.toml`. The sidecar carries `version = 1`, the exact filename, its observed byte length and digest when safely readable, a stable `code`, a UTF-8 explanatory `reason`, and the UTC observation instant. Reason text describes transport only and never quotes the body. Codes distinguish `invalid-name`, `invalid-file`, `oversize`, `unknown-recipient`, `retired-worker`, `outside-estate`, `not-whitelisted`, `invalid-directory`, `unsafe-storage`, `changed-source`, `io-failure` and `service-capacity`. An accepted transaction blocked during publication projects `pending-delivery` with its reserved instant; its claimed source cannot be withdrawn or edited. The journal remains authoritative if projection itself fails, and the unit reports that failure for repair.
 
+A letter to an endpoint that is lexically valid and authorized but absent from the current provisioned inventory, or missing or inaccessible on its backing filesystem, is refused as `io-failure`; the diagnostic identifies the unavailable endpoint without quoting letter content. An observed custody, mode, link, filesystem or durability violation is `unsafe-storage`, not mere unavailability. Unknown names and retired workers keep their specific codes. Before acceptance the source stays outgoing; after acceptance an unavailable endpoint leaves the journaled transaction pending for recovery, never turns it into a completed delivery or a fresh submission. These codes classify the failure observed at the verified boundary, rather than guessing a cause from an absent directory.
+
 Sidecars are reserved service entries, never candidates; the service recognizes them by protected provenance as well as suffix, so a sender cannot hide an invalid letter by choosing the suffix. An invalid filename's sidecar uses `refusal-HEX.reason.toml` instead when the name is not UTF-8 or appending the suffix exceeds the filesystem name limit; `HEX` is SHA-256 of the raw filename bytes, and that sidecar records those bytes as hexadecimal. Sidecars cannot overwrite sender entries. A conflicting entry or unsafe outbox is a visible service failure in the unit log until repaired; no delivery proceeds on that candidate. Actors may read service-owned sidecars but cannot edit their bytes; a locally replaced sidecar has no service provenance and cannot change the protected refusal record.
 
 An actor withdraws a refused letter by moving it to `draft`, corrects its name or bytes, and resubmits by atomic rename. The service removes a stale sidecar when its bound source is withdrawn or changes, and retries refused candidates on the next scan with fresh directory snapshots; a repaired whitelist can therefore admit unchanged queued mail. Notifications or logging failures do not turn refusal into success. A reason beside the retained letter avoids a bounce letter, which could itself require delivery or loop forever.
@@ -832,7 +921,7 @@ At the existing SessionStart, UserPromptSubmit and Stop hook positions, a nonemp
 
 **Protocol (Inbox watcher)** · `proto:mail:watch`
 
-Each loop starts or resumes its Sonnet inbox watcher at session start, independently of heartbeat and lane watchers. It arms inotify on that loop's `inbox` before listing it, then waits for arrival events; a re-list after wakeup, overflow or watch replacement reconciles the actual directory so events are hints, not delivery records. Where inotify is unavailable, an ordinary listing at the runbook's bounded waiting interval supplies the fallback. Worker watchers may use the same filesystem means on their own mount. Listing, `cat` and moving into `read` are the complete reading interface; no metadata-list or follow command is retained.
+Each loop starts or resumes its Sonnet inbox watcher at session start, independently of heartbeat and lane watchers. It observes the inbox through the loop entry and never from the session's uid, which cannot stat or list that inbox through the mail directory. It arms inotify on that loop's `inbox` before listing it, then waits for arrival events; a re-list after wakeup, overflow or watch replacement reconciles the actual directory so events are hints, not delivery records. Where inotify is unavailable, an ordinary listing at the runbook's bounded waiting interval supplies the fallback. Worker watchers may use the same filesystem means on their own mount. Listing, `cat` and moving into `read` are the complete reading interface; no metadata-list or follow command is retained.
 
 The loop watcher hands back only `You've got mail.` and returns to waiting when resumed by the session. It may remember observed names in its own context to suppress repeated wakeups, but replacement reconstructs from inbox and may repeat a notice. A notice conveys neither content nor authority; the receiving actor lists and reads at its own judgement. A dead watch is stopped before replacement. Watchers do not filter subjects or maintain HOLD/RELEASE queues, and no observation automatically resumes a paused lane (`proto:dispatch:inbox-watcher`).
 
@@ -909,6 +998,8 @@ Each row is one independently reviewable implementation lane with one owning bou
 |(`req:mail:legacy-entry-retirement`)|Loop-home entry parser|Retire legacy letters commands, reserved words and metadata interfaces.|
 
 # Hook state machines · `spec:hooks:hook-state-machines`
+
+Reading order and parent: (`reg:assembly:specification-assembly`).
 
 This part realizes the hook-machine outline (`sec:assembly:hooks-outline`). It specifies the two deployed callbacks as total transition systems whose observable decisions, state changes, timing bounds, and recovery behavior can be carried unchanged into a direct graph implementation. Every label minted here has area `hooks`.
 
@@ -1287,7 +1378,7 @@ Each fixture asserts semantic verdict, complete captured standard streams and st
 
 **Verification (Heartbeat transitions)** · `verif:hooks:heartbeat-transitions`
 
-Graph and subprocess fixtures cover `OFF`, `FAIL_OPEN`, `ARMED`, `PROMPT`, all four exception states, and every fresh-warning and already-warned edge. The structural matrix includes successful, failed, in-flight, stopped, malformed- delay, and untimestamped calls; result-before-call association; multiple calls; sidechains; rejected naive, zero-offset and nonzero-offset timestamps (every form without the trailing `Z`), and accepted canonical UTC timestamps with the trailing `Z`; past and future entries; strict expiry; 59/60/3,600/3,601-second delay inputs; 120-second slack; and the 3,720-second horizon boundary. No assertion may inspect result prose.
+Graph and subprocess fixtures cover `OFF`, `FAIL_OPEN`, `ARMED`, `PROMPT`, all four exception states, and every fresh-warning and already-warned edge. The structural matrix includes successful, failed, in-flight, stopped, malformed-delay, and untimestamped calls; result-before-call association; multiple calls; sidechains; rejected naive, zero-offset and nonzero-offset timestamps (every form without the trailing `Z`), and accepted canonical UTC timestamps with the trailing `Z`; past and future entries; strict expiry; 59/60/3,600/3,601-second delay inputs; 120-second slack; and the 3,720-second horizon boundary. No assertion may inspect result prose.
 
 State fixtures cover absent, malformed, mismatched, negative, zero, two, three, and larger counts; warning absent/present; no real user turn; new real user turn; string and list guard feedback; tool-result carriers; session and project isolation; and write failure for both counter and warning. Transition fixtures exercise all three prompt exits, unprompted arm while pending and after stop or expiry, first and repeated correction, three prompt blocks, the additional armed-correction path, both lapses, and next-turn recovery.
 
@@ -1300,6 +1391,8 @@ A hook implementation or replacement is blocked from deployment until its direct
 For a replacement, observational equivalence includes top-level audience filtering, full marker and notice content, deduplication boundaries, snapshot roles, structural scheduler detection, project/session/turn state partition, the complete exception family, and safety under malformed input and failed persistence. A deployed behavior that fails an invariant here is a finding to resolve, not a compatibility behavior to preserve. Unit tests or graph shape alone cannot admit the replacement without subprocess and fault evidence.
 
 # Worker-lane lifecycle · `spec:lanes:worker-lane-lifecycle`
+
+Reading order and parent: (`reg:assembly:specification-assembly`).
 
 This part realizes the worker-lane lifecycle outline (`sec:assembly:lanes-outline`). It specifies the durable execution contract from creation of a Codex lane, through gated resumes, work and verification, to observation, recovery, and terminal evidence. Every label minted here has area `lanes`.
 
@@ -1645,6 +1738,8 @@ A worker assertion, growing event stream, successful Sonnet watcher observation,
 
 # Server execution and trust · `spec:server:server-execution-and-trust`
 
+Reading order and parent: (`reg:assembly:specification-assembly`).
+
 This part fixes the durable constraints for shared server execution and the review path by which its results return to trusted host state. It realizes the server outline (`sec:assembly:server-outline`) and refines the architectural trust direction without freezing mutable operating facts. Current aliases, identities, capacities, versions, storage selections, and authentication material remain registry data, as required by (`rule:architecture:dynamic-facts-stay-in-registries`). Every label minted here has area `server`.
 
 ## Scope · `sec:server:scope`
@@ -1908,6 +2003,8 @@ The verdict is recorded on reviewed host state in accordance with (`inv:architec
 
 # Build and deployment topology · `spec:deployment:build-and-deployment-topology`
 
+Reading order and parent: (`reg:assembly:specification-assembly`).
+
 This part specifies the agent execution environment and the orchestrator's selection of execution domains, containers, scheduling priority and routine toolchains (`sec:assembly:deployment-outline`). Tool construction, installation, managed-copy semantics and deployment evidence belong to (`[TOOLS-spec:deployment:tool-build-and-install-contracts]`). Every label minted here has area `deployment`.
 
 ## Scope · `sec:deployment:scope`
@@ -1953,6 +2050,8 @@ Routine Rust development, meaning every routine build, test, gate, and formatter
 `cargo fmt` resolves through the cargo home's `bin` shims before `PATH`, so inside a toolbox it can run a different rustfmt than the one on `PATH`. Recipes therefore invoke the binary form `cargo-fmt`, which resolves the formatter on `PATH` deterministically.
 
 # Conformance and evidence · `spec:conformance:conformance-and-evidence`
+
+Reading order and parent: (`reg:assembly:specification-assembly`).
 
 This part governs the connection between normative claims and reproducible evidence, the standing of the participating corpus, the generic specification assembly, and trusted verification (`sec:assembly:conformance-outline`). Linter construction and verification contracts belong to the tools specification (`[TOOLS-spec:conformance:linter-conformance]`); its census and frontier campaign are historical adoption evidence, not measurements of this repository. Every label minted here has area `conformance`.
 

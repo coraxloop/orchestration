@@ -1,6 +1,10 @@
 # Administering a confined SELinux server · `guide:confinedadmin:confined-selinux-administration`
 
-Everything here was measured during the 2026-08-28 bootstrap of a reference root-capable confined deployment running Fedora Silverblue 44, with SELinux enforcing and every account mapped to `staff_u` except the human rescue account. The account model this serves is [root-server-account-model.md](proposals/root-server-account-model.md); the argued case for the overall posture — what the platform's defaults provide, which surface the universal confinement moves, and why few deliberate actions carry it — is [security-posture.md](security-posture.md); the container-policy evidence is the [archived bug report](reference/bugreport-staff_t-container_t.md). Each section states the failure as observed, the cause, and the working recipe.
+Reading order and parent: (`guide:docnav:documentation`).
+
+The historical failure measurements below come from the 2026-08-28 bootstrap of a reference root-capable confined deployment running Fedora Silverblue 44, with SELinux enforcing and every account mapped to `staff_u` except the human rescue account. The account model this serves is [root-server-account-model.md](proposals/root-server-account-model.md); the argued case for the overall posture — what the platform's defaults provide, which surface the universal confinement moves, and why few deliberate actions carry it — is [security-posture.md](security-posture.md); the container-policy evidence is the [archived bug report](reference/bugreport-staff_t-container_t.md). Each section states the failure as observed, the cause, and the working recipe.
+
+The platform prescription is Fedora CoreOS on the stable stream (`sec:rootserver:platform-baseline`), with every login confined. These ostree and SELinux administration mechanisms carry over; the dated Silverblue measurements and desktop-specific observations remain evidence of their original scope, not fresh FCOS acceptance. The CoreOS recipe (`guide:coreos:bare-metal-server-guides`) supplies declarative installation and update-window configuration.
 
 ## Root is not admin: the sudo domain transition · `sec:confinedadmin:root-is-not-admin-the-sudo-domain-transition`
 
@@ -10,7 +14,7 @@ Under a confined login, `sudo` grants uid 0 but keeps the process in the confine
 ACCOUNT ALL=(ALL) ROLE=sysadm_r TYPE=sysadm_t NOPASSWD: ALL
 ```
 
-Installing that first drop-in is a chicken-and-egg: it must be written by an unconfined actor (the rescue account) or by requesting the transition explicitly — `sudo -r sysadm_r -t sysadm_t tee ...` — which is the designed staff-to-sysadm path and worked live.
+The historical bootstrap installed the first drop-in from rescue or by requesting `sudo -r sysadm_r -t sysadm_t tee ...` explicitly. The FCOS recipe supplies it through Ignition and validates it in the identity unit before sshd (`setup:coreos:first-boot-identity`); no unconfined installed-system account is required. A later repair from a functioning confined administrative session requests the explicit transition.
 
 ## rpm-ostree: the daemon refuses confined DBus · `sec:confinedadmin:rpm-ostree-the-daemon-refuses-confined-dbus`
 
@@ -20,7 +24,7 @@ Installing that first drop-in is a chicken-and-egg: it must be written by an unc
 sudo systemd-run --wait --pipe --collect -- rpm-ostree install --idempotent <pkgs>
 ```
 
-Two further edges, both measured: inline `install --apply-live` fails even via the transient unit, while staging first and then running a bare `rpm-ostree apply-live` succeeds (1.8 s, no reboot); and a package already provided by the base image fails the *entire* batch (`--idempotent` does not cover it) — exclude it or pass `--allow-inactive`.
+Two further edges measured in the historical Silverblue bootstrap: inline `install --apply-live` fails even via the transient unit, while staging first and then running a bare `rpm-ostree apply-live` succeeds (1.8 s, no reboot); and a package already provided by the base image fails the *entire* batch (`--idempotent` does not cover it) — exclude it or pass `--allow-inactive`. The recorded FCOS first-boot system unit did use inline `install --apply-live` successfully; distinguish that system-manager context from an interactive confined caller. Later administration keeps the transient-unit route, and system-unit output goes to the journal or a system log under ``/var/log``, not a user home (`reg:rootserver:recorded-fcos-probe-basis`).
 
 ## The filesystem is typed: loop data lives in homes · `sec:confinedadmin:the-filesystem-is-typed-loop-data-lives-in-homes`
 
@@ -43,7 +47,7 @@ Flatpak applications do not work under `staff` confinement; the reference deploy
 
 ## Pin a rollback before lock-out-class surgery · `sec:confinedadmin:pin-a-rollback-before-lock-out-class-surgery`
 
-On an ostree system every serious change to something that can lock all accounts out — SELinux modules or booleans, PAM stacks, sudoers, login/getty — is preceded by pinning the current known-good deployment, so the automatic pruning cannot drop the bootable state you would roll back to. The failure mode of policy surgery is losing the access needed to undo it, and even the rescue account only helps on a machine that still boots the policy it was reached under; a pin turns that from a reinstall into a reboot into the prior entry.
+On an ostree system every serious change to something that can lock all accounts out — SELinux modules or booleans, PAM stacks, sudoers, login/getty — is preceded by pinning the current known-good deployment, so the automatic pruning cannot drop the bootable state you would roll back to. The failure mode of policy surgery is losing the access needed to undo it, and the installed console login is subject to the same policy, so independent provider rescue remains necessary; a pin turns that loss from a reinstall into a reboot into the prior entry.
 
 ```
 sudo ostree admin status          # identify the running (*) deployment index
@@ -100,6 +104,6 @@ Container access afterward: the CDI spec (`nvidia-ctk cdi generate`) plus `--dev
 - Key-only accounts stay locked (`passwd -l`), never empty (`passwd -d`): an empty password is a press-Enter console login, a locked one only disables password authentication while keys keep working.
 - Verify the passwordless-sudo path from a fresh session *before* locking a password you might still need.
 - A sudo rule that permits only `systemd-run` is root-equivalent, not a narrower door: the transient unit it starts is arbitrary, `-S` is a root shell, and property and uid flags plus package scriptlets defeat any pinning of arguments. The `ROLE=sysadm_r TYPE=sysadm_t` on the rule is attribution, an explicit transition in the audit trail, not containment: a transient unit runs in the service manager's context whatever the caller's role.
-- Wheel membership gates uid 0; the role is a separate per-user list. `staff_u` carries `sysadm_r` (reachable without sudo through `newrole -r sysadm_r`, which re-authenticates and keeps the uid), `unconfined_u` does not, so a group rule `%wheel ALL=(ALL:ALL) ROLE=sysadm_r TYPE=sysadm_t ALL` yields an invalid context for an unconfined rescue account and sudo refuses rather than falling back; that account needs its own plain line below the group line, since the last matching line wins. uid 0 inside `staff_t` still bypasses DAC, so a plain sudo from any wheel member reads every mode-700 home on the box.
+- Wheel membership gates uid 0; the role is a separate per-user list. `staff_u` carries `sysadm_r` (reachable without sudo through `newrole -r sysadm_r`, which re-authenticates and keeps the uid), `unconfined_u` does not, so the historical group-rule experiment yielded an invalid context for the old unconfined rescue account. That historical exception is not a provisioning instruction: the FCOS baseline has no unconfined login and uses the reviewed staff-to-sysadm rule for its single administering account. uid 0 inside `staff_t` still bypasses DAC, so a plain sudo from any wheel member reads every mode-700 home on the box.
 - `NOPASSWD` lets any process running as the account cross, which is the case for a sudo authenticated by an agent-held key or a hardware token over one that stores a password; dropping the tag is done with a usable credential in hand and a `PASSWD:` probe line on a harmless command below the main rule, checked from a second session before the rule is narrowed.
 - journald's forward secure sealing is never enabled (`journalctl --setup-keys` is not run) and a passing `journalctl --verify` is never cited as evidence: the verification key is the sealing seed, so whoever can verify can also re-seal a doctored journal, silently and for every past epoch, and the seal then vouches for the forgery. Journal integrity is built above journald, as an off-box replica in another trust domain and an asymmetric signature over a digest, which the security posture document states.

@@ -1,5 +1,7 @@
 # Environment (applies to every project on this machine) · `spec:environment:global-project-environment`
 
+Reading order and parent: (`guide:publicorchestration:orchestration`).
+
 **Preamble (Audience)** · `pref:environment:audience`
 
 This file carries the rules every agent session on this machine needs, orchestrator or dispatched worker, top-level or subagent. Orchestration policy reaches top-level sessions separately, and a dispatched worker's brief and charter govern its task.

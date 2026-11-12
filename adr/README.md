@@ -1,5 +1,7 @@
 # Corpus Philosophy Records · `reg:records:philosophy-records`
 
+Reading order and parent: (`guide:publicorchestration:orchestration`).
+
 The generic repository retains the philosophy of using the tools. The engineering subjects below retain their historical record numbers; their records are no longer published by tools. Reusable contracts are published in the tools specifications. Historical record numbers do not establish public citation targets, redirects or aliases.
 
 ## Retained records · `sec:records:retained`

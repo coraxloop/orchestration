@@ -1,5 +1,7 @@
 # Operator-visible message channels in the Claude Code harness · `spec:harness:user-channels`
 
+Reading order and parent: (`guide:docnav:documentation`).
+
 This document records every channel the estate has for putting a message in front of the operator, with the measured visibility properties of each. The core distinction is **who receives the bytes**: some channels render for the operator without ever entering the model's context (operator-only), some are injected into the model's context as instructions (model-visible), and some render nowhere at all on the current desktop build. These facts were established empirically on 2026-09-01 against the live desktop app (Claude Code CLI 2.1.251/2.1.252 era) — re-verify on major harness upgrades, since at least one channel (non-blocking hook stderr) demonstrably changed behavior across builds.
 
 ## Hook-script channels (script-side, fire on harness events) · `sec:harness:hook-channels`

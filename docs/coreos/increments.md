@@ -1,5 +1,7 @@
 # Post-install identities and host services · `guide:coreos:increments`
 
+Reading order and parent: (`guide:coreos:bare-metal-server-guides`).
+
 **Requirement (Increment contract)** · `req:coreos:increment-contract`
 
 Each increment is a small idempotent shell script kept in git, with a header naming its running account, prerequisites and undo path. Apply it to the replica first, including a reboot, and then to the host. Copy it to a file and execute the file; the illustrated stdin failure is (`warn:coreos:ssh-stdin`). Preserve inputs across reboot on disk (`rule:server:disk-backed-workspace`), (`warn:coreos:temporary-inputs`). The evidence standard is (`req:server:idempotent-bootstrap`).
@@ -26,14 +28,16 @@ Each increment is a small idempotent shell script kept in git, with a header nam
 
 **Remark (FCOS policy tooling difference)** · `rem:coreos:identity-tooling`
 
-The administrative transition follows (`sec:rootserver:administering-under-confinement`); the reference FCOS image lacked `semanage`, so the local login store was edited and rebuilt with `semodule -B`. The listing records the first increment and its local policy workarounds, whose illustrated causes are in (`tab:coreos:fcos-frictions`). The estate’s rollback prerequisite remains (`sec:confinedadmin:pin-a-rollback-before-lock-out-class-surgery`).
+The administrative transition follows (`sec:rootserver:administering-under-confinement`); the reference FCOS image lacked `semanage`, so the local login store was edited and rebuilt with `semodule -B`. The first-boot form is (`setup:coreos:first-boot-identity`); the listing shows its policy inputs for later identity increments, run as root through the sanctioned administration route. Its reviewed local policy inputs address the cases in (`tab:coreos:fcos-frictions`). The estate’s rollback prerequisite remains (`sec:confinedadmin:pin-a-rollback-before-lock-out-class-surgery`).
 
 **Listing (First identity increment)** · `listing:coreos:identity-increment`
 
 ```bash
 LOCAL=/etc/selinux/targeted/active/seusers.local
-for u in example-admin example-ops example-agent-1; do
-  grep -q "^$u:" "$LOCAL" 2>/dev/null || echo "$u:staff_u:s0-s0:c0.c1023" >> "$LOCAL"
+for u in __default__ core example-admin example-ops example-agent-1; do
+  # Replace a pre-existing mapping; an existing unconfined entry must not survive.
+  sed -i "/^$u:/d" "$LOCAL"
+  echo "$u:staff_u:s0-s0:c0.c1023" >> "$LOCAL"
 done
 semodule -B
 
@@ -44,18 +48,19 @@ chmod 0440 /etc/sudoers.d/zz-admins && visudo -cf /etc/sudoers.d/zz-admins
 # local CIL module (rules correspond to the illustrated FCOS frictions)
 cat > /etc/selinux/local_fixes.cil <<'CIL'
 (allow domain sshd_session_t (fifo_file (read write getattr ioctl append)))
-(allow staff_sudo_t sysadm_t (process (getpgid)))
-(allow staff_t user_tmp_t (service (start stop status reload)))
 CIL
 semodule -i /etc/selinux/local_fixes.cil
+printf '%s\n' '(roletype staff_r spc_t)' > /etc/selinux/staff_spc.cil
+semodule -i /etc/selinux/staff_spc.cil
 
 # rootless Quadlets wait 90 s for this target unless something pulls it in
 systemctl add-wants multi-user.target network-online.target
 
 # data layout, closed to staff accounts
-install -d -m 0751 /var/lib/example               # 0751: workers can traverse to workspaces/ without listing
+install -d -m 0751 /var/lib/example               # application-data parent; no loop hubs or lanes here
 install -d -m 0750 /var/lib/example/prod /var/lib/example/releases
-install -d -m 0755 /var/lib/example/workspaces
+# Per-loop working copies and hubs stay in the account home.
+install -d -m 0750 -o example-agent-1 -g example-agent-1 /var/home/example-agent-1/git /var/home/example-agent-1/loops
 loginctl enable-linger example-ops
 ```
 
@@ -65,13 +70,13 @@ In the fictional replica rehearsal the script takes 20 s, including a 15 s polic
 
 **Warning (Policy module replacement)** · `warn:coreos:module-replacement`
 
-The module later gained the rpm-ostree connection rule and `name_bind` rules for two labelled development-backend port types. `semodule -i` replaces a module by name: reinstall the whole module, not only newly added rules (`tab:coreos:fcos-frictions`).
+The fictional friction history includes later rpm-ostree connection and labelled-port rules; those are not baseline additions. The baseline uses the system-context rpm-ostree route and adds only a separately justified policy change. `semodule -i` replaces a module by name: reinstall the whole module, not only newly added rules (`tab:coreos:fcos-frictions`).
 
 ## Workspaces · `sec:coreos:workspaces`
 
 **Setup (Shared workspace layout)** · `setup:coreos:workspace-layout`
 
-The reference layout used root-only mode 0750 `prod` and `releases` below `/var/lib/example`, a mode 0751 parent allowing traversal without listing, and mode 0755 `workspaces`. Each `/var/lib/example/workspaces/<project>` used a shared group, setgid and a default ACL. Without that ACL, illustrated new files were 0644 and another group member could not write them. A shared clone also needed a `safe.directory` entry in each participating account’s global Git configuration to avoid dubious-ownership rejection.
+The fictional shared-project scenario used root-only mode 0750 `prod` and `releases` below `/var/lib/example`, a mode 0751 parent allowing traversal without listing, and mode 0755 `workspaces`. Each `/var/lib/example/workspaces/<project>` used a shared group, setgid and a default ACL. Without that ACL, illustrated new files were 0644 and another group member could not write them. A shared clone also needed a `safe.directory` entry in each participating account’s global Git configuration to avoid dubious-ownership rejection. This is optional collaborative application data, not a loop hub or lane checkout: the root-full recipe keeps those under the owning home at mode 0750. Never share a loop's credentials, mutable toolchain, Cargo target or lane working tree through this layout.
 
 **Warning (Owning a var_lib_t directory does not make it writable)** · `warn:coreos:workspace-labels`
 
@@ -212,7 +217,7 @@ The fictional Butane window is (`setup:coreos:butane-zincati`). The example sche
 
 **Setup (Loopback services and outbound access)** · `setup:coreos:outbound-tunnel`
 
-Only SSH on 22 was reachable from outside; application services bound to loopback. Public webhooks and staging web access used an outbound `cloudflared` tunnel as an unprivileged user unit, with an access gateway in front of web UIs. This is distinct from the estate WireGuard door (`sec:rootserver:the-door`).
+Only SSH on 22 was reachable from outside; application services bound to loopback. Public webhooks and staging web access used an outbound `cloudflared` tunnel as an unprivileged user unit, with an access gateway in front of web UIs. This optional application-publication route does not supply administration, per-account egress isolation or recovery. The WireGuard site door and provider rescue are separate roles (`sec:rootserver:the-door`); a compute node with no public application omits this tunnel and records that disposition.
 
 **Rule (Review tunnel ingress and restarts)** · `rule:coreos:tunnel-ingress`
 

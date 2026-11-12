@@ -1,4 +1,5 @@
 docs_top_names = [
+  'README.md',
   'backlog.md',
   'commit-signing.md',
   'confined-admin.md',
@@ -20,6 +21,7 @@ foreach name : reference_names
   reference_names_paths += 'docs' / name
 endforeach
 proposal_names = [
+  'proposals/README.md',
   'proposals/door-self-heal.md',
   'proposals/gateway-outage-recovery.md',
   'proposals/per-user-wireguard-routing.md',
@@ -35,6 +37,11 @@ foreach name : proposal_names
   proposal_names_paths += 'docs' / name
 endforeach
 example_names = [
+  'examples/infra/README.md',
+  'examples/pack/README.md',
+  'examples/permissions/README.md',
+  'examples/plans/README.md',
+  'examples/rulebooks/README.md',
   'examples/.gitignore',
   'examples/.linter/environments.toml',
   'examples/.linter/imports/orchestration.toml',

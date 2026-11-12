@@ -1,5 +1,7 @@
 # Public decisions · `reg:decisions:governing-rulings`
 
+Reading order and parent: (`guide:docnav:documentation`).
+
 This register collects durable decisions that govern the reusable orchestration system. Each entry states the rule that remains in force, its rationale, and the earlier posture it replaces.
 
 **Decision (Specification concept accepted)** · `dec:decisions:spec-concept-accepted`

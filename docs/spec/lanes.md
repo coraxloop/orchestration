@@ -1,5 +1,7 @@
 # Worker-lane lifecycle · `spec:lanes:worker-lane-lifecycle`
 
+Reading order and parent: (`reg:assembly:specification-assembly`).
+
 This part realizes the worker-lane lifecycle outline (`sec:assembly:lanes-outline`). It specifies the durable execution contract from creation of a Codex lane, through gated resumes, work and verification, to observation, recovery, and terminal evidence. Every label minted here has area `lanes`.
 
 ## Scope · `sec:lanes:scope`

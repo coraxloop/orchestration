@@ -1,5 +1,7 @@
 # Rootless podman unusable for confined SELinux users: `staff_r` not authorized for `spc_t`, breaking container process label computation · `rep:selinuxcontainers:confined-rootless-podman-failure`
 
+Archive navigation: [reference register](README.md). The report below retains its recorded evidence.
+
 ## Summary · `sec:selinuxcontainers:summary`
 
 On Fedora 44, a user mapped to the confined SELinux login `staff_u` (running as `staff_u:staff_r:staff_t:s0-s0:c0.c1023`) cannot run privileged rootless containers, and therefore cannot use Toolbx at all.

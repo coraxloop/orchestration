@@ -1,5 +1,7 @@
 # Example capability-door rubric · `guide:doorrubric:example-door-rubric`
 
+Reading order and parent: (`guide:examples:permissions`).
+
 Everything in this document is fictional. The loop `alpha`, uid 2001, face `dev/alpha`, run `R`, paths and rule identifiers describe a fixture, not a live installation. Copy this file to the instance repository's `permissions/door.md` and replace the fixture's purpose, registered scope and operation boundaries with the loop's reviewed facts before use.
 
 ## Purpose and custody · `sec:doorrubric:purpose-and-custody`

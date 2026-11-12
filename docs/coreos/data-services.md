@@ -1,5 +1,7 @@
 # Backups and production data services · `guide:coreos:data-services`
 
+Reading order and parent: (`guide:coreos:bare-metal-server-guides`).
+
 **Remark (Increment placement and evidence)** · `rem:coreos:data-context`
 
 These fictional increments 3–6 in (`reg:coreos:increment-order`) follow (`req:coreos:increment-contract`). All timings and capacities are fixtures under (`conv:coreos:measurement-scope`). Example restores illustrate content recovery for the exercised engine and placement; they do not turn the same-host practice destination into offsite protection (`obs:coreos:backup-deployment-gap`).

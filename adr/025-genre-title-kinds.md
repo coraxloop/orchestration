@@ -1,5 +1,7 @@
 # Genre Kinds for Document Titles · `rec:titlekinds:genre-title-kinds`
 
+Reading order and parent: (`reg:records:philosophy-records`).
+
 **Status:** Decided
 
 This record fixes the genre vocabulary used by title mints in this corpus. The vocabulary is declaration data rather than a checker constant: Title recognition asks only that a mint exists and ordinary head validation asks whether Document is catalogued with the authored kind.

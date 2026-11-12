@@ -1,3 +1,5 @@
 option('burn_input', type: 'string', value: '', description: 'Optional instance burn-value document; enables public-pack checks when supplied')
 option('domain', type: 'combo', choices: ['server', 'trusted-host'], value: 'server', description: 'Build record domain')
 option('release_tag', type: 'string', value: '', description: 'Clean release tag for live installation')
+option('tools_private_dir', type: 'string', value: '', description: 'Directory containing build-sync; empty selects prefix/libexecdir/superloop')
+option('rulebook_instance_root', type: 'string', value: '', description: 'External instance checkout to render before import; empty tests the fictional instance only')

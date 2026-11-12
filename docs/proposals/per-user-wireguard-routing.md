@@ -1,5 +1,7 @@
 # Per-account WireGuard routing on root-full servers · `proposal:wireguard:per-account-wireguard-routing`
 
+Reading order and parent: (`guide:docnav:proposals`).
+
 Status: DRAFT — initial model for owner review. Open questions at the end.
 
 ## Purpose · `sec:wireguard:purpose`

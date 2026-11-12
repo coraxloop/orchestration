@@ -1,5 +1,7 @@
 # Fictional signing record
 
+Reading order and parent: (`guide:examples:instance`).
+
 This fictional record identifies the `alpha` loop's public signing identities by role. The hexadecimal fingerprints below are fabricated 40-digit examples; this file contains no secret key, passphrase or keyring material.
 
 |Role|Algorithm and capability|Fictional fingerprint|State|

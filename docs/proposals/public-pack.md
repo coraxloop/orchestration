@@ -1,5 +1,7 @@
 # Public pack contract · `proposal:publicpack:public-pack-contract`
 
+Reading order and parent: (`guide:docnav:proposals`).
+
 Status: PROPOSED — this document defines the publication boundary and the acceptance contract for a reusable orchestration pack.
 
 ## The generality boundary · `sec:publicpack:generality-boundary`

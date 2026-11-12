@@ -1,5 +1,7 @@
 # Example server registry · `reg:exampleservers:fictional-server-registry`
 
+Reading order and parent: (`guide:examples:instance`).
+
 This is a complete example of the instance repository's `servers.md` document. Every server and fact below is fictional; no endpoint, port, credential, or expiry value describes a live system.
 
 ## Alias discipline · `sec:exampleservers:alias-discipline`

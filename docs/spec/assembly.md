@@ -1,5 +1,7 @@
 # Specification assembly manifest · `reg:assembly:specification-assembly`
 
+Reading order and parent: (`guide:docnav:documentation`).
+
 This manifest declares the generic specification assembly. The original specification programme is recorded in (`proposal:spec:assembly-and-benchmarks`); command and output contracts belong to the tools specification (`[TOOLS-spec:outputspec:command-and-output-contracts]`). The displayed-head vocabulary follows (`conv:spec:area-vocabulary`) and (`conv:spec:mint-families`), while conformance measures the authored corpus. Every internal participating label minted by this manifest has area `assembly`; the title mint names the register as a document.
 
 ## Assembly and outline conventions · `sec:assembly:conventions`
@@ -51,6 +53,7 @@ rule | rule:architecture:machine-facts-precede | Rule (Machine facts precede) | 
 rule | rule:architecture:orchestration-policy-owner | Rule (Orchestration policy owner) | Assign dispatch and supervision policy to the specification parts and deliver their location through the orchestrator-only rulebook.
 rule | rule:architecture:charter-plus-brief | Rule (Charter plus brief) | Limit a worker's standing authority to its harness charter plus its dispatched brief.
 rule | rule:architecture:audience-separation | Rule (Audience separation) | Prevent an instruction surface from being discovered or injected into an unintended audience.
+req | req:architecture:reachable-documentation | Requirement (Documentation is reachable with a way back) | Require forward reachability and explicit parent return paths without widening instruction audiences.
 inv | inv:architecture:two-harnesses-one-evidence-path | Invariant (Two harnesses, one evidence path) | Require both harnesses to return evidence to the same reviewing orchestrator.
 spec | spec:architecture:claude-harness-boundary | Specification (Claude harness boundary) | Specify the Claude worker's launch, instruction, callback, and transcript boundary at system level.
 spec | spec:architecture:codex-harness-boundary | Specification (Codex harness boundary) | Specify the Codex lane's launch, resume, charter, run-directory, and report boundary at system level.
@@ -358,3 +361,16 @@ rule | rule:conformance:server-green-is-advisory | Rule (Server-green is advisor
 gate | gate:conformance:trusted-release | Gate (Trusted release) | Require reviewed source, all adopted checks, server evidence, and final host verification.
 gate | gate:conformance:specification-conformance | Gate (Specification conformance) | Require the generic publication and the applicable imported adoption contracts to satisfy their conformance conditions.
 ```
+
+## Reading order · `sec:assembly:reading-order`
+
+|Read in order|Label|
+|-------------|-----|
+|[Architecture and authority](architecture.md)|(`spec:architecture:architecture-and-authority`)|
+|[Dispatch and supervision](dispatch.md)|(`spec:dispatch:dispatch-and-supervision`)|
+|[Superloop mail system](mail.md)|(`spec:mail:superloop-mail-system`)|
+|[Hook state machines](hooks.md)|(`spec:hooks:hook-state-machines`)|
+|[Worker-lane lifecycle](lanes.md)|(`spec:lanes:worker-lane-lifecycle`)|
+|[Server execution and trust](server.md)|(`spec:server:server-execution-and-trust`)|
+|[Build and deployment topology](deployment.md)|(`spec:deployment:build-and-deployment-topology`)|
+|[Conformance and evidence](conformance.md)|(`spec:conformance:conformance-and-evidence`)|

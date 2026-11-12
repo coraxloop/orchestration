@@ -1,5 +1,7 @@
 # Lane gateway outage recovery proposal · `proposal:gatewayrecovery:lane-gateway-outage-recovery`
 
+Reading order and parent: (`guide:docnav:proposals`).
+
 The agent-side watching and waiting recipes retained below, including fresh-agent, never-resume, listener and session-side polling instructions, are superseded by (`proto:dispatch:log-eater-callback`) and (`proto:dispatch:heartbeat-supervision`); program interfaces, historical observations and quoted former instructions remain as recorded.
 
 Status: RATIFIED and IMPLEMENTED — the three-lane split landed, the deployed gateway answers schema two, and the closing outage drill (2026-08-28) verified parking, crash detection, single relaunch with reconciliation, once-only execution of the original sequence, the deregistration guard, explicit abandonment, and clean shutdown end to end on the deployed binary. All five owner questions were resolved per the document's recommendations: expiry only by explicit abandon or lane closeout; the five-second heartbeat cadence with fifteen-second stale threshold; the narrow sequence-stable per-proposal projection; schema-two cutover by draining schema-one lanes where practical and explicitly rebriefing the remainder; deregistration refusing open proposals. This document is a recovery-semantics addendum to the ratified lane gateway design; the three-lane implementation split below governs the in-flight work.

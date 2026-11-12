@@ -1,5 +1,7 @@
 # Example domain permission rubric · `guide:permissionrubric:example-domain-rubric`
 
+Reading order and parent: (`guide:examples:permissions`).
+
 Everything in this document is fictional. The aliases `sagofink-orchestration` and `mondreiher-analysis`, accounts, roots, and rule identifiers demonstrate format only and identify no live installation.
 
 ## Purpose and custody · `sec:permissionrubric:purpose-and-custody`
