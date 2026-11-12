@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Fixed
+
+- The ownership declaration and the publication manifest own and classify the pack's generated provenance, `docs/public-pack-provenance.toml`, as an optional exact member, so a built pack's linter verdict passes; the manifest declares the existing unpublished-label register through `public.unpublished`, so cuts keep its audited generation route, and manifest readers built before that field refuse the tree (``prob:pack:pack-verify-burn-evidence-rule``).
+
 ## [0.1.4] - 2026-11-12
 
 ### Added
