@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Added
+
+- The server part refuses exclusive access to a shared instance: no loop, gate, round or measurement holds the instance or a part of it while others wait, and an allocation that gives every loop the same standing is named as fairness (`rule:server:no-exclusive-access-to-a-shared-instance`). A gate queue is admitted only when it is not exclusive, with its wait counted in the gate's wall (`rule:server:a-gate-queue-is-not-exclusive-and-its-wait-is-in-the-gate-wall`), and fairness is an allocation that is declared, rehearsed and measured before any loop adopts it (`req:server:fairness-is-a-declared-rehearsed-and-measured-allocation`).
+
+- The server part rejects a test whose verdict depends on wall time and repairs a red at a wall guard in the test, keeping a hang deadline far beyond any loaded run as the one exception (`rule:server:verdicts-do-not-rest-on-wall-time`). A time is a measurement read with the load beside it (`req:server:a-time-is-a-measurement-read-with-its-load`), two versions are compared in the order A, B, B, A in a focused analysis and never in a general gate (`rule:server:an-abba-comparison-is-a-focused-analysis`), and a gate is sized to the class of its change (`prin:server:proportion-comes-before-capacity`).
+
+- Dispatch requires every requirement of a brief or a review brief to cite its governing label and treats one without a label as a proposal; a brief tightens a rule only explicitly, and a review judges against the governing rules and names uncited requirements (`rule:dispatch:briefs-cite-the-rules-they-state`).
+
+### Changed
+
+- The mail part retries a refused letter after a restart, an observed configuration change or a notification overflow, when its transient retry falls due, when a scan of its sender finds its source changed, and about hourly, in bounded batches; an unchanged refusal triggers no scan of its own (`rule:mail:refusal`).
+
+- The gateway outage recovery proposal has one table separator row sized to its whole header cell, as the linter's formatter writes it; no cell, word or label changed (`proposal:gatewayrecovery:lane-gateway-outage-recovery`).
+
 ### Fixed
 
 - The ownership declaration and the publication manifest own and classify the pack's generated provenance, `docs/public-pack-provenance.toml`, as an optional exact member, so a built pack's linter verdict passes; the manifest declares the existing unpublished-label register through `public.unpublished`, so cuts keep its audited generation route, and manifest readers built before that field refuse the tree (``prob:pack:pack-verify-burn-evidence-rule``).
