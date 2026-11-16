@@ -147,7 +147,7 @@ Decision: proposal policy and proposal availability are different worker decisio
 The proposal-specific meanings are:
 
 |`verdict`|Terminal|Exit code|Required companion|Meaning|
-|-|--------|---------|------------------|-------|
+|---------|--------|---------|------------------|-------|
 |`pending`|No|0|`proposal_timeout_seconds`|The proposal is open inside its attention window.|
 |`parked`|No|0|`proposal_timeout_seconds`|The attention window elapsed, but the original proposal remains open.|
 |`denied`|Yes|1|A `proposal_denied` refusal with the orchestrator reason.|The orchestrator rejected the command as policy.|
