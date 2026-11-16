@@ -350,6 +350,11 @@ pattern = "meson.options"
 [[include.rows]]
 pattern = "public-set.toml"
 
+# The pack adds this member after archiving the source tree.
+[[include.rows]]
+pattern = "docs/public-pack-provenance.toml"
+reserved = true
+
 [[include.rows]]
 pattern = "tests/test_labels_record.py"
 
@@ -378,8 +383,9 @@ pattern = "docs/examples/plans/README.md"
 pattern = "docs/examples/rulebooks/README.md"
 
 [public]
+unpublished = "docs/public/unpublished-labels.toml"
 licence_code = "LICENSE-CODE"
 licence_docs = "LICENSE-DOCS"
 name = "orchestration"
 readme = "README.md"
-version = "0.1.4"
+version = "0.1.5"

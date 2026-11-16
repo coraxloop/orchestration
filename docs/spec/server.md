@@ -44,6 +44,10 @@ The holder arbitrates when loops contend for a resource. It measures who holds w
 
 Contention concerns what is held without sharing or can fill: a GPU is pinned to one holder, and memory and storage fill, while the kernel ordinarily shares processor cores among runnable work. Arbitration measures, in order, each GPU's holder and duration, memory in use with its largest holders, and free space per volume; load average does not answer those questions. An idle holder is asked to release before another loop is made to wait (`rule:server:operations-arbitration`).
 
+**Requirement (Fairness is a declared, rehearsed and measured allocation)** · `req:server:fairness-is-a-declared-rehearsed-and-measured-allocation`
+
+Fairness on a shared instance is the operations profile's work, done through allocations that give every loop the same standing: equal processor weights, a protected floor and ceilings that stop one loop exhausting the instance (`rule:server:no-exclusive-access-to-a-shared-instance`). An allocation is declared before it applies, shown effective under contention by a rehearsal, and measured for its cost on ordinary work before any loop is asked to adopt it, because a mechanism every loop runs under spends every loop's time when it is wrong, and only a measurement made before adoption keeps that cost off them.
+
 **Rule (Fresh-server handover grants root actions)** · `rule:server:fresh-server-root-handover`
 
 Root actions on a compute server belong to the holder of the operations profile after a person hands over a fresh server; that handover is the grant. The holder reads and records freshness at handover before touching server state. If the server holds anything the system did not put there, it stops before touching any of it, reports what it found to the person, and proceeds only on that person's answer, because no report can give back data that was not the system's (`def:server:operations-profile`).
@@ -137,6 +141,32 @@ This division sends routine computation to the compute domain while making prior
 Routine development builds, tests, documentation checks, linters, and other heavy or recurring computation shall run on a shared instance. Binaries used in that domain are built there. Trusted-host release and installation work remains governed by the accepted topology decision (`dec:decisions:build-deployment-topology`); it is not an implied exception for routine development computation.
 
 Moving a command to the server changes only its execution location. Reviewed source still flows from the trusted host, returned bytes remain data, and the final verdict remains host-owned.
+
+**Rule (No exclusive access to a shared instance)** · `rule:server:no-exclusive-access-to-a-shared-instance`
+
+No loop, gate, round or measurement has a shared instance, or any part of it, to itself: no gate runs alone, no round waits for a gate, and there is no quiet window, no set of processors reserved for one run or one loop's gate and no wait for a low load before a gate. An allocation that gives every loop the same standing, equal weights, a protected floor and a ceiling that stops one loop exhausting the instance, is the opposite of that and is how a shared instance stays fair: an equal standing allocation is fairness, and a reservation for one loop's run is exclusivity (`req:server:fairness-is-a-declared-rehearsed-and-measured-allocation`). A shared instance's load belongs to no one loop, so exclusivity granted to protect one verdict moves its cost onto every other loop's ordinary work, a cost that grows with the number of loops sharing the instance while the protected verdict stays as fragile as before. An instance too small for its work is a capacity question for the operations profile's arbitration (`rule:server:operations-arbitration`), never a reason to give any run the instance.
+
+The cost was measured on one shared instance on 2026-11-14 under a queue that made each gate of record exclusive and admitted ordinary rounds only between gates: six lanes of one loop started 56 rounds in 85 minutes and those rounds waited 25,095 s in sum, one lane's five consecutive batteries waiting 4,119 s of their 4,340 s, and most of the waiting lanes' commands were status polls.
+
+**Rule (A verdict does not rest on wall time)** · `rule:server:verdicts-do-not-rest-on-wall-time`
+
+A test whose verdict depends on wall time is rejected, because on a shared instance it measures the instance's load and not the candidate. A red at a wall guard under load is a defect of the test and is repaired in the test: the test waits for the event it needs and asserts an order or a count, never a duration, and the red is no reason to rerun on a quieter instance or to ask another loop for room. A review refuses a new test that asserts on elapsed time. A deadline that exists only to end a hang is not a timing test while it sits far beyond any loaded run, and when such a deadline trips the remedy is the bound; the wait itself is placed on its event (`req:server:waiting-time-measured`).
+
+**Requirement (A time is a measurement read with its load)** · `req:server:a-time-is-a-measurement-read-with-its-load`
+
+Whoever needs a time takes it as a measurement on the shared instance as it is: the load is read beside each figure, as the pressure totals over the interval and the run's own processor seconds, and factored into the reading, and two versions are compared back to back in the order A, B, B, A so that a drift in the load cancels. A plan that asks for an exclusive window or a quiet instance for a measurement is rewritten to this form (`rule:server:no-exclusive-access-to-a-shared-instance`).
+
+**Rule (An A, B, B, A comparison is a focused analysis)** · `rule:server:an-abba-comparison-is-a-focused-analysis`
+
+A comparison of two versions in the order A, B, B, A belongs to a focused analysis of the one difference in question, kept small enough to stay quick on a loaded instance, and is not part of a general gate: a gate's verdict rests on correctness and not on time (`rule:server:verdicts-do-not-rest-on-wall-time`), and a comparison folded into a gate makes every run of that gate pay for a question that only one change asks.
+
+**Rule (A gate queue is not exclusive, and its wait is part of the gate's wall)** · `rule:server:a-gate-queue-is-not-exclusive-and-its-wait-is-in-the-gate-wall`
+
+Gates may wait in a queue among themselves when the queue gives no gate the instance or a part of it to itself: ordinary rounds run beside a queued gate and beside a running one, and the queue only orders or bounds the gates. The wall time a gate waits in such a queue is part of its reported wall, printed beside the run's own wall, because a gate's cost to its loop is the time from its launch to its verdict and a wall without its wait understates it.
+
+**Principle (Proportion comes before capacity)** · `prin:server:proportion-comes-before-capacity`
+
+A gate is sized to the class of its change: a change to documents alone runs the lint, format and document checks and not the code batteries, and a change to code runs what that code can affect. A battery that takes more than five minutes is a finding that carries its profile, each step's wall beside the battery's, because extraordinary compute is not the usual case and an instance sized for the extraordinary case stands idle in the usual one. Capacity is asked for once the work has been proportioned, not instead of it.
 
 **Rule (Minimum build priority)** · `rule:server:minimum-build-priority`
 
