@@ -113,6 +113,10 @@ Before launch, every producing assignment must be manufactured into one independ
 
 If the bite cannot be stated that precisely, the orchestrator must split or promote it before launch. When a disposable Git worktree can be reclaimed after a stall, the brief must explicitly grant and order an early first scoped commit before exploratory work and must name the target worktree and base. A non-Git execution context with the same loss risk must name an equivalent durable checkpoint. A worker charter's default prohibition cannot be bypassed by supervision shorthand.
 
+**Requirement (Design names its focused tests)** · `req:dispatch:design-names-focused-tests`
+
+Before implementation, a design names the existing or new tests that give basic confidence in the changed function, the command for each and the claim it shows, what testing is deferred to the backlog, and the specific obligations that still apply (`prin:environment:testing-serves-the-product`). The brief carries this selection without expanding it. An implementation finding that invalidates the selection returns to the design owner for a scoped revision; the worker neither invents a test programme nor drops a required check. A specific repository requirement remains binding unless its owner changes it explicitly (`rule:dispatch:briefs-cite-the-rules-they-state`).
+
 **Requirement (Public constructors enter the brief and gate)** · `req:dispatch:public-constructor-scope`
 
 When a bite extends a public structure, its brief names the constructors of that structure across the workspace, and its verification bar compiles and lints the whole workspace. A package-only gate can pass while a constructor elsewhere no longer builds, so the public shape is part of the change's scope (`req:dispatch:manufactured-bite`).
