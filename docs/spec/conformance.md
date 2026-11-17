@@ -44,6 +44,8 @@ An ordering test asserts order through the program's own events rather than elap
 
 A green gate answers only its declared automated assertions. Review separately reads the construction and trust assumptions of manifest removal, opened-object identity, reported places, executable settings, child capture, plan forms, measurement marks and fixed helpers, because those assumptions can escape the automated checks (`[TOOLS-req:deployment:reversible-manifest-removal]`), (`rule:architecture:opened-object-identity`), (`[TOOLS-req:output:report-path-validity]`), (`req:architecture:executable-settings-trust`), (`req:architecture:bounded-child-result`), (`[TOOLS-req:output:plan-forms-agree]`), (`rule:conformance:unmeasured-claims`), (`rule:architecture:fixed-loop-report-helpers`).
 
+Labelled reasoning in code and debug assertions contribute to review without being reported as tests that ran; a debug assertion's evidence names the configuration in which it is enabled. Review holds a change for an unmet governing requirement, a defective design or missing required evidence; a useful additional test beyond the design's selection is proposed as a backlog chapter with its benefit and cost, not made an acceptance condition by implication (`req:dispatch:design-names-focused-tests`). A review finding that exposes a product defect remains a finding even when every selected test passes.
+
 **Requirement (Browser changes name a browser-path test)** · `req:conformance:browser-path-test`
 
 A lane that changes what a browser does names a test that exercises the rendered pages through the browser path, or states that no such test exists yet. Reading a rendered page can reveal faults that static or component checks miss, so repeated review findings on the browser path call for that test rather than another assertion about unrendered source.
@@ -187,6 +189,8 @@ Server execution supplies correction evidence; authority remains with the review
 **Protocol (Server verification loop)** · `proto:conformance:server-verification-loop`
 
 After a worker has completed scoped edits, it yields `READY FOR VERIFY`. The orchestrator identifies the reviewed source state and sends that state to the compute server, where the declared loop runs formatting, linting, and the brief's scoped package and integration tests without silently filtering tests. The returned record identifies source state, commands, scope, statuses, elapsed times, and an evidence tail sufficient to diagnose every failure. A failing round is returned to the same worker for a scoped correction; the cycle repeats and every round is retained until the server loop is green or the task is reported unresolved.
+
+The scoped tests come from the accepted design's evidence selection (`req:dispatch:design-names-focused-tests`). Additional testing remains backlog work unless a governing requirement or a reviewed change to that selection makes it necessary. A failure outside the worker's edit scope returns for disposition under the product's adopted gate, not as an instruction to repair unrelated code or fixtures. Selected scope is declared before execution; narrowing a failed run afterwards is not a green run of its original scope.
 
 **Rule (Server-green is advisory)** · `rule:conformance:server-green-is-advisory`
 

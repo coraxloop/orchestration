@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Added
+
+- State the priority of sound architecture and good, refactored code over a full test bed, and have designs name focused tests, their commands and claims, deferred testing and continuing obligations (`prin:environment:testing-serves-the-product`), (`req:dispatch:design-names-focused-tests`). Review treats additional testing beyond the design's selection as backlog work without waiving product defects or adopted gates (`rule:conformance:review-beside-gates`), (`proto:conformance:server-verification-loop`).
+
 ## [0.1.5] - 2026-11-16
 
 ### Added

@@ -99,6 +99,7 @@ rule | rule:dispatch:explicit-read-back | Rule (Explicit read-back policy) | Req
 rule | rule:dispatch:task-weight-selection | Rule (Task-weight selection) | Select worker capability from the bounded bite's judgment and verification burden.
 rule | rule:dispatch:follower-exception | Rule (Sonnet watcher exception) | Permit the Sonnet watcher role in normal operation only for non-deliverable tracking work.
 req | req:dispatch:manufactured-bite | Requirement (Manufactured bite) | Require exact scope, files, constraints, verification, and report shape before launch.
+req | req:dispatch:design-names-focused-tests | Requirement (Design names its focused tests) | Name focused tests, their commands and claims, deferred testing and continuing obligations before implementation.
 proto | proto:dispatch:read-back-gate | Protocol (Read-back gate) | Sequence first-output restatement, audit, correction if needed, and explicit proceed.
 scenario | scenario:dispatch:read-back-correction | Scenario (Read-back correction) | Split or promote a bite after the permitted correction still misses its contract.
 rule | rule:dispatch:gated-tier-audit | Rule (Gated-tier audit) | Require diff review and independent claim recomputation for gated workers.
