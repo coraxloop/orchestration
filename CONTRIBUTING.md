@@ -1,6 +1,6 @@
 # Contributing to orchestration · `guide:contributing:orchestration`
 
-This is the first reading for a slice worker in the generic repository. The public introduction (`guide:publicorchestration:orchestration`) describes the repository's purpose; the backlog (`plan:genericbacklog:orchestration-backlog`) and its priorities register (`reg:genericbacklog:priorities`) order its open work. The worker charter and the working letter supply the lane's scope, compute route, budget and gate commands; this guide states the repository's practices without embedding an estate's private values.
+This is the first reading for contributors, workers and reviewers in the generic repository: it states how work is done, defines its label and citation form and routes its statements of kind ``inv``. The public introduction (`guide:publicorchestration:orchestration`) describes the repository's purpose; the backlog (`plan:genericbacklog:orchestration-backlog`) and its priorities register (`reg:genericbacklog:priorities`) order its open work. The worker charter and the working letter supply the lane's scope, compute route, budget and gate commands; this guide states the repository's practices without embedding an estate's private values.
 
 ## Select and work a slice · `sec:contributing:slice-work`
 
@@ -32,7 +32,7 @@ The adopted specification and contract sources below carry the repository's Inva
 |[adr/011-environment-kinds.md](adr/011-environment-kinds.md)|(`sec:kinds:invariants`), (`sec:kinds:attestation`)|
 |[adr/014-label-calculus.md](adr/014-label-calculus.md)|(`sec:labels:warrants-and-citations`)|
 |[adr/015-test-label-profile.md](adr/015-test-label-profile.md)|(`sec:profiles:test-census`)|
-|[docs/commit-signing.md](docs/commit-signing.md)|(`sec:signing:generation-and-purge`)|
+|[docs/commit-signing.md](docs/commit-signing.md)|(`sec:signing:generation-and-purge`), (`sec:signing:letters-and-worker-verification`)|
 |[docs/spec/architecture.md](docs/spec/architecture.md)|(`sec:architecture:authority-layers`), (`sec:architecture:harness-boundaries`), (`sec:architecture:trust-and-state`)|
 |[docs/spec/conformance.md](docs/spec/conformance.md)|(`sec:conformance:scope`)|
 |[docs/spec/dispatch.md](docs/spec/dispatch.md)|(`sec:dispatch:supervision`)|

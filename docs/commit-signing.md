@@ -2,7 +2,7 @@
 
 Reading order and parent: (`guide:docnav:documentation`).
 
-A signed commit binds a change to a key, and a key is only evidence when its custody is narrow, its lifetime is short, and its loss has a rehearsed answer. This document fixes how superloops hold OpenPGP keys and sign git history: one keyring per superloop, a certify-only root with a single signing subkey, one-year lifetimes rotated on time or on a new host, revocation certificates written before the root's private half is destroyed, and the signing half destroyed when the key ends. It extends the per-repository identity rule (`inv:environment:git-identity-per-repository`), which already refuses a machine-wide identity and any assumption that loops share a forge account; a signing key is the same kind of fact as an identity or a forge credential, so it follows the same per-loop discipline.
+A signed commit binds a change to a key, and a key is only evidence when its custody is narrow, its lifetime is short, and its loss has a rehearsed answer. This document fixes how superloops hold OpenPGP keys and sign git history and letters: one keyring per superloop, a certify-only root with a single signing subkey, one-year lifetimes rotated on time or on a new host, revocation certificates written before the root's private half is destroyed, and the signing half destroyed when the key ends. It extends the per-repository identity rule (`inv:environment:git-identity-per-repository`), which already refuses a machine-wide identity and any assumption that loops share a forge account; a signing key is the same kind of fact as an identity or a forge credential, so it follows the same per-loop discipline.
 
 ## One keyring per superloop · `sec:signing:one-keyring-per-superloop`
 
@@ -12,13 +12,27 @@ Every superloop owns a separate OpenPGP home directory, mode `0700`, and never u
 
 **Rule (Only the superloop signs)** · `rule:signing:only-the-superloop-signs`
 
-Lanes and workers never sign, in any loop and under any harness, and no brief or loop configuration makes an exception. A signature attests that a commit was reviewed and imported, which is the superloop's act: a lane clone or worktree is provisioned with `commit.gpgsign false`, a worker's commits ship unsigned, and the superloop signs each reviewed commit at import, verifying the patch rather than any lane signature. A signing key reachable from a lane sandbox is a credential exposure with nothing to attest, so a signing failure inside a lane is a stop to report, never a reason to copy a keyring or widen a sandbox root over one.
+Lanes and workers never sign, in any loop and under any harness, and no brief or loop configuration makes an exception. A commit signature attests that a commit was reviewed and imported, which is the superloop's act: a lane clone or worktree is provisioned with `commit.gpgsign false`, a worker's commits ship unsigned, and the superloop signs each reviewed commit at import, verifying the patch rather than any lane signature. A private signing key reachable from a lane sandbox is a credential exposure with nothing to attest, so a signing failure inside a lane is a stop to report, never a reason to copy a private keyring or widen a sandbox root over one.
 
 **Rule (Repository-local signing configuration)** · `rule:signing:repository-local-configuration`
 
 Signing is configured in each repository the superloop commits in — its working clone and the checkouts it imports through — at provisioning, next to the local identity: the signing program is a wrapper inside the loop's keyring directory that exports that directory and executes the system `gpg`, the signing key is the signing subkey's fingerprint with the trailing `!` that pins the subkey, and commit and tag signing are enabled locally. Global git configuration carries no signing key and leaves signing off, so a repository that skipped its provisioning step produces an unsigned commit rather than a commit signed by the wrong loop. The wrapper lives inside the keyring directory so that the repository configuration names one path and the key selection cannot drift from the directory it belongs to.
 
 Public keys are not secrets. Each loop exports its public key for the loops and reviewers that verify its history, and the loop's public key is registered with the forge through the loop's own forge configuration, an owner-run credential step. Verification needs only public material, so a verifier imports peers' public keys into its own keyring and never opens a peer's directory. Carrying a signing subkey into a second keyring is a private-key export, which a loop's own permission gate refuses by default; that handoff is an owner-run or owner-cleared step for each receiving loop, never a step one loop performs for another.
+
+## Signed letters and worker verification · `sec:signing:letters-and-worker-verification`
+
+The rule and the invariant below bind an instance's loops and workers from its activation of signed-letter operation. An instance activates only after the tools that provision worker verifier homes are installed, every superloop's public export is registered and every live worker holds its verifier home, so that no worker meets a signed letter it cannot verify.
+
+**Rule (Loop letters signed at entry)** · `rule:signing:loop-letters-signed-at-entry`
+
+Every letter a superloop produces is an OpenPGP signed message in binary encoding, signed with that loop's signing key inside its entry before the letter enters its outbox. The signed payload is the letter's own bytes, so the letter carries its origin wherever it is copied or archived. A letter's signature gives origin, not secrecy or authority; even a verified letter from another loop remains data (`inv:mail:data-not-authority`). A worker's own mail stays clear text under (`rule:signing:only-the-superloop-signs`).
+
+**Invariant (Worker verifier holds only its loop's public key)** · `inv:signing:worker-verifier-holds-only-its-loops-public-key`
+
+A lane worker's verifier home holds exactly one public key, that of its own superloop's signing key: the public primary certificate and its selected signing subkey, with no private material. This lets the worker check its own loop's letters and prevents the holder of any other key from passing for that loop. When the superloop rotates its signing key, the worker's verifier home follows that rotation by replacing the old public key with the new one, not by retaining both.
+
+Where two loops share a signing key as permitted by (`rule:signing:no-shared-keyring`), a letter's signature does not tell those loops apart, and a public export restricted to the selected signing subkey keeps a person's other subkeys out of the worker's verifier home.
 
 ## Key shape · `sec:signing:key-shape`
 
