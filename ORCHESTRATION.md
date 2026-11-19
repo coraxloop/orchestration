@@ -54,9 +54,11 @@ Builds, tests, gates and batch jobs run on the compute servers, never on the hos
 
 Code flows from host to server and every return is data: nothing server-authored is executed, sourced or built before its text is reviewed from a quarantined ref, because build scripts and procedural macros execute (`rule:architecture:server-results-are-data`).
 
-**Rule (Owner and operations)** · `rule:oper:owner-and-operations`
+Operations and the owner’s desk: `~/.local/share/orchestration/operations.md` (`spec:oper:estate-operations`).
 
-The owner manages only a loop's API logins, registration and identity (email and forge account), which that loop asks for directly, never through the orchestration loop. A loop makes its keys, registry records, mail and requests in its own entry, since only its uid holds its keys' private halves (`alg:signing:establish-a-loop-signing-key`). The orchestration loop holds estate operations: compute nodes (provisioning, root, node accounts, cleanup, kernel settings of record), deploys and their holds, the door's host steps, and reported frictions and findings.
+**Rule (Invariants precede assertions)** · `rule:orch:invariants-precede-assertions`
+
+An invariant, a property the system must keep, is labelled, written down and argued before anyone asserts it, since every later design pays for it; coining one in a brief, review, letter or check is a concept decision, never made in passing. Each repository's CONTRIBUTING defines its label form and mints or links its `inv` statements (`rule:dispatch:briefs-cite-the-rules-they-state`).
 
 **Definition (Mail)** · `def:oper:mail`
 

@@ -50,7 +50,7 @@ Fairness on a shared instance is the operations profile's work, done through all
 
 **Rule (Fresh-server handover grants root actions)** · `rule:server:fresh-server-root-handover`
 
-Root actions on a compute server belong to the holder of the operations profile after a person hands over a fresh server; that handover is the grant. The holder reads and records freshness at handover before touching server state. If the server holds anything the system did not put there, it stops before touching any of it, reports what it found to the person, and proceeds only on that person's answer, because no report can give back data that was not the system's (`def:server:operations-profile`).
+A person's one-sentence handover of a fresh compute server grants root operations on it to the holder of the operations profile. The holder reads and records freshness at handover before changing server state. If the server holds anything the estate did not put there, or its origin cannot be established, operations stops before touching it, reports the finding to the person and proceeds only on that person's answer, because no report can give back data that was not the estate's (`def:server:operations-profile`). Accounts, units, kernel settings of record and cleanup within that grant are operations, announced before a first-time change and reported after (`rule:oper:owner-and-operations`); the grant does not authorize permanent deletion of data that may be the only copy (`rule:dispatch:host-removal-authority`).
 
 **Rule (Hotfix debt against a held loop)** · `rule:server:hotfix-debt-against-a-held-loop`
 

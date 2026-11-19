@@ -93,6 +93,9 @@ pattern = "LICENSE-DOCS"
 pattern = "ORCHESTRATION.md"
 
 [[include.rows]]
+pattern = "operations.md"
+
+[[include.rows]]
 pattern = "README.md"
 
 [[include.rows]]
@@ -388,4 +391,4 @@ licence_code = "LICENSE-CODE"
 licence_docs = "LICENSE-DOCS"
 name = "orchestration"
 readme = "README.md"
-version = "0.1.6"
+version = "0.2.0"

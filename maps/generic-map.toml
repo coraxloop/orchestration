@@ -252,3 +252,9 @@ output = "labels.toml"
 destination = "labels.toml"
 mode = "0644"
 domain = "server"
+
+[[targets]]
+kind = "copy"
+source = "operations.md"
+destination = "operations.md"
+mode = "0644"

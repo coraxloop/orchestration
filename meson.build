@@ -83,7 +83,7 @@ linter_paths = [
   '.linter/shape.toml',
   'docs/public/unpublished-labels.toml',
 ]
-root_paths = ['.gitignore', 'CHANGELOG.md', 'CLAUDE.md', 'LICENSE-CODE', 'LICENSE-DOCS', 'ORCHESTRATION.md', 'README.md', 'CONTRIBUTING.md', 'maps/generic-map.toml', 'public-set.toml', 'tests/test_labels_record.py', 'tests/test_rulebook_render.py']
+root_paths = ['.gitignore', 'CHANGELOG.md', 'CLAUDE.md', 'LICENSE-CODE', 'LICENSE-DOCS', 'ORCHESTRATION.md', 'operations.md', 'README.md', 'CONTRIBUTING.md', 'maps/generic-map.toml', 'public-set.toml', 'tests/test_labels_record.py', 'tests/test_rulebook_render.py']
 example_subject_paths = []
 example_relative_subjects = []
 foreach path : example_names_paths
@@ -96,7 +96,7 @@ foreach name : example_names
     example_relative_subjects += name.replace('examples/', '')
   endif
 endforeach
-prose_paths = adr_names_paths + spec_names_paths + docs_top_names_paths + coreos_names_paths + reference_names_paths + proposal_names_paths + ['CHANGELOG.md', 'CLAUDE.md', 'ORCHESTRATION.md', 'README.md', 'CONTRIBUTING.md']
+prose_paths = adr_names_paths + spec_names_paths + docs_top_names_paths + coreos_names_paths + reference_names_paths + proposal_names_paths + ['CHANGELOG.md', 'CLAUDE.md', 'ORCHESTRATION.md', 'operations.md', 'README.md', 'CONTRIBUTING.md']
 foreach path : example_subject_paths
   if path.endswith('.md')
     prose_paths += path
@@ -131,7 +131,7 @@ foreach path : linter_paths
   project_inputs += files(path)
   export_inputs += files(path)
 endforeach
-foreach path : adr_names_paths + spec_names_paths + docs_top_names_paths + coreos_names_paths + reference_names_paths + proposal_names_paths + ['CLAUDE.md', 'ORCHESTRATION.md', 'README.md', 'CONTRIBUTING.md']
+foreach path : adr_names_paths + spec_names_paths + docs_top_names_paths + coreos_names_paths + reference_names_paths + proposal_names_paths + ['CLAUDE.md', 'ORCHESTRATION.md', 'operations.md', 'README.md', 'CONTRIBUTING.md']
   export_inputs += files(path)
 endforeach
 foreach path : spec_names_paths + ['docs/spec.md']

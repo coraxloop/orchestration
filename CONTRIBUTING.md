@@ -20,6 +20,35 @@ Declare every new tracked file in the appropriate inventory reached from ``meson
 
 Edit authored specification parts under ``docs/spec`` and regenerate the committed publication ``docs/spec.md`` with the linter's assembly command; never hand-edit the generated copy. Keep source declarations, owner partitions, import snapshots, projections and generated publications consistent in the same commit. A change to the imported tools corpus follows its published export rather than inventing a label absent from that export.
 
+The label form here is ``kind:area:slug``: kind names the statement's form, area its subject and slug its identity; the mint and citation notation is (`ntn:environment:labels`). An Invariant-kind statement uses kind ``inv``. A citation uses parentheses around a single-backtick label, or around the bracketed imported owner and label; a double-backtick mention names text without asserting a citation.
+
+## Invariants and their sources · `sec:contributing:invariants-and-their-sources`
+
+The adopted specification and contract sources below carry the repository's Invariant-kind statements (`rule:dispatch:briefs-cite-the-rules-they-state`). Read the named statement and its argument before asserting it; a label mention alone supplies neither. New or moved ``inv`` mints remain reachable from this section in the same change. These routes preserve each source's scope and status, and generated copies are not additional mints. For these routes, invariant means a statement of kind ``inv``; a property cited under another kind, such as a rule, axiom or requirement, is written authority without an entry here, and its absence is neither a missing route nor an unwritten invariant. The reviewer judges the cited statement and its argument, not whether its kind is ``inv``.
+
+|Document|Place of the invariant mints|
+|--------|----------------------------|
+|[CLAUDE.md](CLAUDE.md)|(`inv:environment:git-identity-per-repository`)|
+|[adr/011-environment-kinds.md](adr/011-environment-kinds.md)|(`sec:kinds:invariants`), (`sec:kinds:attestation`)|
+|[adr/014-label-calculus.md](adr/014-label-calculus.md)|(`sec:labels:warrants-and-citations`)|
+|[adr/015-test-label-profile.md](adr/015-test-label-profile.md)|(`sec:profiles:test-census`)|
+|[docs/commit-signing.md](docs/commit-signing.md)|(`sec:signing:generation-and-purge`)|
+|[docs/spec/architecture.md](docs/spec/architecture.md)|(`sec:architecture:authority-layers`), (`sec:architecture:harness-boundaries`), (`sec:architecture:trust-and-state`)|
+|[docs/spec/conformance.md](docs/spec/conformance.md)|(`sec:conformance:scope`)|
+|[docs/spec/dispatch.md](docs/spec/dispatch.md)|(`sec:dispatch:supervision`)|
+|[docs/spec/hooks.md](docs/spec/hooks.md)|(`sec:hooks:shared-machine-contract`), (`sec:hooks:orchestration-injection`)|
+|[docs/spec/lanes.md](docs/spec/lanes.md)|(`sec:lanes:work-and-verification`)|
+|[docs/spec/mail.md](docs/spec/mail.md)|(`sec:mail:domain-and-names`), (`sec:mail:delivery-service`)|
+|[docs/spec/server.md](docs/spec/server.md)|(`sec:server:identity-and-isolation`)|
+
+Concept and proposal sources are kept separately from the adopted-part routes. The concept's layered-authority and common-evidence invariants are explicitly accepted at (`inv:architecture:layered-authority`) and (`inv:architecture:two-harnesses-one-evidence-path`); this route adopts no other proposal claim.
+
+|Concept or proposal document|Place of its invariant mints|
+|----------------------------|----------------------------|
+|[docs/proposals/spec-concept.md](docs/proposals/spec-concept.md)|(`sec:spec:subject`)|
+
+The authored specification parts carry the mints; `docs/spec.md` repeats them as an assembled publication. The source concept's adoption and scope are read with its use in the specification, not inferred from its directory name.
+
 ## Verification on the named compute node · `sec:contributing:verification`
 
 Use the compute node, tool paths, temporary root and gate form in the working letter. Do not build or run checks in a worker sandbox that the charter reserves for editing. Run the repository's node gate chain over each candidate: root lint in public-pack mode with the externally held burn input, format and projection checks, assembly and census, the Meson lint and template suites, and staged installation twice to prove the second pass changes no file. The gate's conditional Cargo and bootstrap checks apply only when their source trees exist; report an absent branch as inapplicable, not as a test passed. A code-class letter requires the whole bar it names.
