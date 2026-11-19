@@ -1,6 +1,6 @@
 # Contributing to orchestration · `guide:contributing:orchestration`
 
-This is the first reading for a slice worker in the generic repository. The public introduction (`guide:publicorchestration:orchestration`) describes the repository's purpose; the backlog (`plan:genericbacklog:orchestration-backlog`) and its priorities register (`reg:genericbacklog:priorities`) order its open work. The worker charter and the working letter supply the lane's scope, compute route, budget and gate commands; this guide states the repository's practices without embedding an estate's private values.
+This is the first reading for contributors, workers and reviewers in the generic repository: it states how work is done, defines its label and citation form and routes its statements of kind ``inv``. The public introduction (`guide:publicorchestration:orchestration`) describes the repository's purpose; the backlog (`plan:genericbacklog:orchestration-backlog`) and its priorities register (`reg:genericbacklog:priorities`) order its open work. The worker charter and the working letter supply the lane's scope, compute route, budget and gate commands; this guide states the repository's practices without embedding an estate's private values.
 
 ## Select and work a slice · `sec:contributing:slice-work`
 
