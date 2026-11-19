@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Fixed
+
+- Allow a face to keep notes for its session or owner without a tracked-file count limit, while product sources, builds, tests and linter configuration stay in their own repositories and generated state stays out of its tracked history (`rule:oper:face-history`); a note removed to meet the earlier limit may be restored.
+
 ## [0.2.1] - 2026-11-19
 
 ### Added
