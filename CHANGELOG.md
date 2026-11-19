@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-11-19
+
 ### Added
 
 - State why superloop letters are binary OpenPGP signed messages produced inside the loop entry (`rule:signing:loop-letters-signed-at-entry`) and why each worker verifier holds only its loop's public key through rotation (`inv:signing:worker-verifier-holds-only-its-loops-public-key`); retain clear worker mail and the permitted shared key's attribution limit.
@@ -126,7 +128,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Installation maps and fictional instance templates under `docs/examples/`.
 - GPL-3.0-or-later code and configuration and CC0-1.0 documents, with no backwards compatibility before 1.0.
 
-[Unreleased]: https://github.com/coraxloop/orchestration/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/coraxloop/orchestration/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/coraxloop/orchestration/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/coraxloop/orchestration/compare/v0.1.6...v0.2.0
 [0.1.6]: https://github.com/coraxloop/orchestration/compare/v0.1.5...v0.1.6
 [0.1.5]: https://github.com/coraxloop/orchestration/compare/v0.1.4...v0.1.5
