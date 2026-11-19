@@ -117,6 +117,7 @@ rule | rule:dispatch:timing-led-decisions | Rule (Timing-led decisions) | Decide
 rule | rule:dispatch:turn-end | Rule (Turn end) | End an orchestrator turn only at task completion or when blocked on the user.
 proto | proto:dispatch:owner-questions | Protocol (Questions to the owner) | Shape an owner question in four parts so it is answered at a glance or safely left.
 req | req:dispatch:owner-commands | Requirement (Owner commands) | Hand the owner fully qualified, self-verifying commands judged from pasted output.
+rule | rule:dispatch:published-history-rewrite-authority | Rule (Published history is a person's own act) | Reserve rewriting fetched history to the person because its distribution cannot be recalled.
 rule | rule:dispatch:user-presentations | Rule (User presentations) | Present to the user as a standalone HTML file rather than a harness artifact.
 rule | rule:dispatch:transcript-extraction | Rule (Transcript extraction) | Extract pasted chat bytes from the session transcript rather than retyping them.
 proto | proto:dispatch:degraded-mode-entry | Protocol (Degraded-mode entry) | Record the failure, stamp degraded state, and choose a healthy disposition deliberately.

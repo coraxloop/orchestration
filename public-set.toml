@@ -93,6 +93,9 @@ pattern = "LICENSE-DOCS"
 pattern = "ORCHESTRATION.md"
 
 [[include.rows]]
+pattern = "operations.md"
+
+[[include.rows]]
 pattern = "README.md"
 
 [[include.rows]]

@@ -48,6 +48,7 @@ The documentation entry in the orchestrator rulebook is (`preview:orch:which-par
 |-------------|-----|
 |[Contributing to orchestration](CONTRIBUTING.md)|(`guide:contributing:orchestration`)|
 |[ORCHESTRATION.md](ORCHESTRATION.md)|(`spec:orch:repository-orchestration-policy`)|
+|[Estate operations](operations.md)|(`spec:oper:estate-operations`)|
 |[Environment (applies to every project on this machine)](CLAUDE.md)|(`spec:environment:global-project-environment`)|
 |[Documentation reading order](docs/README.md)|(`guide:docnav:documentation`)|
 |[Corpus Philosophy Records](adr/README.md)|(`reg:records:philosophy-records`)|

@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+- Publish (`spec:oper:estate-operations`) with the complete owner-desk list and face-history standard; move (`rule:oper:owner-and-operations`) out of the session rulebook, which carries (`rule:orch:invariants-precede-assertions`). Distinguish concept decisions from uncited constraints in briefs and reviews. Reserve rewriting published history to the person (`rule:dispatch:published-history-rewrite-authority`); make CONTRIBUTING the route to a repository's Invariant-kind statements and its citation form.
+
 ## [0.1.6] - 2026-11-17
 
 ### Added
