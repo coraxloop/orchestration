@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-19
+
+### Added
+
 - Publish (`spec:oper:estate-operations`) with the complete owner-desk list and face-history standard; move (`rule:oper:owner-and-operations`) out of the session rulebook, which carries (`rule:orch:invariants-precede-assertions`). Distinguish concept decisions from uncited constraints in briefs and reviews. Reserve rewriting published history to the person (`rule:dispatch:published-history-rewrite-authority`); make CONTRIBUTING the route to a repository's Invariant-kind statements and its citation form.
 
 ## [0.1.6] - 2026-11-17
@@ -114,7 +118,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Installation maps and fictional instance templates under `docs/examples/`.
 - GPL-3.0-or-later code and configuration and CC0-1.0 documents, with no backwards compatibility before 1.0.
 
-[Unreleased]: https://github.com/coraxloop/orchestration/compare/v0.1.6...HEAD
+[Unreleased]: https://github.com/coraxloop/orchestration/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/coraxloop/orchestration/compare/v0.1.6...v0.2.0
 [0.1.6]: https://github.com/coraxloop/orchestration/compare/v0.1.5...v0.1.6
 [0.1.5]: https://github.com/coraxloop/orchestration/compare/v0.1.4...v0.1.5
 [0.1.4]: https://github.com/coraxloop/orchestration/compare/v0.1.3...v0.1.4
