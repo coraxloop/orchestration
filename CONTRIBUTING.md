@@ -32,7 +32,7 @@ The adopted specification and contract sources below carry the repository's Inva
 |[adr/011-environment-kinds.md](adr/011-environment-kinds.md)|(`sec:kinds:invariants`), (`sec:kinds:attestation`)|
 |[adr/014-label-calculus.md](adr/014-label-calculus.md)|(`sec:labels:warrants-and-citations`)|
 |[adr/015-test-label-profile.md](adr/015-test-label-profile.md)|(`sec:profiles:test-census`)|
-|[docs/commit-signing.md](docs/commit-signing.md)|(`sec:signing:generation-and-purge`)|
+|[docs/commit-signing.md](docs/commit-signing.md)|(`sec:signing:generation-and-purge`), (`sec:signing:letters-and-worker-verification`)|
 |[docs/spec/architecture.md](docs/spec/architecture.md)|(`sec:architecture:authority-layers`), (`sec:architecture:harness-boundaries`), (`sec:architecture:trust-and-state`)|
 |[docs/spec/conformance.md](docs/spec/conformance.md)|(`sec:conformance:scope`)|
 |[docs/spec/dispatch.md](docs/spec/dispatch.md)|(`sec:dispatch:supervision`)|

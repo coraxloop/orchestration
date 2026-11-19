@@ -8,6 +8,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Added
+
+- State why superloop letters are binary OpenPGP signed messages produced inside the loop entry (`rule:signing:loop-letters-signed-at-entry`) and why each worker verifier holds only its loop's public key through rotation (`inv:signing:worker-verifier-holds-only-its-loops-public-key`); retain clear worker mail and the permitted shared key's attribution limit.
+
+### Changed
+
+- Every repository of the estate, a loop's face included, carries its own CONTRIBUTING document as the first reading for contributors, workers and reviewers (`req:dispatch:contributing-guide`). The owner-desk list is the operations profile's own focus, naming the matters of estate operations that come to the person who owns the estate; it does not bound what a loop brings to its owner about its own work, its product and its decisions (`reg:oper:owner-desk-list`), (`rule:dispatch:owner-desk-boundary`).
+
 ## [0.2.0] - 2026-11-19
 
 ### Added
