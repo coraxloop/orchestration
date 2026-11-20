@@ -126,6 +126,8 @@ The reporting loop's reading is that sufficiency of evidence is the orchestrator
 
 **OPEN.** (2026-11-19, reviewers' nits and a loop's report; nothing begun) The signing guide (`spec:signing:gpg-keys-and-commit-signing`) now carries the two statements of signed letters, while its title still says commit signing and its term "verifier home" has no gloss. At a keyring path as deep as a loop's private tier, the agent's extra and browser socket names exceed the 107-byte limit of a Unix socket path and the first import fails; a `gpg-agent.conf` placing those two sockets under a short run directory repairs it, and the guide's procedure for establishing a loop's key (`alg:signing:establish-a-loop-signing-key`) is where a reader meets that path.
 
+(2026-11-20, a loop's report; nothing begun) At the procedure's step on revocation certificates (`alg:signing:establish-a-loop-signing-key`), gpg's menu numbers are not the reason codes written in the packet: the first menu entry is written as code 2 and the second as code 1, so that a check comparing the menu number with the packet's code refuses a correct certificate. The procedure's text gains that caution.
+
 ### Dispatch and lanes · `sec:genericbacklog:open-dispatch`
 
 **Problem (A worker's bar on a tree that carries held switches runs again on the landed tree before the next review stacks)** · `prob:dispatch:a-bar-on-a-tree-with-held-switches-is-run-again-on-the-landed-tree`
