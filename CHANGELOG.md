@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [0.2.2] - 2026-11-21
+
 ### Added
 
 - Classify persistent-node storage as mirrored core, mirrored durable data and single-copy working data (`rule:server:persistent-node-storage-classes`), with all and only irreplaceable account data in the declared durable directory (`req:server:durable-data-in-declared-directory`). Compatibility: a loop with a node account moves its durable data into that directory; where it is initially an ordinary directory on the same filesystem, the move is a rename.
@@ -140,7 +142,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Installation maps and fictional instance templates under `docs/examples/`.
 - GPL-3.0-or-later code and configuration and CC0-1.0 documents, with no backwards compatibility before 1.0.
 
-[Unreleased]: https://github.com/coraxloop/orchestration/compare/v0.2.1...HEAD
+[Unreleased]: https://github.com/coraxloop/orchestration/compare/v0.2.2...HEAD
+[0.2.2]: https://github.com/coraxloop/orchestration/compare/v0.2.1...v0.2.2
 [0.2.1]: https://github.com/coraxloop/orchestration/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/coraxloop/orchestration/compare/v0.1.6...v0.2.0
 [0.1.6]: https://github.com/coraxloop/orchestration/compare/v0.1.5...v0.1.6
