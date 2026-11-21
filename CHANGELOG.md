@@ -8,6 +8,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Added
+
+- Classify persistent-node storage as mirrored core, mirrored durable data and single-copy working data (`rule:server:persistent-node-storage-classes`), with all and only irreplaceable account data in the declared durable directory (`req:server:durable-data-in-declared-directory`). Compatibility: a loop with a node account moves its durable data into that directory; where it is initially an ordinary directory on the same filesystem, the move is a rename.
+
+### Changed
+
+- Separate host-held bootstrap authority from recovery of durable server data, permitting local preservation without trusting it as host input (`rule:server:host-is-restore-source`).
+
 ### Fixed
 
 - Allow a face to keep notes for its session or owner without a tracked-file count limit, while product sources, builds, tests and linter configuration stay in their own repositories and generated state stays out of its tracked history (`rule:oper:face-history`); a note removed to meet the earlier limit may be restored.
