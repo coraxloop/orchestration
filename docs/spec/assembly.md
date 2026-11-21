@@ -292,7 +292,9 @@ rule | rule:server:management-account-boundary | Rule (Management-account bounda
 inv | inv:server:per-loop-isolation | Invariant (Per-loop isolation) | Give every superloop its own account, home, work directory, cache, and credentials.
 proto | proto:server:ephemeral-bootstrap | Protocol (Ephemeral bootstrap) | Restore accounts, keys, loop roots, shared tools, and hub state from trusted host inputs.
 req | req:server:idempotent-bootstrap | Requirement (Idempotent bootstrap) | Permit safe reapplication after restart or partial setup without duplicating state.
-rule | rule:server:host-is-restore-source | Rule (Host is restore source) | Treat the trusted host as the source of record for every ephemeral server replacement.
+rule | rule:server:host-is-restore-source | Rule (Host is restore source) | Keep host-held bootstrap authority separate from recovery of durable server data.
+rule | rule:server:persistent-node-storage-classes | Rule (Persistent node storage classes) | Mirror the recovery core and durable data, with account storage classified by path.
+req | req:server:durable-data-in-declared-directory | Requirement (Durable data in the declared directory) | Keep all and only irreplaceable account data in the declared durable directory.
 rule | rule:server:shared-toolchains-private-caches | Rule (Shared toolchains, private caches) | Share immutable toolchains while keeping package caches and build targets loop-owned.
 rule | rule:server:disk-backed-workspace | Rule (Disk-backed workspace) | Place large work, temporary data, and caches under the assigned persistent-size workspace surface.
 rule | rule:server:disposable-build-artifacts | Rule (Disposable build artifacts) | Permit removal of loop-owned targets while protecting shared tools and source evidence.
